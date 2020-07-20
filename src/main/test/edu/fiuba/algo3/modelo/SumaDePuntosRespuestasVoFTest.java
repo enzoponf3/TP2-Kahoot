@@ -7,7 +7,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SumaDePuntosRespuestasVoF {
+public class SumaDePuntosRespuestasVoFTest {
 
     @Test
     public void PreguntaVoFRecibeDosRespuestasYSumaPuntos(){
