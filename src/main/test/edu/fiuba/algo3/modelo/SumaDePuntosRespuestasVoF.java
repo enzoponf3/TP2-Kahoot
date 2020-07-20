@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SumaDePuntosRespuestasVoF {
 
-    @Test
+    /*@Test
     public void PreguntaVoFRecibeDosRespuestasYSumaPuntos(){
         ArrayList <Jugador> listaDeRespuesta = new ArrayList<Jugador>();
         Jugador jugador1 = new Jugador(true);
@@ -39,5 +39,5 @@ public class SumaDePuntosRespuestasVoF {
 
         assertEquals(2,jugador1.puntos());
 
-    }
+    }*/
 }

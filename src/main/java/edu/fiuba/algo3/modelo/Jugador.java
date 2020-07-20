@@ -4,9 +4,8 @@ public class Jugador {
     public int puntos;
     public boolean respuesta;
 
-    public Jugador (boolean respuestaElegida){
+    public Jugador (){
         puntos = 0;
-        respuesta = respuestaElegida;
     }
 
     public int puntos(){
