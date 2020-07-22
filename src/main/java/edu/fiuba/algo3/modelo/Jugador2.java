@@ -1,11 +1,13 @@
 package edu.fiuba.algo3.modelo;
 
-public class Jugador {
+public class Jugador2 {
+
     public int puntos;
     public boolean respuesta;
 
-    public Jugador (){
+    public Jugador2 (boolean respuestaElegida){
         puntos = 0;
+        respuesta = respuestaElegida;
     }
 
     public int puntos(){
