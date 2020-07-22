@@ -29,9 +29,9 @@ public class PreguntaVoF2 {
     }
 
     public void revisionRespuestas(ArrayList listaDeRespuesta) {
-        Iterator <Jugador> iterator = listaDeRespuesta.iterator();
+        Iterator <Jugador2> iterator = listaDeRespuesta.iterator();
         while (iterator.hasNext()) {
-            Jugador jugadorX;
+            Jugador2 jugadorX;
             jugadorX = iterator.next();
             jugadorX.sumarPuntos(this.asignarPuntos(jugadorX.respuesta()));
         }
