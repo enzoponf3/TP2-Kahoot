@@ -2,7 +2,7 @@
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
 
-## Grupo 9
+## Grupo N9
 
 * **Integrante 1** - [Ponferrada Enzo](https://github.com/enzoponf3)
 * **Integrante 2** - [Scopa Alejandro](https://github.com/integrante2)
@@ -10,7 +10,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Integrante 4** - [Claros Andrés Jonathan](https://github.com/andyclaros)
 * **Integrante 5** - [Peralta Gabriel](https://github.com/gabandsof)
 
-Corrector: **{Corrector}**
+Corrector: **Pablo Suárez**
 
 ### Pre-requisitos
 
@@ -21,6 +21,15 @@ java 11
 maven 3.6.0
 ...
 ```
+
+## Diagramas
+
+### Diagrama de clases
+
+Diagramas tentativos de la aplicación
+
+![Diagrama de clases](/src/informe/img/clases.png)
+![Patrón Abstract Factory](/src/informe/img/AbstractFactory.png)
 
 ## Ejecutando las pruebas
 
