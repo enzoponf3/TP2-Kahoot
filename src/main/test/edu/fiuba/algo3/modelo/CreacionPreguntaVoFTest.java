@@ -8,14 +8,14 @@ public class CreacionPreguntaVoFTest {
 
     @Test
     public void CreacionPreguntaConRespuestaVerdadera(){
-        PreguntaVoF preguntaV = PreguntaVoF.crearPreguntaVoFConRespuesta(true);
+        PreguntaVoF2 preguntaV = PreguntaVoF2.crearPreguntaVoFConRespuesta(true);
 
         assertEquals(true, preguntaV.tipo());
     }
 
     @Test
     public void CreacionPreguntaFalsa(){
-        PreguntaVoF preguntaF = PreguntaVoF.crearPreguntaVoFConRespuesta(false);
+        PreguntaVoF2 preguntaF = PreguntaVoF2.crearPreguntaVoFConRespuesta(false);
         //pregunta1.setTipo(true);
 
         assertEquals(false, preguntaF.tipo());
@@ -23,7 +23,7 @@ public class CreacionPreguntaVoFTest {
 
     @Test
     public void PreguntaVerdaderaSumaUnPuntoConRespVerdaderaTest(){
-        PreguntaVoF preguntaV = PreguntaVoF.crearPreguntaVoFConRespuesta(true);
+        PreguntaVoF2 preguntaV = PreguntaVoF2.crearPreguntaVoFConRespuesta(true);
 
         boolean respuesta = true;
 
@@ -33,7 +33,7 @@ public class CreacionPreguntaVoFTest {
 
     @Test
     public void PreguntaVerdaderaSumaCeroPuntosConRespFalsaTest(){
-        PreguntaVoF preguntaV = PreguntaVoF.crearPreguntaVoFConRespuesta(true);
+        PreguntaVoF2 preguntaV = PreguntaVoF2.crearPreguntaVoFConRespuesta(true);
 
         boolean respuesta = false;
 

@@ -4,7 +4,7 @@ public class PreguntaExclusiva implements IPregunta {
 
 
     @Override
-    public VoF VoF(boolean bool){
+    public PreguntaVoF VoF(boolean bool){
         return new VoFClassic(bool);
     }
 }

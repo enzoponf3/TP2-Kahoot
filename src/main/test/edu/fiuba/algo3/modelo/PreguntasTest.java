@@ -12,7 +12,7 @@ public class PreguntasTest {
     public void test01CrearPreguntaExclusivaVoFVerdadera(){
 
         IPregunta preguntaExclusiva = new PreguntaExclusiva();
-        VoF preguntaVerdadera = preguntaExclusiva.VoF(true);
+        PreguntaVoF preguntaVerdadera = preguntaExclusiva.VoF(true);
 
         assertTrue( preguntaVerdadera.verdad());
 
@@ -20,7 +20,7 @@ public class PreguntasTest {
     @Test
     public void test02CrearPreguntaExclusivaVoFFalsa(){
         IPregunta preguntaExclusiva = new PreguntaExclusiva();
-        VoF preguntaFalsa = preguntaExclusiva.VoF(false);
+        PreguntaVoF preguntaFalsa = preguntaExclusiva.VoF(false);
 
         assertFalse( preguntaFalsa.verdad());
     }
@@ -28,14 +28,14 @@ public class PreguntasTest {
     public void test03PreguntaExlusivaSumaPuntoPorRespuestaCorrecta(){
         boolean respuestaJugador = true;
         IPregunta preguntaExclusiva = new PreguntaExclusiva();
-        VoF preguntaVerdadera = preguntaExclusiva.VoF(true);
+        PreguntaVoF preguntaVerdadera = preguntaExclusiva.VoF(true);
         assertEquals(1,preguntaVerdadera.puntuar(respuestaJugador));
     }
     @Test
     public void test04PreguntaExlusivaRestaPuntoPorRespuestaInorrecta(){
         boolean respuestaJugador = true;
         IPregunta preguntaExclusiva = new PreguntaExclusiva();
-        VoF preguntaVerdadera = preguntaExclusiva.VoF(false);
+        PreguntaVoF preguntaVerdadera = preguntaExclusiva.VoF(false);
         assertEquals(-1,preguntaVerdadera.puntuar(respuestaJugador));
     }
     @Test
@@ -45,7 +45,7 @@ public class PreguntasTest {
         ArrayList<Respuesta> respuestas = new ArrayList<Respuesta>();
         respuestas.add(respuesta);
         IPregunta pregunta = new PreguntaExclusiva();
-        VoF preguntaVerdadera = pregunta.VoF(true);
+        PreguntaVoF preguntaVerdadera = pregunta.VoF(true);
         preguntaVerdadera.evaluarRespuestas(respuestas);
         assertEquals(1,jugador.puntos());
     }

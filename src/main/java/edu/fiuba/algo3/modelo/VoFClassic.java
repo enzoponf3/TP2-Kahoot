@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-public class VoFClassic extends VoF {
+public class VoFClassic extends PreguntaVoF {
     public VoFClassic(boolean bool) {
         super(bool);
     }
