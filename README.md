@@ -6,7 +6,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 
 * **Integrante 1** - [Ponferrada Enzo](https://github.com/enzoponf3)
 * **Integrante 2** - [Scopa Alejandro](https://github.com/integrante2)
-* **Integrante 3** - [Cristian](https://github.com/integrante3)
+* **Integrante 3** - [Cristian Ajhuacho](https://github.com/Cristian-AC)
 * **Integrante 4** - [Claros Andrés Jonathan](https://github.com/andyclaros)
 * **Integrante 5** - [Peralta Gabriel](https://github.com/gabandsof)
 
