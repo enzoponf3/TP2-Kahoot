@@ -22,6 +22,14 @@ maven 3.6.0
 ...
 ```
 
+## Informe
+
+El informe en formato LaTex se puede encontrar en el subdirectorio docs del repositorio.
+También se puede editar desde el siguiente modelo en Overleaf:
+
+https://www.overleaf.com/9379674244cqmdrrzzfqkf
+
+
 ## Diagramas
 
 ### Diagrama de clases
