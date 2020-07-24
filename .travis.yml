@@ -1,3 +1,13 @@
 language: java
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+notifications:
+  email:
+    recipients:
+     - enzoponf3@gmail.com
+     - gab2474@gmail.com
+     - aclaros@fi.uba.ar
+     - bs.cristian87@gmail.com
+     - ascopa@fi.uba.ar
+    on_failure: always
+    on_success: always
