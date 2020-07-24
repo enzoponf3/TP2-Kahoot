@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/enzoponf3/TP2-Kahoot.svg?branch=master)](https://travis-ci.org/enzoponf3/TP2-Kahoot) [![codecov](https://codecov.io/gh/enzoponf3/TP2-Kahoot/branch/master/graph/badge.svg)](https://codecov.io/gh/enzoponf3/TP2-Kahoot)
+
 # TP2 Algoritmos 3: KAHOOT
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
