@@ -1,8 +1,13 @@
 package edu.fiuba.algo3.modelo;
 
 public class PreguntaVoF3 {
-    private Respuesta2 respuestaVerdadera;
-    private Respuesta2 respuestaFalsa;
+    private final Respuesta2 respuestaVerdadera;
+    private final Respuesta2 respuestaFalsa;
+
+    public PreguntaVoF3() {
+        this.respuestaVerdadera = new Respuesta2();
+        this.respuestaFalsa = new Respuesta2();
+    }
 
     static public PreguntaVoF3 crearPreguntaVerdadera() {
         PreguntaVoF3 pregunta = new PreguntaVoF3();
@@ -17,13 +22,11 @@ public class PreguntaVoF3 {
     }
 
     public void setRespuestaVerdadera() {
-        this.respuestaVerdadera = Respuesta2.crearRespuestaAcertada();
-        this.respuestaFalsa = Respuesta2.crearRespuestaNoAcertada();
+        this.respuestaVerdadera.establecerComoRespuestaAcertada();
     }
 
     public void setRespuestaFalsa() {
-        this.respuestaVerdadera = Respuesta2.crearRespuestaNoAcertada();
-        this.respuestaFalsa = Respuesta2.crearRespuestaAcertada();
+        this.respuestaFalsa.establecerComoRespuestaAcertada();
     }
 
     public int responderVerdadero() {
