@@ -6,4 +6,6 @@ public class Jugador {
    public void elegirRespuesta(TipoRespuesta respuestaElegida){
        this.respuestaElegida=respuestaElegida;
    }
+   public void sumarPuntos(int puntos) {
+   }
 }

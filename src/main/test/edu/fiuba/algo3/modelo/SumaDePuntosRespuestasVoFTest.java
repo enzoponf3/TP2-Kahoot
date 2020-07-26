@@ -10,36 +10,38 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class SumaDePuntosRespuestasVoFTest {
 
     @Test
-    public void PreguntaVoFRecibeDosRespuestasYSumaPuntos(){
-        ArrayList <Jugador2> listaDeRespuesta = new ArrayList<Jugador2>();
-        Jugador2 jugador1 = new Jugador2(true);
-        Jugador2 jugador2 = new Jugador2(false);
+    public void testJugadorEligeVerdaderoAPreguntaVerdaderaYSumaUnPunto () {
+        Jugador3 jugador = new Jugador3();
+        PreguntaVoF3 pregunta = PreguntaVoF3.crearPreguntaVerdadera();
+        pregunta.esVerdadero(jugador);
 
-        listaDeRespuesta.add(jugador1);
-        listaDeRespuesta.add(jugador2);
-
-        PreguntaVoF2 preguntaV = PreguntaVoF2.crearPreguntaVoFConRespuesta(true);
-
-        preguntaV.revisionRespuestas(listaDeRespuesta);
-
-        assertEquals(1,jugador1.puntos());
-        assertEquals(0,jugador2.puntos());
+        assertEquals(1, jugador.darPuntos());
     }
 
     @Test
-    public void PreguntaVoFRecibeUnJugadorYLoPuntua (){
-        Jugador2 jugador1 = new Jugador2(true);
-        Jugador2 jugador2 = new Jugador2(false);
+    public void testJugadorEligeFalsoAPreguntaVerdaderaYSumaCeroPuntos () {
+        Jugador3 jugador = new Jugador3();
+        PreguntaVoF3 pregunta = PreguntaVoF3.crearPreguntaVerdadera();
+        pregunta.esFalso(jugador);
 
-        PreguntaVoF2 preguntaV = PreguntaVoF2.crearPreguntaVoFConRespuesta(true);
-
-        preguntaV.revisionRespuestaDeUnJugador(jugador1);
-        preguntaV.revisionRespuestaDeUnJugador(jugador1);
-
-
-        assertEquals(2,jugador1.puntos());
-
+        assertEquals(0, jugador.darPuntos());
     }
 
+    @Test
+    public void testJugadorEligeFalsoAPreguntaFalsaYSumaUnPunto () {
+        Jugador3 jugador = new Jugador3();
+        PreguntaVoF3 pregunta = PreguntaVoF3.crearPreguntaFalsa();
+        pregunta.esFalso(jugador);
 
+        assertEquals(1, jugador.darPuntos());
+    }
+
+    @Test
+    public void testJugadorEligeVerdaderoAPreguntaFalsaYSumaCeroPuntos () {
+        Jugador3 jugador = new Jugador3();
+        PreguntaVoF3 pregunta = PreguntaVoF3.crearPreguntaFalsa();
+        pregunta.esVerdadero(jugador);
+
+        assertEquals(0, jugador.darPuntos());
+    }
 }

@@ -37,6 +37,14 @@ public class PreguntaVoF3 {
         return this.respuestaFalsa.puntuar();
     }
 
+    public void esVerdadero(Jugador3 jugador) {
+        jugador.asignarPuntos(this.respuestaVerdadera.puntuar());
+    }
+
+    public void esFalso(Jugador3 jugador) {
+        jugador.asignarPuntos(this.respuestaFalsa.puntuar());
+    }
+
     public int puntuarRespuesta (Respuesta2 respuestaJugador){
 
         return respuestaJugador.puntuar();
