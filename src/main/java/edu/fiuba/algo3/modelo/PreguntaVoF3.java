@@ -36,4 +36,9 @@ public class PreguntaVoF3 {
     public int responderFalso() {
         return this.respuestaFalsa.puntuar();
     }
+
+    public int puntuarRespuesta (Respuesta2 respuestaJugador){
+
+        return respuestaJugador.puntuar();
+    }
 }

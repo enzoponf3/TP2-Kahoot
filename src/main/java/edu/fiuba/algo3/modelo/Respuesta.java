@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.ale.Jugador;
+
 public class Respuesta {
     private boolean resp;
     private Jugador jug;

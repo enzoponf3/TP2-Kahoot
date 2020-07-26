@@ -40,4 +40,6 @@ public class SumaDePuntosRespuestasVoFTest {
         assertEquals(2,jugador1.puntos());
 
     }
+
+
 }
