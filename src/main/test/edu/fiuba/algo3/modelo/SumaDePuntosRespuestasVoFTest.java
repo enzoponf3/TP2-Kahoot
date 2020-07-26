@@ -44,4 +44,56 @@ public class SumaDePuntosRespuestasVoFTest {
 
         assertEquals(0, jugador.darPuntos());
     }
+
+    @Test
+    public void testSeCreaUnaPreguntaVerdaderaJugador1SumaUnPuntoYJugador2SumaCeroPuntos () {
+        Jugador3 jugador1 = new Jugador3();
+        Jugador3 jugador2 = new Jugador3();
+        PreguntaVerdadera pregunta = new PreguntaVerdadera();
+        pregunta.responderVerdadero(jugador1);
+        pregunta.responderFalso(jugador2);
+        pregunta.puntuar();
+
+        assertEquals(1, jugador1.darPuntos());
+        assertEquals(0, jugador2.darPuntos());
+    }
+
+    @Test
+    public void testSeCreaUnaPreguntaVerdaderaJugador1SumaUnPuntoYJugador2SumaUnPunto () {
+        Jugador3 jugador1 = new Jugador3();
+        Jugador3 jugador2 = new Jugador3();
+        PreguntaVerdadera pregunta = new PreguntaVerdadera();
+        pregunta.responderVerdadero(jugador1);
+        pregunta.responderVerdadero(jugador2);
+        pregunta.puntuar();
+
+        assertEquals(1, jugador1.darPuntos());
+        assertEquals(1, jugador2.darPuntos());
+    }
+
+    @Test
+    public void testSeCreaUnaPreguntaFalsaJugador1SumaCeroPuntosYJugador2SumaUnPunto () {
+        Jugador3 jugador1 = new Jugador3();
+        Jugador3 jugador2 = new Jugador3();
+        PreguntaFalsa pregunta = new PreguntaFalsa();
+        pregunta.responderVerdadero(jugador1);
+        pregunta.responderFalso(jugador2);
+        pregunta.puntuar();
+
+        assertEquals(0, jugador1.darPuntos());
+        assertEquals(1, jugador2.darPuntos());
+    }
+
+    @Test
+    public void testSeCreaUnaPreguntaFalsaJugador1SumaCeroPuntosYJugador2CeroPuntos () {
+        Jugador3 jugador1 = new Jugador3();
+        Jugador3 jugador2 = new Jugador3();
+        PreguntaFalsa pregunta = new PreguntaFalsa();
+        pregunta.responderVerdadero(jugador1);
+        pregunta.responderVerdadero(jugador2);
+        pregunta.puntuar();
+
+        assertEquals(0, jugador1.darPuntos());
+        assertEquals(0, jugador2.darPuntos());
+    }
 }

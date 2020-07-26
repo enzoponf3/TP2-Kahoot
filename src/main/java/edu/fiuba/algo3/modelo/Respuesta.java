@@ -1,20 +1,17 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.ale.Jugador;
-
 public class Respuesta {
-    private boolean resp;
-    private Jugador jug;
-    public Respuesta(boolean b, Jugador jugador) {
-        resp=b;
-        jug=jugador;
+    private final Jugador3 jugador;
+    private Validez validez;
+
+    public Respuesta(Jugador3 jugador) {
+        this.jugador = jugador;
+        this.validez = new NoAcertado();
     }
 
-    public boolean valor() {
-        return resp;
+    public void establecerComoRespuestaAcertada() {
+        this.validez = new Acertado();
     }
 
-    public void sumarPuntos(int puntaje) {
-        this.jug.sumarPuntos(puntaje);
-    }
+    public void sumarPuntos() { this.jugador.asignarPuntos(validez.puntuar()); }
 }

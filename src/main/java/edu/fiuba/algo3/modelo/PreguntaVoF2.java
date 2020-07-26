@@ -1,43 +1,41 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Stack;
 
 public class PreguntaVoF2 {
-    private boolean tipo;
+    private final Respuesta2 respuestaVerdadera;
+    private final Respuesta2 respuestaFalsa;
 
-    static public PreguntaVoF2 crearPreguntaVoFConRespuesta(boolean tipo){
+    public PreguntaVoF2() {
+        this.respuestaVerdadera = new Respuesta2();
+        this.respuestaFalsa = new Respuesta2();
+    }
+
+    static public PreguntaVoF2 crearPreguntaVerdadera() {
         PreguntaVoF2 pregunta = new PreguntaVoF2();
-        pregunta.setTipo(tipo);
+        pregunta.setRespuestaVerdadera();
         return pregunta;
     }
 
-    public void setTipo(boolean tipo){
-        this.tipo=tipo;
+    static public PreguntaVoF2 crearPreguntaFalsa() {
+        PreguntaVoF2 pregunta = new PreguntaVoF2();
+        pregunta.setRespuestaFalsa();
+        return pregunta;
     }
 
-    public boolean tipo(){
-        return tipo;
+    public void setRespuestaVerdadera() {
+        this.respuestaVerdadera.establecerComoRespuestaAcertada();
     }
 
-    public int asignarPuntos(boolean respuesta) {
-        if (respuesta == this.tipo) {
-            return 1;
-        } else {
-            return 0;
-        }
+    public void setRespuestaFalsa() {
+        this.respuestaFalsa.establecerComoRespuestaAcertada();
     }
 
-    public void revisionRespuestas(ArrayList listaDeRespuesta) {
-        Iterator <Jugador2> iterator = listaDeRespuesta.iterator();
-        while (iterator.hasNext()) {
-            Jugador2 jugadorX;
-            jugadorX = iterator.next();
-            jugadorX.sumarPuntos(this.asignarPuntos(jugadorX.respuesta()));
-        }
+    public void esVerdadero(Jugador3 jugador) {
+        jugador.asignarPuntos(this.respuestaVerdadera.puntuar());
     }
 
-    public void revisionRespuestaDeUnJugador(Jugador2 jugador1) {
-        jugador1.sumarPuntos(this.asignarPuntos(jugador1.respuesta()));
+    public void esFalso(Jugador3 jugador) {
+        jugador.asignarPuntos(this.respuestaFalsa.puntuar());
     }
 }
