@@ -1,4 +1,6 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.NoUse;
+
+import edu.fiuba.algo3.modelo.Jugador;
 
 import java.util.Stack;
 
@@ -9,13 +11,13 @@ public class PreguntaVerdadera {
         this.respuestas = new Stack();
     }
 
-    public void responderVerdadero(Jugador3 jugador) {
+    public void responderVerdadero(Jugador jugador) {
         Respuesta respuesta = new Respuesta(jugador);
         respuesta.establecerComoRespuestaAcertada();
         this.respuestas.push(respuesta);
     }
 
-    public void responderFalso(Jugador3 jugador) {
+    public void responderFalso(Jugador jugador) {
         Respuesta respuesta = new Respuesta(jugador);
         this.respuestas.push(respuesta);
     }

@@ -1,14 +1,15 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.NoUse;
 
-import java.util.Stack;
+import edu.fiuba.algo3.modelo.Jugador;
+import edu.fiuba.algo3.modelo.Respuesta;
 
 public class PreguntaVoF2 {
-    private final Respuesta2 respuestaVerdadera;
-    private final Respuesta2 respuestaFalsa;
+    private final Respuesta respuestaVerdadera;
+    private final Respuesta respuestaFalsa;
 
     public PreguntaVoF2() {
-        this.respuestaVerdadera = new Respuesta2();
-        this.respuestaFalsa = new Respuesta2();
+        this.respuestaVerdadera = new Respuesta();
+        this.respuestaFalsa = new Respuesta();
     }
 
     static public PreguntaVoF2 crearPreguntaVerdadera() {
@@ -31,11 +32,11 @@ public class PreguntaVoF2 {
         this.respuestaFalsa.establecerComoRespuestaAcertada();
     }
 
-    public void esVerdadero(Jugador3 jugador) {
+    public void esVerdadero(Jugador jugador) {
         jugador.asignarPuntos(this.respuestaVerdadera.puntuar());
     }
 
-    public void esFalso(Jugador3 jugador) {
+    public void esFalso(Jugador jugador) {
         jugador.asignarPuntos(this.respuestaFalsa.puntuar());
     }
 }

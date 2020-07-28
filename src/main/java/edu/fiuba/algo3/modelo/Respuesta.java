@@ -1,11 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
 public class Respuesta {
-    private final Jugador3 jugador;
     private Validez validez;
 
-    public Respuesta(Jugador3 jugador) {
-        this.jugador = jugador;
+    public Respuesta() {
         this.validez = new NoAcertado();
     }
 
@@ -13,5 +11,7 @@ public class Respuesta {
         this.validez = new Acertado();
     }
 
-    public void sumarPuntos() { this.jugador.asignarPuntos(validez.puntuar()); }
+    public int puntuar() {
+        return this.validez.puntuar();
+    }
 }

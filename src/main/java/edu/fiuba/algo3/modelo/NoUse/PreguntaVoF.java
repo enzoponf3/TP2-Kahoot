@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.ale;
+package edu.fiuba.algo3.modelo.NoUse;
 
 public class PreguntaVoF {
     private TipoRespuesta respuestaCorrecta;

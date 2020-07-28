@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.ale;
+package edu.fiuba.algo3.modelo.NoUse;
 
 public class RespuestaVerdadera {
     public int puntuarRespuestaFalsa(){return 0;};

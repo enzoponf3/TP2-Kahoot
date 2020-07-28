@@ -8,7 +8,7 @@ public class CreacionPreguntaVoFTest {
 
     @Test
     public void TestPreguntaVerdaderaSumaUnPuntoConRespVerdadera(){
-        PreguntaVoF3 preguntaV = PreguntaVoF3.crearPreguntaVerdadera();
+        PreguntaVoF preguntaV = PreguntaVoF.crearPreguntaVerdadera();
 
         int puntos = preguntaV.responderVerdadero();
 
@@ -18,7 +18,7 @@ public class CreacionPreguntaVoFTest {
 
     @Test
     public void TestPreguntaVerdaderaSumaCeroPuntosConRespFalsa(){
-        PreguntaVoF3 preguntaV = PreguntaVoF3.crearPreguntaVerdadera();
+        PreguntaVoF preguntaV = PreguntaVoF.crearPreguntaVerdadera();
 
         int puntos = preguntaV.responderFalso();
 
@@ -28,7 +28,7 @@ public class CreacionPreguntaVoFTest {
 
     @Test
     public void TestPreguntaFalsaSumaUnPuntoConRespFalsa(){
-        PreguntaVoF3 preguntaF = PreguntaVoF3.crearPreguntaFalsa();
+        PreguntaVoF preguntaF = PreguntaVoF.crearPreguntaFalsa();
 
         int puntos = preguntaF.responderFalso();
 
@@ -38,7 +38,7 @@ public class CreacionPreguntaVoFTest {
 
     @Test
     public void TestPreguntaFalsaSumaCeroPuntosConRespVerdadera(){
-        PreguntaVoF3 preguntaF = PreguntaVoF3.crearPreguntaFalsa();
+        PreguntaVoF preguntaF = PreguntaVoF.crearPreguntaFalsa();
 
         int puntos = preguntaF.responderVerdadero();
 

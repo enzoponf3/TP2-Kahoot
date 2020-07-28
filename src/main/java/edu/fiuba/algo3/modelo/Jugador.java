@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
-public class Jugador3 {
+public class Jugador {
     private int puntos;
 
-    public Jugador3() {
+    public Jugador() {
         this.puntos = 0;
     }
 
