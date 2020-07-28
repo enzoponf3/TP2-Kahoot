@@ -8,6 +8,7 @@ public class ListaRespuesta {
 
     public ListaRespuesta(Jugador unJugador) {
         this.jugador=unJugador;
+        this.listaRespuestas = new ArrayList<>();
     }
 
     public void agregarRespuesta(Respuesta unaRespuesta) {
