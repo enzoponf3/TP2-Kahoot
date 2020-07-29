@@ -23,7 +23,6 @@ public class PreguntaChoiceClasica {
     public void evaluarRespuesta(ArrayList<ListaRespuesta> listaRespuestasJugadores) {
         for (ListaRespuesta iterador: listaRespuestasJugadores) {
             if (iterador.puntuarRespuestas() == this.cantidadCorrectas) {
-
                 iterador.puntuarJugador(1);
             }
         }

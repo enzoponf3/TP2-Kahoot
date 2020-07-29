@@ -21,9 +21,8 @@ public class PreguntaMultipleChoiceClasicaTest {
 
         pregunta1.agregarRespuestaCorrecta(resp1);
         pregunta1.agregarRespuestaCorrecta(resp3);
-        pregunta1.agregarRespuestaCorrecta(resp2);
 
-        assertEquals(3, pregunta1.cantidadRespuestasCorrectas());
+        assertEquals(2, pregunta1.cantidadRespuestasCorrectas());
     }
 
     @Test

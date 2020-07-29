@@ -31,12 +31,24 @@ public class PreguntaVoFPenal {
         this.respuestaFalsa.establecerComoRespuestaAcertada();
     }
 
-    public int responderVerdadero() {
+    public void evaluarRespuesta(ListaRespuesta listaRespuestasJugador1) {
+        listaRespuestasJugador1.puntuarJugador(listaRespuestasJugador1.puntuarRespuestas());
+    }
+
+    public Respuesta ElegirRespuestaFalsa() {
+        return respuestaFalsa;
+    }
+    public Respuesta ElegirRespuestaVerdadera() {
+        return respuestaVerdadera;
+    }
+
+    protected int puntuarRespuestaV(){
         return this.respuestaVerdadera.puntuar();
     }
 
-    public int responderFalsa() {
+    protected int puntuarRespuestaF(){
         return this.respuestaFalsa.puntuar();
     }
 }
+
 

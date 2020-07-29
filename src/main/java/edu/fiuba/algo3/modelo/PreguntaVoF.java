@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
 public class PreguntaVoF {
-    private final Respuesta respuestaVerdadera;
-    private final Respuesta respuestaFalsa;
+    private Respuesta respuestaVerdadera;
+    private Respuesta respuestaFalsa;
 
     public PreguntaVoF() {
         this.respuestaVerdadera = new Respuesta();
@@ -29,24 +29,23 @@ public class PreguntaVoF {
         this.respuestaFalsa.establecerComoRespuestaAcertada();
     }
 
-    public int responderVerdadero() {
+
+    public void evaluarRespuesta(ListaRespuesta listaRespuestasJugador1) {
+        listaRespuestasJugador1.puntuarJugador(listaRespuestasJugador1.puntuarRespuestas());
+    }
+
+    public Respuesta ElegirRespuestaFalsa() {
+        return respuestaFalsa;
+    }
+    public Respuesta ElegirRespuestaVerdadera() {
+        return respuestaVerdadera;
+    }
+
+    protected int puntuarRespuestaV(){
         return this.respuestaVerdadera.puntuar();
     }
 
-    public int responderFalso() {
+    protected int puntuarRespuestaF(){
         return this.respuestaFalsa.puntuar();
-    }
-
-    public void esVerdadero(Jugador jugador) {
-        jugador.asignarPuntos(this.respuestaVerdadera.puntuar());
-    }
-
-    public void esFalso(Jugador jugador) {
-        jugador.asignarPuntos(this.respuestaFalsa.puntuar());
-    }
-
-    public int puntuarRespuesta (Respuesta respuestaJugador){
-
-        return respuestaJugador.puntuar();
     }
 }
