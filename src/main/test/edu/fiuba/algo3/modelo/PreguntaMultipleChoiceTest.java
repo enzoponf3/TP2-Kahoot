@@ -9,8 +9,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class PreguntaMultipleChoiceTest {
     @Test
     public void TestCreacionPreguntaMC(){
-        PreguntaChoiceClasica pregunta1 = new PreguntaChoiceClasica();
-        ArrayList <ListaRespuesta> listaRespuestaGeneral= new <ListaRespuesta>ArrayList();
+        PreguntaChoiceClasica pregunta1 = new PreguntaChoiceClasica(4);
+        ArrayList <ListaRespuesta> listaRespuestasJugadores= new <ListaRespuesta>ArrayList();
         Jugador jugador1 = new Jugador();
         Jugador jugador2 = new Jugador();
 
@@ -22,17 +22,24 @@ public class PreguntaMultipleChoiceTest {
         resp1.establecerComoRespuestaAcertada();
         resp3.establecerComoRespuestaAcertada();
 
+        pregunta1.agregarRespuestaCorrecta(resp1);
+        pregunta1.agregarRespuestaCorrecta(resp3);
+
         ListaRespuesta listaRespuestasJugador1 = new ListaRespuesta(jugador1);
         listaRespuestasJugador1.agregarRespuesta(resp1);
         listaRespuestasJugador1.agregarRespuesta(resp2);
+        listaRespuestasJugador1.agregarRespuesta(resp3);
 
         ListaRespuesta listaRespuestasJugador2 = new ListaRespuesta(jugador2);
         listaRespuestasJugador2.agregarRespuesta(resp1);
         listaRespuestasJugador2.agregarRespuesta(resp3);
 
-        listaRespuestaGeneral.add( listaRespuestasJugador1);
-        listaRespuestaGeneral.add( listaRespuestasJugador2);
+        listaRespuestasJugadores.add( listaRespuestasJugador1);
+        listaRespuestasJugadores.add( listaRespuestasJugador2);
 
-        pregunta1.evaluarRespuesta(listaRespuestaGeneral);
+        pregunta1.evaluarRespuesta(listaRespuestasJugadores);
+
+        assertEquals(0, jugador1.puntos());
+        assertEquals(1, jugador2.puntos());
     }
 }

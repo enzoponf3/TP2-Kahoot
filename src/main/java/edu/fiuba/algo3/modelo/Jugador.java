@@ -14,4 +14,8 @@ public class Jugador {
     public int darPuntos() {
         return this.puntos;
     }
+
+    public int puntos() {
+        return this.puntos;
+    }
 }

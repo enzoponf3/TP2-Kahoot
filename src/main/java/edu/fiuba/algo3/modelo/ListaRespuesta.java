@@ -8,10 +8,25 @@ public class ListaRespuesta {
 
     public ListaRespuesta(Jugador unJugador) {
         this.jugador=unJugador;
-        this.listaRespuestas = new ArrayList<>();
+        this.listaRespuestas = new ArrayList<Respuesta>();
     }
-
+    public void puntuarJugador(int puntos){
+        this.jugador.asignarPuntos(puntos);
+    }
     public void agregarRespuesta(Respuesta unaRespuesta) {
         this.listaRespuestas.add(unaRespuesta);
+    }
+
+    public int puntuarRespuestas() {
+        int puntos =0;
+        for (Respuesta r : this.listaRespuestas){
+            if(r.puntuar()==0){
+                return 0;
+            }
+            else{
+                puntos += r.puntuar();
+            }
+        }
+        return puntos;
     }
 }
