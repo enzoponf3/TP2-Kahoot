@@ -11,6 +11,10 @@ public class Respuesta {
         this.validez = new Acertado();
     }
 
+    public void establecerComoRespuestalNoAcertadaPenal(){
+        this.validez = new NoAcertadoPenal();
+    }
+
     public int puntuar() {
         return this.validez.puntuar();
     }
