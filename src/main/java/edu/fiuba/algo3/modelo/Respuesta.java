@@ -18,4 +18,6 @@ public class Respuesta {
     public int puntuar() {
         return this.validez.puntuar();
     }
+
+    public boolean esAcertado() { return validez.esAcertado(); }
 }

@@ -6,10 +6,12 @@ public class PreguntaChoiceParcial {
     private ArrayList<Respuesta> listaRespuestasCorrectas;
     private int cantidadCorrectas = 0;
     private int cantidadOpciones = 0;
+    Evaluador evaluador;
 
     public PreguntaChoiceParcial(int numeroDeOpciones) {
         this.listaRespuestasCorrectas= new ArrayList<Respuesta>();
         this.cantidadOpciones = numeroDeOpciones;
+        this.evaluador = new EvaluadorParcial();
     }
 
     public void agregarRespuestaCorrecta(Respuesta unaRespuesta) {
@@ -21,6 +23,14 @@ public class PreguntaChoiceParcial {
     public void evaluarRespuesta(ArrayList<ListaRespuesta> listaRespuestasJugadores) {
         for (ListaRespuesta iterador: listaRespuestasJugadores) {
                 iterador.puntuarJugador(iterador.puntuarRespuestas());
+        }
+    }
+
+    // Refactor con Evaluador
+
+    public void evaluarRespuestaConEvaluador(ArrayList<ListaRespuesta> listaRespuestasJugadores) {
+        for (ListaRespuesta iterador: listaRespuestasJugadores) {
+            iterador.puntuarJugadorCon(this.evaluador);
         }
     }
 

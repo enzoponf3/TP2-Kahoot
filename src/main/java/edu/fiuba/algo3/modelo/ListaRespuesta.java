@@ -33,6 +33,10 @@ public class ListaRespuesta {
         return puntos;
     }
 
+    //Refactor con evaluador
+
+    public void puntuarJugadorCon(Evaluador evaluador) { evaluador.evaluar(this.listaRespuestas, this.jugador); }
+
     //Refactor
 
     public void agregarRespuesta(int i){

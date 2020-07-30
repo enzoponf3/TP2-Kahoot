@@ -4,5 +4,7 @@ public class NoAcertadoPenal implements Validez {
     public int puntuar(){
         return -1;
     }
+
+    public boolean esAcertado() { return false; }
 }
 
