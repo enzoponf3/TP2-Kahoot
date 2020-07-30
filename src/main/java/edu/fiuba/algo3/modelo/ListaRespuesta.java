@@ -5,27 +5,51 @@ import java.util.ArrayList;
 public class ListaRespuesta {
     private ArrayList<Respuesta> listaRespuestas;
     private Jugador jugador;
+    private ArrayList<Integer> respuestas;
 
     public ListaRespuesta(Jugador unJugador) {
-        this.jugador=unJugador;
+        this.jugador = unJugador;
         this.listaRespuestas = new ArrayList<Respuesta>();
+        respuestas = new ArrayList<>();
     }
-    public void puntuarJugador(int puntos){
+
+    public void puntuarJugador(int puntos) {
         this.jugador.asignarPuntos(puntos);
     }
+
     public void agregarRespuesta(Respuesta unaRespuesta) {
         this.listaRespuestas.add(unaRespuesta);
     }
 
     public int puntuarRespuestas() {
-        int puntos =0;
-        for (Respuesta r : this.listaRespuestas){
-            if(r.puntuar()==0){
+        int puntos = 0;
+        for (Respuesta r : this.listaRespuestas) {
+            if (r.puntuar() == 0) {
                 return 0;
-            }
-            else{
+            } else {
                 puntos += r.puntuar();
             }
+        }
+        return puntos;
+    }
+
+    //Refactor
+
+    public void agregarRespuesta(int i){
+        respuestas.add(i);
+    }
+
+    public int cantidadRespuestas(){
+        return respuestas.size();
+    }
+
+    public int puntuarJugador(ArrayList<Respuesta> listaRespuestas) {
+        int puntos = 0;
+        for(int resp : respuestas){
+            if(listaRespuestas.get(resp).puntuar() == 0){
+                return 0;
+            }
+            puntos += listaRespuestas.get(resp).puntuar();
         }
         return puntos;
     }

@@ -31,4 +31,35 @@ public class PreguntaChoiceClasica {
     protected int cantidadRespuestasCorrectas() {
         return this.cantidadCorrectas;
     }
+
+    //Refactor
+    public void agregarRespuestaCorrecta(){
+        Respuesta res = new Respuesta();
+        res.establecerComoRespuestaAcertada();
+        listaRespuestasCorrectas.add(res);
+        cantidadCorrectas++;
+    }
+    protected int puntuarRespuestas(ArrayList<Integer> respuestas){
+        for(int val : respuestas){
+            int puntosPorRespuesta = listaRespuestasCorrectas.get(val).puntuar();
+            if(puntosPorRespuesta==0 || respuestas.size() != cantidadCorrectas){
+                return 0;
+            }
+        }
+        return 1;
+    }
+
+    public void agregarRespuestaIncorrecta() {
+        Respuesta res = new Respuesta();
+        listaRespuestasCorrectas.add(res);
+    }
+
+    public void puntuarJugadores(ArrayList<ListaRespuesta> respuestas){
+        for(ListaRespuesta respuestasJugador : respuestas){
+            int puntos = respuestasJugador.puntuarJugador(listaRespuestasCorrectas);
+            if(puntos!=0 && respuestasJugador.cantidadRespuestas() >= cantidadCorrectas){
+                respuestasJugador.puntuarJugador(1);
+            }
+        }
+    }
 }
