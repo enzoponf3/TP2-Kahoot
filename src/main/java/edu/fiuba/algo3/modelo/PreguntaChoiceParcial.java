@@ -37,4 +37,23 @@ public class PreguntaChoiceParcial {
     protected int cantidadRespuestasCorrectas() {
         return this.cantidadCorrectas;
     }
+
+    public void agregarRespuestaCorrecta() {
+        Respuesta res = new Respuesta();
+        res.establecerComoRespuestaAcertada();
+        this.listaRespuestasCorrectas.add(res);
+        this.cantidadCorrectas+=1;
+    }
+
+    public void agregarRespuestaIncorrecta() {
+        this.listaRespuestasCorrectas.add(new Respuesta());
+    }
+
+    protected void puntuarJugadores(ArrayList<ListaRespuesta> respuestasDeJugadores) {
+        for(ListaRespuesta respuestasJugador: respuestasDeJugadores){
+            respuestasJugador.puntuarJugador(evaluador,cantidadCorrectas,listaRespuestasCorrectas);
+        }
+    }
+
+
 }

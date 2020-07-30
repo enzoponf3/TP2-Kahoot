@@ -43,18 +43,8 @@ public class ListaRespuesta {
         respuestas.add(i);
     }
 
-    public int cantidadRespuestas(){
-        return respuestas.size();
-    }
-
-    public int puntuarJugador(ArrayList<Respuesta> listaRespuestas) {
-        int puntos = 0;
-        for(int resp : respuestas){
-            if(listaRespuestas.get(resp).puntuar() == 0){
-                return 0;
-            }
-            puntos += listaRespuestas.get(resp).puntuar();
-        }
-        return puntos;
+    public void puntuarJugador(Evaluador evaluador, int cantidadCorrectas, ArrayList<Respuesta> listaRespuestas) {
+        if(cantidadCorrectas != respuestas.size()) return ;
+        jugador.asignarPuntos(evaluador.evaluar(this.respuestas,listaRespuestas));
     }
 }

@@ -10,10 +10,20 @@ public class EvaluadorParcial implements Evaluador {
                 jugador.asignarPuntos(0);
                 return;
             }
-
             puntos++;
         }
 
         jugador.asignarPuntos(puntos);
+    }
+    //ref
+    public int evaluar(ArrayList<Integer> respuestasJugador, ArrayList<Respuesta> respuestas){
+        int puntos = 0;
+        for(int resp : respuestasJugador){
+            if(respuestas.get(resp).puntuar() == 0){
+                return 0;
+            }
+            puntos+=respuestas.get(resp).puntuar();
+        }
+        return puntos;
     }
 }

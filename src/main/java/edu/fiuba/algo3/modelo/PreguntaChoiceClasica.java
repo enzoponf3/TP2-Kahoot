@@ -8,10 +8,12 @@ public class PreguntaChoiceClasica {
     private ArrayList<Respuesta> listaRespuestasCorrectas;
     private int cantidadCorrectas = 0;
     private int cantidadOpciones = 0;
+    private EvaluadorClasico evaluador;
 
     public PreguntaChoiceClasica(int numeroDeOpciones){
         this.listaRespuestasCorrectas= new ArrayList<Respuesta>();
         this.cantidadOpciones = numeroDeOpciones;
+        this.evaluador = new EvaluadorClasico();
     }
 
     public void agregarRespuestaCorrecta(Respuesta unaRespuesta) {
@@ -56,10 +58,7 @@ public class PreguntaChoiceClasica {
 
     public void puntuarJugadores(ArrayList<ListaRespuesta> respuestas){
         for(ListaRespuesta respuestasJugador : respuestas){
-            int puntos = respuestasJugador.puntuarJugador(listaRespuestasCorrectas);
-            if(puntos!=0 && respuestasJugador.cantidadRespuestas() >= cantidadCorrectas){
-                respuestasJugador.puntuarJugador(1);
-            }
+                respuestasJugador.puntuarJugador(evaluador, cantidadCorrectas, listaRespuestasCorrectas);
         }
     }
 }
