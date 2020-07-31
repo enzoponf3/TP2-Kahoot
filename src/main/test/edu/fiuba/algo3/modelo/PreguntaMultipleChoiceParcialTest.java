@@ -100,29 +100,4 @@ public class PreguntaMultipleChoiceParcialTest {
         assertEquals(3, jugador2.puntos());
     }
 
-    //Test con refactor
-
-    @Test
-    public void testPreguntaMcParcialConDosRespuestasCorrectas(){
-        PreguntaChoiceParcial pregunta = new PreguntaChoiceParcial(2);
-        pregunta.agregarRespuestaCorrecta();
-        pregunta.agregarRespuestaCorrecta();
-        pregunta.agregarRespuestaIncorrecta();
-        Jugador jugador = new Jugador();
-        ListaRespuesta respuesta = new ListaRespuesta(jugador);
-        respuesta.agregarRespuesta(0);
-        respuesta.agregarRespuesta(1);
-        Jugador jugador2 = new Jugador();
-        ListaRespuesta respuesta2 = new ListaRespuesta(jugador2);
-        respuesta2.agregarRespuesta(0);
-        respuesta2.agregarRespuesta(2);
-        ArrayList<ListaRespuesta> listaRespuestas = new ArrayList<>();
-        listaRespuestas.add(respuesta);
-        listaRespuestas.add(respuesta2);
-        pregunta.puntuarJugadores(listaRespuestas);
-
-        assertEquals(2,jugador.darPuntos());
-        assertEquals(0,jugador2.darPuntos());
-    }
-
 }

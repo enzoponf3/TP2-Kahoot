@@ -39,12 +39,4 @@ public class ListaRespuesta {
 
     //Refactor
 
-    public void agregarRespuesta(int i){
-        respuestas.add(i);
-    }
-
-    public void puntuarJugador(Evaluador evaluador, int cantidadCorrectas, ArrayList<Respuesta> listaRespuestas) {
-        if(cantidadCorrectas != respuestas.size()) return ;
-        jugador.asignarPuntos(evaluador.evaluar(this.respuestas,listaRespuestas));
-    }
 }
