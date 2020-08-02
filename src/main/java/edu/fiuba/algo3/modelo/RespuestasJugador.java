@@ -36,6 +36,11 @@ public class RespuestasJugador {
 
     public void puntuarJugadorCon(Evaluador evaluador) { evaluador.evaluar(this.listaRespuestas, this.jugador); }
 
-    //Refactor
+    //Refactor con PuntuadorParcial
+
+    public void evaluarRespuestasCon(Puntuador puntuador) {
+        for(Respuesta r: this.listaRespuestas) { r.evaluarCon(puntuador); }
+        puntuador.puntuar(this.jugador);
+    }
 
 }

@@ -6,4 +6,6 @@ public class Acertado implements Validez {
     }
 
     public boolean esAcertado() { return true; }
+
+    public void evaluarCon(Puntuador puntuador) { puntuador.acierto(); }
 }

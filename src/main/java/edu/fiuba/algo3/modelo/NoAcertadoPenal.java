@@ -6,5 +6,7 @@ public class NoAcertadoPenal implements Validez {
     }
 
     public boolean esAcertado() { return false; }
+
+    public void evaluarCon(Puntuador puntuador) { puntuador.fallido(); }
 }
 

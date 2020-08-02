@@ -4,4 +4,6 @@ public class NoAcertado implements Validez {
     public int puntuar(){return 0;}
 
     public boolean esAcertado() { return false; }
+
+    public void evaluarCon(Puntuador puntuador) { puntuador.fallido(); }
 }
