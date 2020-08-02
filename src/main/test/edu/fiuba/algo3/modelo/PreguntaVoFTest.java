@@ -38,7 +38,7 @@ public class PreguntaVoFTest {
         Jugador jugador = new Jugador();
         PreguntaVoF preguntaV = PreguntaVoF.crearPreguntaVerdadera();
 
-        ListaRespuesta listaRespuestasJugador1 = new ListaRespuesta(jugador);
+        RespuestasJugador listaRespuestasJugador1 = new RespuestasJugador(jugador);
         listaRespuestasJugador1.agregarRespuesta(preguntaV.ElegirRespuestaVerdadera());
 
         preguntaV.evaluarRespuesta(listaRespuestasJugador1);
@@ -51,7 +51,7 @@ public class PreguntaVoFTest {
         Jugador jugador = new Jugador();
         PreguntaVoF preguntaV = PreguntaVoF.crearPreguntaVerdadera();
 
-        ListaRespuesta listaRespuestasJugador1 = new ListaRespuesta(jugador);
+        RespuestasJugador listaRespuestasJugador1 = new RespuestasJugador(jugador);
         listaRespuestasJugador1.agregarRespuesta(preguntaV.ElegirRespuestaFalsa());
 
         preguntaV.evaluarRespuesta(listaRespuestasJugador1);

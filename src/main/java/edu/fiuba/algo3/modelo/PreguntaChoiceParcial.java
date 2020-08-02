@@ -20,16 +20,16 @@ public class PreguntaChoiceParcial {
         this.cantidadCorrectas+=1;
     }
 
-    public void evaluarRespuesta(ArrayList<ListaRespuesta> listaRespuestasJugadores) {
-        for (ListaRespuesta iterador: listaRespuestasJugadores) {
+    public void evaluarRespuesta(ArrayList<RespuestasJugador> listaRespuestasJugadores) {
+        for (RespuestasJugador iterador: listaRespuestasJugadores) {
                 iterador.puntuarJugador(iterador.puntuarRespuestas());
         }
     }
 
     // Refactor con Evaluador
 
-    public void evaluarRespuestaConEvaluador(ArrayList<ListaRespuesta> listaRespuestasJugadores) {
-        for (ListaRespuesta iterador: listaRespuestasJugadores) {
+    public void evaluarRespuestaConEvaluador(ArrayList<RespuestasJugador> listaRespuestasJugadores) {
+        for (RespuestasJugador iterador: listaRespuestasJugadores) {
             iterador.puntuarJugadorCon(this.evaluador);
         }
     }

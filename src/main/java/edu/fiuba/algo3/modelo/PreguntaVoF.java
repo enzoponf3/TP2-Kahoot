@@ -30,7 +30,7 @@ public class PreguntaVoF {
     }
 
 
-    public void evaluarRespuesta(ListaRespuesta listaRespuestasJugador1) {
+    public void evaluarRespuesta(RespuestasJugador listaRespuestasJugador1) {
         listaRespuestasJugador1.puntuarJugador(listaRespuestasJugador1.puntuarRespuestas());
     }
 
