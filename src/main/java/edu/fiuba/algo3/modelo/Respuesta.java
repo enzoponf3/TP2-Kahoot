@@ -19,7 +19,5 @@ public class Respuesta {
         return this.validez.puntuar();
     }
 
-    public boolean esAcertado() { return validez.esAcertado(); }
-
     public void evaluarCon(Puntuador puntuador) { this.validez.evaluarCon(puntuador); }
 }

@@ -6,12 +6,10 @@ public class PreguntaChoiceClasica {
     private ArrayList<Respuesta> respuestaPosibles;
     private int cantidadCorrectas = 0;
     private int cantidadOpciones = 0;
-    private EvaluadorClasico evaluador;
 
     public PreguntaChoiceClasica(int numeroDeOpciones,int cantidadCorrectasDeseadas){
         this.cantidadCorrectas= cantidadCorrectasDeseadas;
         this.cantidadOpciones = numeroDeOpciones;
-        this.evaluador = new EvaluadorClasico();
         this.respuestaPosibles = new ArrayList<Respuesta>();
         for (int i=0;i < this.cantidadOpciones; i++){
             respuestaPosibles.add(new Respuesta());

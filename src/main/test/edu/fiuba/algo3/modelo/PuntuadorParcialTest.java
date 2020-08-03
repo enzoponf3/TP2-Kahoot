@@ -79,4 +79,25 @@ public class PuntuadorParcialTest {
 
         assertEquals(0, jugador.puntos());
     }
+
+    @Test
+    public void TestJugadorEligeTresRespuestasCorrectasYSumaTresPuntos() {
+        Jugador jugador = new Jugador();
+        RespuestasJugador respuestas = new RespuestasJugador(jugador);
+        Respuesta respuesta1 = new Respuesta();
+        Respuesta respuesta2 = new Respuesta();
+        Respuesta respuesta3 = new Respuesta();
+        Respuesta respuesta4 = new Respuesta();
+        Puntuador puntuadorParcial = new PuntuadorParcial();
+
+        respuesta1.establecerComoRespuestaAcertada();
+        respuesta3.establecerComoRespuestaAcertada();
+        respuesta4.establecerComoRespuestaAcertada();
+        respuestas.agregarRespuesta(respuesta1);
+        respuestas.agregarRespuesta(respuesta3);
+        respuestas.agregarRespuesta(respuesta4);
+        respuestas.evaluarRespuestasCon(puntuadorParcial);
+
+        assertEquals(3, jugador.puntos());
+    }
 }

@@ -6,7 +6,6 @@ public class RespuestasJugador {
     private ArrayList<Respuesta> listaRespuestas;
     private Jugador jugador;
 
-
     public RespuestasJugador(Jugador unJugador) {
         this.jugador = unJugador;
         this.listaRespuestas = new ArrayList<Respuesta>();
@@ -31,10 +30,6 @@ public class RespuestasJugador {
         }
         return puntos;
     }
-
-    //Refactor con evaluador
-
-    public void puntuarJugadorCon(Evaluador evaluador) { evaluador.evaluar(this.listaRespuestas, this.jugador); }
 
     //Refactor con PuntuadorParcial
 

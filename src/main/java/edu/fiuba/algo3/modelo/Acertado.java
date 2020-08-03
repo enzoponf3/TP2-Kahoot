@@ -5,7 +5,5 @@ public class Acertado implements Validez {
         return 1;
     }
 
-    public boolean esAcertado() { return true; }
-
     public void evaluarCon(Puntuador puntuador) { puntuador.acierto(); }
 }
