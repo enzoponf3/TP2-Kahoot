@@ -1,10 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
 public class NoAcertadoPenal implements Validez {
-    public int puntuar(){
-        return -1;
+    public void puntuar(Puntaje puntajeJugador){
+        puntajeJugador.restarPunto();
     }
-
-    public void evaluarCon(Puntuador puntuador) { puntuador.fallido(); }
 }
 

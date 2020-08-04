@@ -30,8 +30,8 @@ public class PreguntaVoF {
     }
 
 
-    public void evaluarRespuesta(RespuestasJugador listaRespuestasJugador1) {
-        listaRespuestasJugador1.puntuarJugador(listaRespuestasJugador1.puntuarRespuestas());
+    public void evaluarRespuesta(RespuestasJugador respuestasDeUnJugador) {
+        respuestasDeUnJugador.puntuarRespuestas();
     }
 
     public Respuesta ElegirRespuestaFalsa() {
@@ -41,11 +41,11 @@ public class PreguntaVoF {
         return respuestaVerdadera;
     }
 
-    protected int puntuarRespuestaV(){
-        return this.respuestaVerdadera.puntuar();
+    protected void puntuarRespuestaV(){
+         //this.respuestaVerdadera.puntuar();
     }
 
-    protected int puntuarRespuestaF(){
-        return this.respuestaFalsa.puntuar();
+    protected void puntuarRespuestaF(){
+         //this.respuestaFalsa.puntuar();
     }
 }

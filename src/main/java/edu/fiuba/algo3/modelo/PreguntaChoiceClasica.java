@@ -1,11 +1,14 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.Respuesta;
+import edu.fiuba.algo3.modelo.RespuestasJugador;
+
 import java.util.ArrayList;
 
 public class PreguntaChoiceClasica {
     private ArrayList<Respuesta> respuestaPosibles;
-    private int cantidadCorrectas = 0;
-    private int cantidadOpciones = 0;
+    private int cantidadCorrectas;
+    private int cantidadOpciones;
 
     public PreguntaChoiceClasica(int numeroDeOpciones,int cantidadCorrectasDeseadas){
         this.cantidadCorrectas= cantidadCorrectasDeseadas;
@@ -16,16 +19,13 @@ public class PreguntaChoiceClasica {
         }
     }
 
-    public void agregarRespuestaCorrecta(Respuesta unaRespuesta) {
-        unaRespuesta.establecerComoRespuestaAcertada();
-        this.respuestaPosibles.add(unaRespuesta);
-    }
-
-    public void evaluarRespuesta(ArrayList<RespuestasJugador> listaRespuestasJugadores) {
-        for (RespuestasJugador iterador: listaRespuestasJugadores) {
-            if (iterador.puntuarRespuestas() == this.cantidadCorrectas) {
-                iterador.puntuarJugador(1);
+    public void evaluarRespuesta(ArrayList<RespuestasJugador> RespuestasDeVariosJugadores) {
+        for (RespuestasJugador respuestasDeUnJugador: RespuestasDeVariosJugadores) {
+            respuestasDeUnJugador.puntuarRespuestas();
+            if(respuestasDeUnJugador.devolverJugador().devolverPuntaje().devolverPuntosParciales() == this.cantidadCorrectas){
+                respuestasDeUnJugador.devolverJugador().devolverPuntaje().sumarPunto();
             }
+            respuestasDeUnJugador.devolverJugador().devolverPuntaje().resetearPuntosParciales();
         }
     }
 
@@ -37,7 +37,7 @@ public class PreguntaChoiceClasica {
         int i=0;
         for (Respuesta r : this.respuestaPosibles) {
             if (i < this.cantidadCorrectas) {
-                r.establecerComoRespuestaAcertada();
+                r.establecerComoRespuestaAcertadaParcial();
                 i++;
             }
         }

@@ -9,39 +9,31 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class PreguntaMultipleChoiceParcialTest {
 
     @Test
-    public void TestPreguntaMCClasicaSuma3ParaJugadorCon3CorrectasY0ParaJugadorCon1Incorrectay3Correctas(){
-        PreguntaChoiceParcial pregunta1 = new PreguntaChoiceParcial();
-        ArrayList <RespuestasJugador> listaRespuestasJugadores= new <RespuestasJugador>ArrayList();
+    public void TestPreguntaMCClasicaJugadorUnoRespondeTodoOk3PuntosAJugador2LeFaltaUna0Puntos() {
+        ArrayList<RespuestasJugador> respuestasVariosJugadores = new <RespuestasJugador>ArrayList();
         Jugador jugador1 = new Jugador();
         Jugador jugador2 = new Jugador();
 
-        Respuesta resp1 = new Respuesta();
-        Respuesta resp2 = new Respuesta();
-        Respuesta resp3 = new Respuesta();
-        Respuesta resp4 = new Respuesta();
+        PreguntaChoiceParcial preguntaMCParcial = new PreguntaChoiceParcial(4, 3);
+        preguntaMCParcial.agregarRespuestasCorrectas();
 
-        resp1.establecerComoRespuestaAcertada();
-        resp3.establecerComoRespuestaAcertada();
-        resp4.establecerComoRespuestaAcertada();
-
-        RespuestasJugador listaRespuestasJugador1 = new RespuestasJugador(jugador1);
-        listaRespuestasJugador1.agregarRespuesta(resp1);
-        listaRespuestasJugador1.agregarRespuesta(resp2);
-        listaRespuestasJugador1.agregarRespuesta(resp3);
-        listaRespuestasJugador1.agregarRespuesta(resp4);
-
-        RespuestasJugador listaRespuestasJugador2 = new RespuestasJugador(jugador2);
-        listaRespuestasJugador2.agregarRespuesta(resp1);
-        listaRespuestasJugador2.agregarRespuesta(resp3);
-        listaRespuestasJugador2.agregarRespuesta(resp4);
+        RespuestasJugador respuestasJugador1 = new RespuestasJugador(jugador1);
+        respuestasJugador1.agregarRespuesta(preguntaMCParcial.elegirRespuesta(0));
+        respuestasJugador1.agregarRespuesta(preguntaMCParcial.elegirRespuesta(1));
+        respuestasJugador1.agregarRespuesta(preguntaMCParcial.elegirRespuesta(2));
 
 
-        listaRespuestasJugadores.add( listaRespuestasJugador1);
-        listaRespuestasJugadores.add( listaRespuestasJugador2);
+        RespuestasJugador respuestasJugador2 = new RespuestasJugador(jugador2);
+        respuestasJugador2.agregarRespuesta(preguntaMCParcial.elegirRespuesta(1));
+        respuestasJugador2.agregarRespuesta(preguntaMCParcial.elegirRespuesta(3));
+        respuestasJugador2.agregarRespuesta(preguntaMCParcial.elegirRespuesta(0));
 
-        pregunta1.evaluarRespuestas(listaRespuestasJugadores);
+        respuestasVariosJugadores.add(respuestasJugador1);
+        respuestasVariosJugadores.add(respuestasJugador2);
 
-        assertEquals(0, jugador1.puntos());
-        assertEquals(3, jugador2.puntos());
+        preguntaMCParcial.evaluarRespuesta(respuestasVariosJugadores);
+
+        assertEquals(3, jugador1.devolverPuntaje().devolverPuntos());
+        assertEquals(0, jugador2.devolverPuntaje().devolverPuntos());
     }
 }

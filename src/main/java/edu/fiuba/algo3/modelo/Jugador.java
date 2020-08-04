@@ -1,21 +1,14 @@
 package edu.fiuba.algo3.modelo;
 
 public class Jugador {
-    private int puntos;
+    private Puntaje puntajeJugador;
 
     public Jugador() {
-        this.puntos = 0;
+        this.puntajeJugador = new Puntaje();
     }
 
-    public void asignarPuntos(int puntos) {
-        this.puntos += puntos;
+    public Puntaje devolverPuntaje() {
+        return puntajeJugador;
     }
 
-    public int darPuntos() {
-        return this.puntos;
-    }
-
-    public int puntos() {
-        return this.puntos;
-    }
 }

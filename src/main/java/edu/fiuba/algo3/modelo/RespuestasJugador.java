@@ -11,31 +11,17 @@ public class RespuestasJugador {
         this.listaRespuestas = new ArrayList<Respuesta>();
     }
 
-    public void puntuarJugador(int puntos) {
-        this.jugador.asignarPuntos(puntos);
-    }
-
     public void agregarRespuesta(Respuesta unaRespuesta) {
         this.listaRespuestas.add(unaRespuesta);
     }
 
-    public int puntuarRespuestas() {
-        int puntos = 0;
+    public void puntuarRespuestas() {
         for (Respuesta r : this.listaRespuestas) {
-            if (r.puntuar() == 0) {
-                return 0;
-            } else {
-                puntos += r.puntuar();
-            }
+            r.puntuar(this.devolverJugador().devolverPuntaje());
         }
-        return puntos;
     }
 
-    //Refactor con PuntuadorParcial
-
-    public void evaluarRespuestasCon(Puntuador puntuador) {
-        for(Respuesta r: this.listaRespuestas) { r.evaluarCon(puntuador); }
-        puntuador.puntuar(this.jugador);
+    public Jugador devolverJugador() {
+        return jugador;
     }
-
 }

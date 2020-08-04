@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 public class PreguntaVoFPenal {
-    private  Respuesta respuestaVerdadera;
+    private Respuesta respuestaVerdadera;
     private  Respuesta respuestaFalsa;
 
     public PreguntaVoFPenal(){
@@ -31,8 +31,8 @@ public class PreguntaVoFPenal {
         this.respuestaFalsa.establecerComoRespuestaAcertada();
     }
 
-    public void evaluarRespuesta(RespuestasJugador listaRespuestasJugador1) {
-        listaRespuestasJugador1.puntuarJugador(listaRespuestasJugador1.puntuarRespuestas());
+    public void evaluarRespuesta(RespuestasJugador respuestasDeUnJugador) {
+        respuestasDeUnJugador.puntuarRespuestas();
     }
 
     public Respuesta ElegirRespuestaFalsa() {
@@ -42,12 +42,11 @@ public class PreguntaVoFPenal {
         return respuestaVerdadera;
     }
 
-    protected int puntuarRespuestaV(){
-        return this.respuestaVerdadera.puntuar();
+    protected void puntuarRespuestaV(){
+        //return this.respuestaVerdadera.puntuar();
     }
 
-    protected int puntuarRespuestaF(){
-        return this.respuestaFalsa.puntuar();
+    protected void puntuarRespuestaF(){//  return this.respuestaFalsa.puntuar();
     }
 }
 
