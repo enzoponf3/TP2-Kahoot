@@ -11,5 +11,9 @@ public class PuntuadorParcial implements Puntuador {
 
     public void fallido() { this.puntaje = new PuntajeCero(); }
 
+    public void falla(){
+        this.puntaje.sumarPunto();
+    }
+
     public void puntuar(Jugador jugador) { this.puntaje.puntuar(jugador); }
 }
