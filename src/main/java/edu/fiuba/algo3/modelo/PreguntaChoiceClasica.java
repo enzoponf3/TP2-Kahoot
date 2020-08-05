@@ -18,9 +18,7 @@ public class PreguntaChoiceClasica {
 
     public void evaluarRespuestas(ArrayList<RespuestasJugador> respuestasVariosJugadores) {
         for (RespuestasJugador iterador: respuestasVariosJugadores) {
-            if (iterador.puntuarRespuestas() == this.cantidadCorrectas) {
-                iterador.puntuarJugador(1);
-            }
+           iterador.evaluarRespuestasCon(new PuntuadorMcClasico(this.cantidadCorrectas));
         }
     }
 
