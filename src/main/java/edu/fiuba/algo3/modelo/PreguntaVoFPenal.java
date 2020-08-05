@@ -7,8 +7,8 @@ public class PreguntaVoFPenal {
     public PreguntaVoFPenal(){
         this.respuestaVerdadera = new Respuesta();
         this.respuestaFalsa = new Respuesta();
-        this.respuestaVerdadera.establecerComoRespuestalNoAcertadaPenal();
-        this.respuestaFalsa.establecerComoRespuestalNoAcertadaPenal();
+        this.respuestaVerdadera.establecerComoRespuestaNoAcertadaPenal();
+        this.respuestaFalsa.establecerComoRespuestaNoAcertadaPenal();
     }
 
     static public PreguntaVoFPenal crearPreguntaVerdadera() {

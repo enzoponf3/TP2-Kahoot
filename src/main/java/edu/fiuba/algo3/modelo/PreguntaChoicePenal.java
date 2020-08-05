@@ -34,7 +34,7 @@ public class PreguntaChoicePenal {
                 i++;
             }
             else {
-              r.establecerComoRespuestalNoAcertadaPenal();
+              r.establecerComoRespuestaNoAcertadaPenal();
             }
         }
     }

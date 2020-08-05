@@ -12,7 +12,7 @@ public class Respuesta {
         this.validez = new Correcta();
     }
 
-    public void establecerComoRespuestalNoAcertadaPenal(){
+    public void establecerComoRespuestaNoAcertadaPenal(){
         this.validez = new IncorrectaPenal();
     }
 

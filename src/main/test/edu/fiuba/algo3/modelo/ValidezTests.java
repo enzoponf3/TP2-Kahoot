@@ -15,4 +15,10 @@ public class ValidezTests {
         Incorrecta noAcertado = new Incorrecta();
         assertEquals(0, noAcertado.puntuar());
     }
+
+    @Test
+    public void testNoAcertadoPenalDevuelvePuntajeMenosUno(){
+        IncorrectaPenal noAcertadoPenal = new IncorrectaPenal();
+        assertEquals(-1, noAcertadoPenal.puntuar());
+    }
 }
