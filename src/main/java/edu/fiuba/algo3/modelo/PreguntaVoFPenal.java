@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import java.util.ArrayList;
+
 public class PreguntaVoFPenal {
     private  Respuesta respuestaVerdadera;
     private  Respuesta respuestaFalsa;
@@ -31,8 +33,10 @@ public class PreguntaVoFPenal {
         this.respuestaFalsa.establecerComoRespuestaAcertada();
     }
 
-    public void evaluarRespuesta(RespuestasJugador listaRespuestasJugador1) {
-        listaRespuestasJugador1.puntuarJugador(listaRespuestasJugador1.puntuarRespuestas());
+    public void evaluarRespuestas(ArrayList<RespuestasJugador> respuestasVariosJugadores) {
+        for (RespuestasJugador iterador: respuestasVariosJugadores) {
+            iterador.evaluarRespuestasCon(new PuntuadorVoFPenal());
+        }
     }
 
     public Respuesta ElegirRespuestaFalsa() {

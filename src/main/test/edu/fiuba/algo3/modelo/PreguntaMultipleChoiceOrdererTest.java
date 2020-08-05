@@ -3,7 +3,6 @@ package edu.fiuba.algo3.modelo;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -25,7 +24,7 @@ public class PreguntaMultipleChoiceOrdererTest {
         opcionesOrdenadas.add(opcion2);
         opcionesOrdenadas.add(opcion3);
 
-        PreguntaOrdererChoice pregunta1 = new PreguntaOrdererChoice(opcionesOrdenadas);
+        PreguntaChoiceOrderer pregunta1 = new PreguntaChoiceOrderer(opcionesOrdenadas);
 
         RespuestasJugador opcionesJugador1 = new RespuestasJugador(jugador1);
 

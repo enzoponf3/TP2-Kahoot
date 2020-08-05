@@ -3,6 +3,8 @@ package edu.fiuba.algo3.modelo;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PreguntaVoFTest {
@@ -34,29 +36,24 @@ public class PreguntaVoFTest {
     ///////////////////////////// Puntuación preguntas VoF ////////////////////////////////////////////////////
 
     @Test
-    public void testJugadorEligeVerdaderoAPreguntaVerdaderaYSumaUnPunto () {
-        Jugador jugador = new Jugador();
+    public void testPreguntaVSumaPuntoAJugador1YNoSumaAJugador2 () {
+        Jugador jugador1 = new Jugador();
+        Jugador jugador2 = new Jugador();
         PreguntaVoF preguntaV = PreguntaVoF.crearPreguntaVerdadera();
+        ArrayList<RespuestasJugador> respuestasJugadores= new <RespuestasJugador>ArrayList();
 
-        RespuestasJugador listaRespuestasJugador1 = new RespuestasJugador(jugador);
-        listaRespuestasJugador1.agregarRespuesta(preguntaV.ElegirRespuestaVerdadera());
+        RespuestasJugador respuestasJugador1 = new RespuestasJugador(jugador1);
+        respuestasJugador1.agregarRespuesta(preguntaV.ElegirRespuestaVerdadera());
+        RespuestasJugador respuestasJugador2 = new RespuestasJugador(jugador2);
+        respuestasJugador2.agregarRespuesta(preguntaV.ElegirRespuestaFalsa());
 
-        preguntaV.evaluarRespuesta(listaRespuestasJugador1);
+        respuestasJugadores.add( respuestasJugador1);
+        respuestasJugadores.add( respuestasJugador2);
 
-        assertEquals(1, jugador.darPuntos());
-    }
+        preguntaV.evaluarRespuestas(respuestasJugadores);
 
-    @Test
-    public void testJugadorEligeFalsoAPreguntaVerdaderaYSumaCeroPuntos () {
-        Jugador jugador = new Jugador();
-        PreguntaVoF preguntaV = PreguntaVoF.crearPreguntaVerdadera();
-
-        RespuestasJugador listaRespuestasJugador1 = new RespuestasJugador(jugador);
-        listaRespuestasJugador1.agregarRespuesta(preguntaV.ElegirRespuestaFalsa());
-
-        preguntaV.evaluarRespuesta(listaRespuestasJugador1);
-
-        assertEquals(0, jugador.darPuntos());
+        assertEquals(1, jugador1.puntos());
+        assertEquals(0, jugador2.puntos());
     }
 
 }

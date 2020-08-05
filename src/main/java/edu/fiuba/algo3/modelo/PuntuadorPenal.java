@@ -1,25 +1,21 @@
 package edu.fiuba.algo3.modelo;
 
 public class PuntuadorPenal implements Puntuador {
-    private ContadorAciertos puntaje;
+    private ContadorAciertos cantidadAciertos;
 
     public PuntuadorPenal() {
-        this.puntaje = new AciertoComun();
+        this.cantidadAciertos = new AciertoComun();
     }
 
     public void acierto() {
-        this.puntaje.sumarAcierto();
+        this.cantidadAciertos.sumarAcierto();
     }
 
     public void fallido() {
-        this.puntaje.restarAcierto();// = new AciertoNegativo();
-    }
-
-    public void falla(){
-        this.puntaje.sumarAcierto();
+        this.cantidadAciertos.restarAcierto();
     }
 
     public void puntuar(Jugador jugador) {
-        this.puntaje.puntuar(jugador);
+        this.cantidadAciertos.puntuar(jugador);
     }
 }

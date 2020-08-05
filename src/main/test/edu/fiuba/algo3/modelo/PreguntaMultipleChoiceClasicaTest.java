@@ -16,7 +16,7 @@ public class PreguntaMultipleChoiceClasicaTest {
 
     @Test
     public void TestPreguntaMCClasicaJugador1PuntuaPorContestarTodoBienJugador2NoPuntuaPorContestarUnaMal(){
-        ArrayList <RespuestasJugador> RespuestasJugadores= new <RespuestasJugador>ArrayList();
+        ArrayList <RespuestasJugador> respuestasJugadores= new <RespuestasJugador>ArrayList();
         Jugador jugador1 = new Jugador();
         Jugador jugador2 = new Jugador();
 
@@ -32,10 +32,10 @@ public class PreguntaMultipleChoiceClasicaTest {
         respuestasJugador2.agregarRespuesta(preguntaMC.elegirRespuesta(1));
         respuestasJugador2.agregarRespuesta(preguntaMC.elegirRespuesta(3));
 
-        RespuestasJugadores.add( respuestasJugador1);
-        RespuestasJugadores.add( respuestasJugador2);
+        respuestasJugadores.add( respuestasJugador1);
+        respuestasJugadores.add( respuestasJugador2);
 
-        preguntaMC.evaluarRespuestas(RespuestasJugadores);
+        preguntaMC.evaluarRespuestas(respuestasJugadores);
 
         assertEquals(1, jugador1.puntos());
         assertEquals(0, jugador2.puntos());

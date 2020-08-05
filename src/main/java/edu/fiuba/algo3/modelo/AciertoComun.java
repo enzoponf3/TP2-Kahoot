@@ -11,8 +11,6 @@ public class AciertoComun implements ContadorAciertos {
         this.puntos += 1;
     }
 
-
-
     public void restarAcierto() {
         this.puntos -= 1;
 
