@@ -5,12 +5,13 @@ import java.util.List;
 
 public class RespuestasJugador {
     private ArrayList<Respuesta> listaRespuestas;
-    private ArrayList<Opcion> opcionesElegidas = new ArrayList<>();
+    private ArrayList<Opcion> opcionesElegidas;
     private Jugador jugador;
 
     public RespuestasJugador(Jugador unJugador) {
         this.jugador = unJugador;
         this.listaRespuestas = new ArrayList<Respuesta>();
+        this.opcionesElegidas = new ArrayList<>();
     }
 
     public void puntuarJugador(int puntos) {
@@ -21,8 +22,8 @@ public class RespuestasJugador {
         this.listaRespuestas.add(unaRespuesta);
     }
 
-    public void agregarOpcionesElegidas(ArrayList<Opcion> opcionesElegidas){
-        this.opcionesElegidas.addAll(opcionesElegidas);
+    public void agregarOpcionesElegidas(Opcion opcionElegida){
+        this.opcionesElegidas.add(opcionElegida);
     }
 
     public int puntuarRespuestas() {

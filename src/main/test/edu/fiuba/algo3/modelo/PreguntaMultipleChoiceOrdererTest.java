@@ -11,7 +11,7 @@ public class PreguntaMultipleChoiceOrdererTest {
 
     @Test
     public void TestPreguntaMCOrdererJugador1Con3CorrectasSeLeAsigna1PuntoYJugador2Con0CorrectasSeLeAsigna0Puntos(){
-        //List<RespuestasJugador> listaRespuestasJugadores = new ArrayList<>();
+
         Jugador jugador1 = new Jugador();
         Jugador jugador2 = new Jugador();
 
@@ -28,31 +28,24 @@ public class PreguntaMultipleChoiceOrdererTest {
         PreguntaOrdererChoice pregunta1 = new PreguntaOrdererChoice(opcionesOrdenadas);
 
         RespuestasJugador opcionesJugador1 = new RespuestasJugador(jugador1);
-        ArrayList<Opcion> listaRespuestasJugador1 = new ArrayList<>();
-        listaRespuestasJugador1.add(opcion1);
-        listaRespuestasJugador1.add(opcion2);
-        listaRespuestasJugador1.add(opcion3);
 
-        opcionesJugador1.agregarOpcionesElegidas(listaRespuestasJugador1);
 
-        pregunta1.evaluarRespuestas(opcionesJugador1);
-
-        assertEquals(1, jugador1.puntos());
+        opcionesJugador1.agregarOpcionesElegidas(opcion1);
+        opcionesJugador1.agregarOpcionesElegidas(opcion2);
+        opcionesJugador1.agregarOpcionesElegidas(opcion3);
 
         RespuestasJugador opcionesJugador2 = new RespuestasJugador(jugador2);
-        ArrayList<Opcion> listaRespuestasJugador2 = new ArrayList<>();
-        listaRespuestasJugador1.add(opcion3);
-        listaRespuestasJugador1.add(opcion2);
-        listaRespuestasJugador1.add(opcion1);
 
+        opcionesJugador2.agregarOpcionesElegidas(opcion1);
+        opcionesJugador2.agregarOpcionesElegidas(opcion3);
+        opcionesJugador2.agregarOpcionesElegidas(opcion2);
+        
 
-        opcionesJugador2.agregarOpcionesElegidas(listaRespuestasJugador2);
-
-        //listaRespuestasJugadores.add(opcionesJugador1);
-        //listaRespuestasJugadores.add(opcionesJugador2);
-
+        pregunta1.evaluarRespuestas(opcionesJugador1);
         pregunta1.evaluarRespuestas(opcionesJugador2);
 
+
+        assertEquals(1, jugador1.puntos());
         assertEquals(0, jugador2.puntos());
     }
 }
