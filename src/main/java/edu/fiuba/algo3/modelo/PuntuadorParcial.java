@@ -1,18 +1,18 @@
 package edu.fiuba.algo3.modelo;
 
 public class PuntuadorParcial implements Puntuador {
-    private Puntaje puntaje;
+    private ContadorAciertos puntaje;
 
     public PuntuadorParcial() {
-        this.puntaje = new PuntajePositivo();
+        this.puntaje = new AciertoComun();
     }
 
-    public void acierto() { this.puntaje.sumarPunto(); }
+    public void acierto() { this.puntaje.sumarAcierto(); }
 
-    public void fallido() { this.puntaje = new PuntajeCero(); }
+    public void fallido() { this.puntaje = new AciertoAnulador(); }
 
     public void falla(){
-        this.puntaje.sumarPunto();
+        this.puntaje.sumarAcierto();
     }
 
     public void puntuar(Jugador jugador) { this.puntaje.puntuar(jugador); }

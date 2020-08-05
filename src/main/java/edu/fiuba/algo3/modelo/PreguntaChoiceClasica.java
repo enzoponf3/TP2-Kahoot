@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class PreguntaChoiceClasica {
     private ArrayList<Respuesta> respuestaPosibles;
-    private int cantidadCorrectas = 0;
-    private int cantidadOpciones = 0;
+    private int cantidadCorrectas;
+    private int cantidadOpciones;
 
     public PreguntaChoiceClasica(int numeroDeOpciones,int cantidadCorrectasDeseadas){
         this.cantidadCorrectas= cantidadCorrectasDeseadas;
@@ -16,13 +16,8 @@ public class PreguntaChoiceClasica {
         }
     }
 
-    public void agregarRespuestaCorrecta(Respuesta unaRespuesta) {
-        unaRespuesta.establecerComoRespuestaAcertada();
-        this.respuestaPosibles.add(unaRespuesta);
-    }
-
-    public void evaluarRespuesta(ArrayList<RespuestasJugador> listaRespuestasJugadores) {
-        for (RespuestasJugador iterador: listaRespuestasJugadores) {
+    public void evaluarRespuestas(ArrayList<RespuestasJugador> respuestasVariosJugadores) {
+        for (RespuestasJugador iterador: respuestasVariosJugadores) {
             if (iterador.puntuarRespuestas() == this.cantidadCorrectas) {
                 iterador.puntuarJugador(1);
             }

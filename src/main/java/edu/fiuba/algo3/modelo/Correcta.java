@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-public class Acertado implements Validez {
+public class Correcta implements ValidezRespuesta {
     public int puntuar() {
         return 1;
     }
