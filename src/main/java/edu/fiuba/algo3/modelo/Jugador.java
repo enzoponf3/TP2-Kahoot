@@ -7,6 +7,7 @@ public class Jugador {
         this.puntos = 0;
     }
 
+
     public void asignarPuntos(int puntos) {
         this.puntos += puntos;
     }

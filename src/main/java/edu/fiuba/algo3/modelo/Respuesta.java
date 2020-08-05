@@ -1,9 +1,10 @@
 package edu.fiuba.algo3.modelo;
 
+
 public class Respuesta {
     private Validez validez;
 
-    public Respuesta() {
+    public Respuesta(){
         this.validez = new NoAcertado();
     }
 

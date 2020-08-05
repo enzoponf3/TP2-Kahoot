@@ -1,9 +1,11 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RespuestasJugador {
     private ArrayList<Respuesta> listaRespuestas;
+    private ArrayList<Opcion> opcionesElegidas = new ArrayList<>();
     private Jugador jugador;
 
     public RespuestasJugador(Jugador unJugador) {
@@ -17,6 +19,10 @@ public class RespuestasJugador {
 
     public void agregarRespuesta(Respuesta unaRespuesta) {
         this.listaRespuestas.add(unaRespuesta);
+    }
+
+    public void agregarOpcionesElegidas(ArrayList<Opcion> opcionesElegidas){
+        this.opcionesElegidas.addAll(opcionesElegidas);
     }
 
     public int puntuarRespuestas() {
@@ -38,4 +44,7 @@ public class RespuestasJugador {
         puntuador.puntuar(this.jugador);
     }
 
+    public boolean puntuarOrderer(List<Opcion> opcionesOrdenadas) {
+        return opcionesOrdenadas.equals(opcionesElegidas);
+    }
 }

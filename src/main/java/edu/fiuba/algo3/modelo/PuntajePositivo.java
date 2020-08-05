@@ -7,6 +7,11 @@ public class PuntajePositivo implements Puntaje {
         this.puntos = 0;
     }
 
-    public void sumarPunto() { this.puntos += 1; }
-    public void puntuar(Jugador jugador) { jugador.asignarPuntos(this.puntos); }
+    public void sumarPunto() {
+        this.puntos += 1;
+    }
+
+    public void puntuar(Jugador jugador) {
+        jugador.asignarPuntos(this.puntos);
+    }
 }
