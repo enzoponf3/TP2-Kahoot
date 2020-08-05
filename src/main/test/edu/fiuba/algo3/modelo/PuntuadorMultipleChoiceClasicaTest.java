@@ -12,7 +12,7 @@ public class PuntuadorMultipleChoiceClasicaTest {
         Respuesta respuesta1 = new Respuesta();
         Respuesta respuesta2 = new Respuesta();
         RespuestasJugador respuestas = new RespuestasJugador(jugador1);
-        PuntuadorMcClasico puntuador = new PuntuadorMcClasico(1);
+        PuntuadorMCClasica puntuador = new PuntuadorMCClasica(1);
 
         respuesta1.establecerComoRespuestaAcertada();
         respuestas.agregarRespuesta(respuesta1);
@@ -27,7 +27,7 @@ public class PuntuadorMultipleChoiceClasicaTest {
         Respuesta respuesta1 = new Respuesta();
         Respuesta respuesta2 = new Respuesta();
         RespuestasJugador respuestas = new RespuestasJugador(jugador1);
-        PuntuadorMcClasico puntuador = new PuntuadorMcClasico(1);
+        PuntuadorMCClasica puntuador = new PuntuadorMCClasica(1);
 
         respuesta1.establecerComoRespuestaAcertada();
         respuestas.agregarRespuesta(respuesta2);
@@ -44,7 +44,7 @@ public class PuntuadorMultipleChoiceClasicaTest {
         Respuesta respuesta3 = new Respuesta();
         Respuesta respuesta4 = new Respuesta();
         RespuestasJugador respuestas = new RespuestasJugador(jugador1);
-        PuntuadorMcClasico puntuador = new PuntuadorMcClasico(3);
+        PuntuadorMCClasica puntuador = new PuntuadorMCClasica(3);
 
         respuesta1.establecerComoRespuestaAcertada();
         respuesta3.establecerComoRespuestaAcertada();
@@ -65,7 +65,7 @@ public class PuntuadorMultipleChoiceClasicaTest {
         Respuesta respuesta3 = new Respuesta();
         Respuesta respuesta4 = new Respuesta();
         RespuestasJugador respuestas = new RespuestasJugador(jugador1);
-        PuntuadorMcClasico puntuador = new PuntuadorMcClasico(3);
+        PuntuadorMCClasica puntuador = new PuntuadorMCClasica(3);
 
         respuesta1.establecerComoRespuestaAcertada();
         respuesta3.establecerComoRespuestaAcertada();
@@ -86,7 +86,7 @@ public class PuntuadorMultipleChoiceClasicaTest {
         Respuesta respuesta3 = new Respuesta();
         Respuesta respuesta4 = new Respuesta();
         RespuestasJugador respuestas = new RespuestasJugador(jugador1);
-        PuntuadorMcClasico puntuador = new PuntuadorMcClasico(3);
+        PuntuadorMCClasica puntuador = new PuntuadorMCClasica(3);
 
         respuesta1.establecerComoRespuestaAcertada();
         respuesta3.establecerComoRespuestaAcertada();

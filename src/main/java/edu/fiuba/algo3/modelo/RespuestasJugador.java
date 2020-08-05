@@ -26,20 +26,6 @@ public class RespuestasJugador {
         this.opcionesElegidas.add(opcionElegida);
     }
 
-    public int puntuarRespuestas() {
-        int puntos = 0;
-        for (Respuesta r : this.listaRespuestas) {
-            if (r.puntuar() == 0) {
-                return 0;
-            } else {
-                puntos += r.puntuar();
-            }
-        }
-        return puntos;
-    }
-
-    //Refactor con PuntuadorParcial
-
     public void evaluarRespuestasCon(Puntuador puntuador) {
         for(Respuesta r: this.listaRespuestas) { r.evaluarCon(puntuador); }
         puntuador.puntuar(this.jugador);

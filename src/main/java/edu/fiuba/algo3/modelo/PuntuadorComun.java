@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
-public class PuntuadorVoF implements Puntuador {
+public class PuntuadorComun implements Puntuador {
     private ContadorAciertos cantidadAciertos;
 
-    public PuntuadorVoF() {
+    public PuntuadorComun() {
         this.cantidadAciertos = new AciertoComun();
     }
 
