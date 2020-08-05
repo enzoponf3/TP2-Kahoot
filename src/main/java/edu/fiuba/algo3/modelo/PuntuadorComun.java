@@ -1,15 +1,15 @@
 package edu.fiuba.algo3.modelo;
 
 public class PuntuadorComun implements Puntuador {
-    private ContadorAciertos cantidadAciertos;
+    private Puntaje puntaje;
 
     public PuntuadorComun() {
-        this.cantidadAciertos = new AciertoComun();
+        this.puntaje = new Puntaje();
     }
 
-    public void acierto() { this.cantidadAciertos.sumarAcierto(); }
+    public void acierto() { this.puntaje.sumarPunto(); }
 
     public void fallido() {}
 
-    public void puntuar(Jugador jugador) { this.cantidadAciertos.puntuar(jugador); }
+    public void puntuar(Jugador jugador) { jugador.puntuar(this.puntaje); }
 }

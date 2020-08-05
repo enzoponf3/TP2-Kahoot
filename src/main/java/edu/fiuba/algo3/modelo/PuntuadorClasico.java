@@ -1,12 +1,12 @@
 package edu.fiuba.algo3.modelo;
 
-public class PuntuadorMCClasica implements Puntuador {
-    private ContadorAciertos cantidadAciertos;
+public class PuntuadorClasico implements Puntuador {
+    private Puntaje puntaje;
     private int cantidadRespuestaAcertadas;
     private int cantidadRespuestasCorrectas;
 
-    public PuntuadorMCClasica(int cantidadRespuestasCorrectas) {
-        this.cantidadAciertos = new AciertoComun();
+    public PuntuadorClasico(int cantidadRespuestasCorrectas) {
+        this.puntaje = new Puntaje();
         this.cantidadRespuestaAcertadas = 0;
         this.cantidadRespuestasCorrectas = cantidadRespuestasCorrectas;
     }
@@ -15,13 +15,12 @@ public class PuntuadorMCClasica implements Puntuador {
         this.cantidadRespuestaAcertadas++;
     }
 
-    public void fallido() { this.cantidadAciertos = new AciertoAnulador(); }
+    public void fallido() { this.puntaje = new PuntajeNulo(); }
 
     public void puntuar(Jugador jugador) {
         if( cantidadRespuestaAcertadas == cantidadRespuestasCorrectas) {
-            this.cantidadAciertos.sumarAcierto();
+
         }
-        this.cantidadAciertos.puntuar(jugador);
     }
 
 }

@@ -33,9 +33,6 @@ public class PreguntaChoicePenal {
                 r.establecerComoRespuestaAcertada();
                 i++;
             }
-            else {
-              r.establecerComoRespuestaNoAcertadaPenal();
-            }
         }
     }
 

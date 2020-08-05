@@ -5,25 +5,15 @@ import java.util.List;
 
 public class RespuestasJugador {
     private ArrayList<Respuesta> listaRespuestas;
-    private ArrayList<Opcion> opcionesElegidas;
     private Jugador jugador;
 
     public RespuestasJugador(Jugador unJugador) {
         this.jugador = unJugador;
         this.listaRespuestas = new ArrayList<Respuesta>();
-        this.opcionesElegidas = new ArrayList<>();
-    }
-
-    public void puntuarJugador(int puntos) {
-        this.jugador.asignarPuntos(puntos);
     }
 
     public void agregarRespuesta(Respuesta unaRespuesta) {
         this.listaRespuestas.add(unaRespuesta);
-    }
-
-    public void agregarOpcionesElegidas(Opcion opcionElegida){
-        this.opcionesElegidas.add(opcionElegida);
     }
 
     public void evaluarRespuestasCon(Puntuador puntuador) {
@@ -31,7 +21,7 @@ public class RespuestasJugador {
         puntuador.puntuar(this.jugador);
     }
 
-    public boolean puntuarOrderer(List<Opcion> opcionesOrdenadas) {
-        return opcionesOrdenadas.equals(opcionesElegidas);
+    public ArrayList<Respuesta> devolverRespuestas() {
+        return this.listaRespuestas;
     }
 }

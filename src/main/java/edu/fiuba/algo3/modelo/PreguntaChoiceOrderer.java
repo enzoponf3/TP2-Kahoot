@@ -4,16 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PreguntaChoiceOrderer {
-    private List<Opcion> opcionesOrdenadas;
+    private ArrayList<Respuesta> opcionesOrdenadas;
+    private int cantidadOpciones;
 
-    public PreguntaChoiceOrderer(List<Opcion> opcionesOrdenadas){
-        this.opcionesOrdenadas = opcionesOrdenadas;
+    public PreguntaChoiceOrderer(int cantidadOpciones){
+        this.cantidadOpciones = cantidadOpciones;
+        this.opcionesOrdenadas = new ArrayList<>();
+        for (int i=0;i < this.cantidadOpciones; i++){
+            opcionesOrdenadas.add(new Respuesta());
+        }
     }
 
-    public void evaluarRespuestas(RespuestasJugador respuestas){
-        if(respuestas.puntuarOrderer(opcionesOrdenadas)){
-            respuestas.puntuarJugador(1);
+    public void evaluarRespuestas(ArrayList<RespuestasJugador> respuestasVariosJugadores) {
+        for (RespuestasJugador iterador: respuestasVariosJugadores) {
+            iterador.evaluarRespuestasCon(new PuntuadorOrdered(opcionesOrdenadas,iterador));
         }
+    }
 
+    public Respuesta elegirRespuesta(int idx){
+        return opcionesOrdenadas.get(idx);
     }
 }

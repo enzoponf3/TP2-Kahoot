@@ -9,8 +9,6 @@ public class PreguntaVoFPenal {
     public PreguntaVoFPenal(){
         this.respuestaVerdadera = new Respuesta();
         this.respuestaFalsa = new Respuesta();
-        this.respuestaVerdadera.establecerComoRespuestaNoAcertadaPenal();
-        this.respuestaFalsa.establecerComoRespuestaNoAcertadaPenal();
     }
 
     static public PreguntaVoFPenal crearPreguntaVerdadera() {
@@ -44,14 +42,6 @@ public class PreguntaVoFPenal {
     }
     public Respuesta ElegirRespuestaVerdadera() {
         return respuestaVerdadera;
-    }
-
-    protected int puntuarRespuestaV(){
-        return this.respuestaVerdadera.puntuar();
-    }
-
-    protected int puntuarRespuestaF(){
-        return this.respuestaFalsa.puntuar();
     }
 }
 

@@ -8,41 +8,29 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PreguntaMultipleChoiceOrdererTest {
 
-    @Test
-    public void TestPreguntaMCOrdererJugador1Con3CorrectasSeLeAsigna1PuntoYJugador2Con0CorrectasSeLeAsigna0Puntos(){
 
+    @Test
+    public void TestPreguntaMCOrdererJugador1Con4CorrectasSeLeAsigna1PuntoYJugador2Con0CorrectasSeLeAsigna0Puntos() {
+        ArrayList<RespuestasJugador> respuestasJugadores = new ArrayList<>();
         Jugador jugador1 = new Jugador();
         Jugador jugador2 = new Jugador();
 
-        Opcion opcion1 = new Opcion("1");
-        Opcion opcion2 = new Opcion("2");
-        Opcion opcion3 = new Opcion("3");
+        PreguntaChoiceOrderer preguntaMC = new PreguntaChoiceOrderer(4);
 
-        ArrayList<Opcion> opcionesOrdenadas = new ArrayList<>();
+        RespuestasJugador respuestasJugador1 = new RespuestasJugador(jugador1);
+        respuestasJugador1.agregarRespuesta(preguntaMC.elegirRespuesta(0));
+        respuestasJugador1.agregarRespuesta(preguntaMC.elegirRespuesta(1));
+        respuestasJugador1.agregarRespuesta(preguntaMC.elegirRespuesta(2));
+        respuestasJugador1.agregarRespuesta(preguntaMC.elegirRespuesta(3));
 
-        opcionesOrdenadas.add(opcion1);
-        opcionesOrdenadas.add(opcion2);
-        opcionesOrdenadas.add(opcion3);
+        RespuestasJugador respuestasJugador2 = new RespuestasJugador(jugador2);
+        respuestasJugador2.agregarRespuesta(preguntaMC.elegirRespuesta(1));
+        respuestasJugador2.agregarRespuesta(preguntaMC.elegirRespuesta(3));
 
-        PreguntaChoiceOrderer pregunta1 = new PreguntaChoiceOrderer(opcionesOrdenadas);
+        respuestasJugadores.add(respuestasJugador1);
+        respuestasJugadores.add(respuestasJugador2);
 
-        RespuestasJugador opcionesJugador1 = new RespuestasJugador(jugador1);
-
-
-        opcionesJugador1.agregarOpcionesElegidas(opcion1);
-        opcionesJugador1.agregarOpcionesElegidas(opcion2);
-        opcionesJugador1.agregarOpcionesElegidas(opcion3);
-
-        RespuestasJugador opcionesJugador2 = new RespuestasJugador(jugador2);
-
-        opcionesJugador2.agregarOpcionesElegidas(opcion1);
-        opcionesJugador2.agregarOpcionesElegidas(opcion3);
-        opcionesJugador2.agregarOpcionesElegidas(opcion2);
-        
-
-        pregunta1.evaluarRespuestas(opcionesJugador1);
-        pregunta1.evaluarRespuestas(opcionesJugador2);
-
+        preguntaMC.evaluarRespuestas(respuestasJugadores);
 
         assertEquals(1, jugador1.puntos());
         assertEquals(0, jugador2.puntos());
