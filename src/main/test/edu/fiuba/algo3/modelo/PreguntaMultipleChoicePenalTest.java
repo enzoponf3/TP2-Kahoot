@@ -9,47 +9,31 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class PreguntaMultipleChoicePenalTest {
 
     @Test
-    public void TestPreguntaMCPenalSuma0ParaJugadorCon3CorrectasY3IncorrectasY3ParaJugadorCon3Correctas(){
-        PreguntaChoicePenal pregunta1 = new PreguntaChoicePenal();
-        ArrayList<RespuestasJugador> listaRespuestasJugadores= new <RespuestasJugador>ArrayList();
+    public void TestPreguntaMCPenalSuma1ParaJugadorCon2CorrectasY1IncorrectasY3ParaJugadorCon3Correctas(){
+        ArrayList <RespuestasJugador> RespuestasJugadores= new <RespuestasJugador>ArrayList();
         Jugador jugador1 = new Jugador();
         Jugador jugador2 = new Jugador();
 
-        Respuesta resp1 = new Respuesta();
-        Respuesta resp2 = new Respuesta();
-        Respuesta resp3 = new Respuesta();
-        Respuesta resp4 = new Respuesta();
-        Respuesta resp5 = new Respuesta();
-        Respuesta resp6 = new Respuesta();
+        PreguntaChoicePenal preguntaMCPenal = new PreguntaChoicePenal(4,3);
+        preguntaMCPenal.agregarRespuestasCorrectas();
 
+        RespuestasJugador respuestasJugador1 = new RespuestasJugador(jugador1);
+        respuestasJugador1.agregarRespuesta(preguntaMCPenal.elegirRespuesta(0));
+        respuestasJugador1.agregarRespuesta(preguntaMCPenal.elegirRespuesta(1));
+        respuestasJugador1.agregarRespuesta(preguntaMCPenal.elegirRespuesta(2));
 
-        resp1.establecerComoRespuestaAcertada();
-        resp3.establecerComoRespuestaAcertada();
-        resp4.establecerComoRespuestaAcertada();
-        resp2.establecerComoRespuestalNoAcertadaPenal();
-        resp5.establecerComoRespuestalNoAcertadaPenal();
-        resp6.establecerComoRespuestalNoAcertadaPenal();
+        RespuestasJugador respuestasJugador2 = new RespuestasJugador(jugador2);
+        respuestasJugador2.agregarRespuesta(preguntaMCPenal.elegirRespuesta(1));
+        respuestasJugador2.agregarRespuesta(preguntaMCPenal.elegirRespuesta(3));
+        respuestasJugador2.agregarRespuesta(preguntaMCPenal.elegirRespuesta(2));
 
-        RespuestasJugador listaRespuestasJugador1 = new RespuestasJugador(jugador1);
-        listaRespuestasJugador1.agregarRespuesta(resp1);
-        listaRespuestasJugador1.agregarRespuesta(resp2);
-        listaRespuestasJugador1.agregarRespuesta(resp3);
-        listaRespuestasJugador1.agregarRespuesta(resp4);
-        listaRespuestasJugador1.agregarRespuesta(resp5);
-        listaRespuestasJugador1.agregarRespuesta(resp6);
+        RespuestasJugadores.add( respuestasJugador1);
+        RespuestasJugadores.add( respuestasJugador2);
 
-        RespuestasJugador listaRespuestasJugador2 = new RespuestasJugador(jugador2);
-        listaRespuestasJugador2.agregarRespuesta(resp1);
-        listaRespuestasJugador2.agregarRespuesta(resp3);
-        listaRespuestasJugador2.agregarRespuesta(resp4);
+        preguntaMCPenal.evaluarRespuestas(RespuestasJugadores);
 
-
-        listaRespuestasJugadores.add( listaRespuestasJugador1);
-        listaRespuestasJugadores.add( listaRespuestasJugador2);
-
-        pregunta1.evaluarRespuestas(listaRespuestasJugadores);
-
-        assertEquals(0, jugador1.puntos());
-        assertEquals(3, jugador2.puntos());
+        assertEquals(3, jugador1.puntos());
+        assertEquals(1, jugador2.puntos());
     }
+
 }
