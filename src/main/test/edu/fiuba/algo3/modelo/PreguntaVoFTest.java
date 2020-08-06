@@ -9,32 +9,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PreguntaVoFTest {
 
-
-    ///////////////////////////// Creación preguntas VoF ////////////////////////////////////////////////////
-    @Test
-    public void TestCreacionPreguntaVerderaPuntua1ParaRespuestaVerdadera(){
-        PreguntaVoF preguntaV = PreguntaVoF.crearPreguntaVerdadera();
-
-        assertEquals(1, preguntaV.puntuarRespuestaV());
-    }
-
-    @Test
-    public void TestCreacionPreguntaFalsaPuntua0ParaRespuestaVerdadera(){
-        PreguntaVoF preguntaF = PreguntaVoF.crearPreguntaFalsa();
-
-        assertEquals(0, preguntaF.puntuarRespuestaV());
-    }
-
-    @Test
-    public void TestCreacionPreguntaFalsaPuntua1ParaRespuestaFalsa(){
-        PreguntaVoF preguntaF = PreguntaVoF.crearPreguntaFalsa();
-
-        assertEquals(1, preguntaF.puntuarRespuestaF());
-    }
-
-
-    ///////////////////////////// Puntuación preguntas VoF ////////////////////////////////////////////////////
-
     @Test
     public void testPreguntaVSumaPuntoAJugador1YNoSumaAJugador2 () {
         Jugador jugador1 = new Jugador();

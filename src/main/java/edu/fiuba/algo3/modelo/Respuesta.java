@@ -12,10 +12,6 @@ public class Respuesta implements Evaluable {
         this.validez = new Correcta();
     }
 
-    public int puntuar() {
-        return this.validez.puntuar();
-    }
-
     public void evaluarCon(Puntuador puntuador) {
         this.validez.evaluarCon(puntuador);
     }

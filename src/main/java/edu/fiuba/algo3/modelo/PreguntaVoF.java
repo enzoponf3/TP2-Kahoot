@@ -44,12 +44,4 @@ public class PreguntaVoF {
     public Respuesta ElegirRespuestaVerdadera() {
         return respuestaVerdadera;
     }
-
-    protected int puntuarRespuestaV(){
-        return this.respuestaVerdadera.puntuar();
-    }
-
-    protected int puntuarRespuestaF(){
-        return this.respuestaFalsa.puntuar();
-    }
 }
