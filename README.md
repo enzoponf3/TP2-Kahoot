@@ -38,8 +38,7 @@ https://www.overleaf.com/9379674244cqmdrrzzfqkf
 
 Diagramas tentativos de la aplicación
 
-![Diagrama de clases](/src/informe/img/clases.png)
-![Patrón Abstract Factory](/src/informe/img/AbstractFactory.png)
+![Diagrama de clases](/src/informe/img/"Diagrama de clases completo.png")
 
 ## Ejecutando las pruebas
 
