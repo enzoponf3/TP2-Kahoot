@@ -1,21 +1,13 @@
 package edu.fiuba.algo3.modelo;
 
 public class Identificador {
-    private ValidezRespuesta validez;
+    private Identificable estado;
 
-    public Identificador() {
-        this.validez = new Incorrecta();
-    }
+    public Identificador() { this.estado = new Desactivado(); }
 
-    public void activar() {
-        this.validez = new Correcta();
-    }
+    public void activar() { this.estado = new Activado(); }
 
-    public void resetear() {
-        this.validez = new Incorrecta();
-    }
+    public void desactivar() { this.estado = new Desactivado(); }
 
-    public void validarRespuesta(RespuestaGroup respuesta) {
-        respuesta.validar(this.validez);
-    }
+    public void identificarRespuesta(RespuestaGroup respuesta) { this.estado.identificar(respuesta); }
 }

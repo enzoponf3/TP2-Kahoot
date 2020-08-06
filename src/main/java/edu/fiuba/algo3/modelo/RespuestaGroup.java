@@ -9,15 +9,11 @@ public class RespuestaGroup implements Evaluable {
         this.validez = new Incorrecta();
     }
 
-    public void activarIdentificador() {
-        this.identificador.activar();
-    }
-
-    public void validar(ValidezRespuesta validez) {
-        this.validez = validez;
-    }
+    public void identificarse() { this.identificador.identificarRespuesta(this); }
 
     public void evaluarCon(Puntuador puntuador) {
         this.validez.evaluarCon(puntuador);
     }
+
+    public void establecerComoRespuestaAcertada() { this.validez = new Correcta(); }
 }

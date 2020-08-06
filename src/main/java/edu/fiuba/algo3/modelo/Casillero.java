@@ -12,8 +12,8 @@ public class Casillero {
     }
 
     public void introducirRespuesta(RespuestaGroup respuesta) {
-        respuesta.activarIdentificador();
-        this.identificador.validarRespuesta(respuesta);
-        this.identificador.resetear();
+        this.identificador.activar();
+        respuesta.identificarse();
+        this.identificador.desactivar();
     }
 }
