@@ -4,24 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RespuestasJugador {
-    private ArrayList<Respuesta> listaRespuestas;
+    private ArrayList<Evaluable> listaRespuestas;
     private Jugador jugador;
 
     public RespuestasJugador(Jugador unJugador) {
         this.jugador = unJugador;
-        this.listaRespuestas = new ArrayList<Respuesta>();
+        this.listaRespuestas = new ArrayList<Evaluable>();
     }
 
-    public void agregarRespuesta(Respuesta unaRespuesta) {
+    public void agregarRespuesta(Evaluable unaRespuesta) {
         this.listaRespuestas.add(unaRespuesta);
     }
 
     public void evaluarRespuestasCon(Puntuador puntuador) {
-        for(Respuesta r: this.listaRespuestas) { r.evaluarCon(puntuador); }
+        for(Evaluable r: this.listaRespuestas) { r.evaluarCon(puntuador); }
         puntuador.puntuar(this.jugador);
     }
 
-    public ArrayList<Respuesta> devolverRespuestas() {
+    public ArrayList<Evaluable> devolverRespuestas() {
         return this.listaRespuestas;
     }
 }
