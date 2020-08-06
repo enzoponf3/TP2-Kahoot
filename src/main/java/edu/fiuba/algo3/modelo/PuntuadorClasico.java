@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo;
 public class PuntuadorClasico implements Puntuador {
     private Puntaje puntaje;
     private int cantidadRespuestaAcertadas;
-    private int cantidadRespuestasCorrectas;
+    private final int cantidadRespuestasCorrectas;
 
     public PuntuadorClasico(int cantidadRespuestasCorrectas) {
         this.puntaje = new Puntaje();
@@ -19,8 +19,9 @@ public class PuntuadorClasico implements Puntuador {
 
     public void puntuar(Jugador jugador) {
         if( cantidadRespuestaAcertadas == cantidadRespuestasCorrectas) {
-
+            puntaje.sumarPunto();
         }
+        jugador.puntuar(this.puntaje);
     }
 
 }

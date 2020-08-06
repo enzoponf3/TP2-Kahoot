@@ -15,7 +15,6 @@ public class PuntuadorMultipleChoiceClasicaTest {
 
         PuntuadorClasico puntuador = new PuntuadorClasico(1);
 
-
         respuesta1.establecerComoRespuestaAcertada();
         respuestas.agregarRespuesta(respuesta1);
         respuestas.evaluarRespuestasCon(puntuador);
@@ -31,7 +30,6 @@ public class PuntuadorMultipleChoiceClasicaTest {
         RespuestasJugador respuestas = new RespuestasJugador(jugador1);
 
         PuntuadorClasico puntuador = new PuntuadorClasico(1);
-
 
         respuesta1.establecerComoRespuestaAcertada();
         respuestas.agregarRespuesta(respuesta2);
@@ -50,7 +48,6 @@ public class PuntuadorMultipleChoiceClasicaTest {
         RespuestasJugador respuestas = new RespuestasJugador(jugador1);
 
         PuntuadorClasico puntuador = new PuntuadorClasico(3);
-
 
         respuesta1.establecerComoRespuestaAcertada();
         respuesta3.establecerComoRespuestaAcertada();
@@ -74,7 +71,6 @@ public class PuntuadorMultipleChoiceClasicaTest {
 
         PuntuadorClasico puntuador = new PuntuadorClasico(3);
 
-
         respuesta1.establecerComoRespuestaAcertada();
         respuesta3.establecerComoRespuestaAcertada();
         respuesta4.establecerComoRespuestaAcertada();
@@ -96,7 +92,6 @@ public class PuntuadorMultipleChoiceClasicaTest {
         RespuestasJugador respuestas = new RespuestasJugador(jugador1);
 
         PuntuadorClasico puntuador = new PuntuadorClasico(3);
-
 
         respuesta1.establecerComoRespuestaAcertada();
         respuesta3.establecerComoRespuestaAcertada();
