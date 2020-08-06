@@ -38,7 +38,7 @@ https://www.overleaf.com/9379674244cqmdrrzzfqkf
 
 Diagramas tentativos de la aplicación
 
-![Diagrama de clases](/src/informe/img/clases.png)
+![Diagrama de clases](/src/informe/img/clases.jpg)
 
 ## Ejecutando las pruebas
 
