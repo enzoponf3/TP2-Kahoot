@@ -32,11 +32,13 @@ public class PreguntaVoFPenalTest {
 
     }
     @Test
-    public void testPreguntaVPenalMultipilcaPor2AJugador1() {
+    public void testPreguntaVPenalConMulX2Da2AJugadorQueAcierta() {
         Jugador jugador1 = new Jugador();
         PreguntaVoFPenal preguntaVPenal = PreguntaVoFPenal.crearPreguntaVerdadera();
         ArrayList<RespuestasJugador> respuestasJugadores = new <RespuestasJugador>ArrayList();
-        jugador1.usarDoble(); //Botón que indica multiplicador, sólo usable en penal.
+        MultiplicadorDoble mulX2 = new MultiplicadorDoble();
+
+        mulX2.activarMultiplicadorPara(jugador1); //Botón que indica multiplicador, sólo usable en penal.
         RespuestasJugador respuestasJugador1 = new RespuestasJugador(jugador1);
         respuestasJugador1.agregarRespuesta(preguntaVPenal.ElegirRespuestaVerdadera());
         respuestasJugadores.add(respuestasJugador1);
@@ -47,14 +49,17 @@ public class PreguntaVoFPenalTest {
 
     }
     @Test
-    public void testPreguntaVPenalMultipilcaPor2AJugador1LosFallos() {
+    public void testPreguntaVPenalConMulX2DaMenos2AJugadorQueFalla() {
         Jugador jugador1 = new Jugador();
         PreguntaVoFPenal preguntaVPenal = PreguntaVoFPenal.crearPreguntaVerdadera();
         ArrayList<RespuestasJugador> respuestasJugadores = new <RespuestasJugador>ArrayList();
+        MultiplicadorDoble mulX2 = new MultiplicadorDoble();
+
+        mulX2.activarMultiplicadorPara(jugador1); //Botón que indica multiplicador, sólo usable en penal.
 
         RespuestasJugador respuestasJugador1 = new RespuestasJugador(jugador1);
         respuestasJugador1.agregarRespuesta(preguntaVPenal.ElegirRespuestaFalsa());
-        jugador1.usarDoble();
+
         respuestasJugadores.add(respuestasJugador1);
 
         preguntaVPenal.evaluarRespuestas(respuestasJugadores);

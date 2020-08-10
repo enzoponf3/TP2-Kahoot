@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
 
+import edu.fiuba.algo3.modelo.NoUse.Evaluable;
+
 public class Respuesta implements Evaluable {
     private ValidezRespuesta validez;
 

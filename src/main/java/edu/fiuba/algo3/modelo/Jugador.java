@@ -14,20 +14,12 @@ public class Jugador {
     }
 
     public void puntuar(Puntaje puntaje) {
-        this.puntaje.sumar(puntaje);
-    }
-
-    public void usarDoble() {
-        this.multActual = new MultiplicadorDoble();
-
-    }
-    public void usarTriple(){
-        this.multActual = new MultiplicadorTriple();
-    }
-
-    public void usarMultiplicador(Puntaje puntaje) {
         multActual.aplicar(puntaje);
-        this.puntuar(puntaje);
+        this.puntaje.sumar(puntaje);
         this.multActual = new MultiplicadorNormal();
+    }
+
+    public void modificarMultiplicador(Multiplicador unMultiplicador) {
+        this.multActual=unMultiplicador;
     }
 }

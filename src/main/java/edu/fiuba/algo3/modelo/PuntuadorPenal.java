@@ -12,5 +12,5 @@ public class PuntuadorPenal implements Puntuador {
 
     public void fallido() { this.puntaje.restarPunto(); }
 
-    public void puntuar(Jugador jugador) { jugador.usarMultiplicador(this.puntaje); }
+    public void puntuar(Jugador jugador) { jugador.puntuar(this.puntaje); }
 }

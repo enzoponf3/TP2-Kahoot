@@ -5,4 +5,9 @@ public class MultiplicadorTriple implements Multiplicador {
     public void aplicar(Puntaje puntaje) {
         puntaje.triplicar();
     }
+
+    @Override
+    public void activarMultiplicadorPara(Jugador unJugador) {
+        unJugador.modificarMultiplicador(this);
+    }
 }

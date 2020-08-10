@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CasilleroTest {
+public class CasilleroTest_BORRAR {
 
-    @Test
+   /* @Test
     public void TestJugadorIntroduceLasRespuestasEnLosCasillerosYSumaUnPunto() {
         Jugador jugador = new Jugador();
         RespuestasJugador respuestas = new RespuestasJugador(jugador);
@@ -60,5 +60,5 @@ public class CasilleroTest {
         respuestas.evaluarRespuestasCon(new PuntuadorClasico(5));
 
         assertEquals(0, jugador.puntos());
-    }
+    }*/
 }

@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.NoUse;
 
 public class Identificador {
     private Identificable estado;
@@ -9,5 +9,6 @@ public class Identificador {
 
     public void desactivar() { this.estado = new Desactivado(); }
 
-    public void identificarRespuesta(RespuestaGroup respuesta) { this.estado.identificar(respuesta); }
+    public void identificarRespuesta(RespuestaGroup respuesta) {
+        this.estado.identificar(respuesta); }
 }

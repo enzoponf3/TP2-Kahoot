@@ -7,4 +7,9 @@ public class MultiplicadorDoble implements Multiplicador {
         puntaje.duplicar();
 
     }
+
+    @Override
+    public void activarMultiplicadorPara(Jugador unJugador) {
+        unJugador.modificarMultiplicador(this);
+    }
 }
