@@ -2,12 +2,12 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
 
-public class  PuntuadorOrdered implements Puntuador {
+public class PuntuadorOrdenada implements Puntuador {
     private RespuestasJugador respuestasJugador;
     private ArrayList<Respuesta> opcionesOrdenadas;
     private Puntaje puntaje ;
 
-    public PuntuadorOrdered(ArrayList<Respuesta> opcionesOrdenadas, RespuestasJugador respuestasJugador){
+    public PuntuadorOrdenada(ArrayList<Respuesta> opcionesOrdenadas, RespuestasJugador respuestasJugador){
         puntaje = new Puntaje();
         this.opcionesOrdenadas = opcionesOrdenadas;
         this.respuestasJugador = respuestasJugador;

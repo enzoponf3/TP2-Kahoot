@@ -15,7 +15,7 @@ public class PreguntaMultipleChoiceOrdererTest {
         Jugador jugador1 = new Jugador();
         Jugador jugador2 = new Jugador();
 
-        PreguntaChoiceOrderer preguntaMC = new PreguntaChoiceOrderer(4);
+        PreguntaOrdenada preguntaMC = new PreguntaOrdenada(4);
 
         RespuestasJugador respuestasJugador1 = new RespuestasJugador(jugador1);
         respuestasJugador1.agregarRespuesta(preguntaMC.elegirRespuesta(0));

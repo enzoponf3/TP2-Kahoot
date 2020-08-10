@@ -44,7 +44,7 @@ public class PreguntaMultipleChoiceGroupTest {
         Jugador jugador1 = new Jugador();
         Jugador jugador2 = new Jugador();
 
-        PreguntaChoiceGroup preguntaGroup = new PreguntaChoiceGroup(3,2);
+        PreguntaGrupo preguntaGroup = new PreguntaGrupo(3,2);
 
         RespuestasJugadorAgrupable respuestasJugador1 = new RespuestasJugadorAgrupable(jugador1);
         respuestasJugador1.agregarRespuestaAContenedorA(preguntaGroup.elegirRespuesta(0));

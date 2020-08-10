@@ -2,12 +2,12 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
 
-public class PreguntaChoiceGroup {
+public class PreguntaGrupo {
     private final ArrayList<Respuesta> respuestasGrupoA;
     private final ArrayList<Respuesta> respuestasGrupoB;
     private final ArrayList<Respuesta> respuestasElegibles;
 
-    public PreguntaChoiceGroup(int cantidadGrupoA,int cantidadGrupoB){
+    public PreguntaGrupo(int cantidadGrupoA, int cantidadGrupoB){
         this.respuestasGrupoA = new ArrayList<Respuesta>();
         this.respuestasGrupoB = new ArrayList<Respuesta>();
         this.respuestasElegibles = new ArrayList<Respuesta>();

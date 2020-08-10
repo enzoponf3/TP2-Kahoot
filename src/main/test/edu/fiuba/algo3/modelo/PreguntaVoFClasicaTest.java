@@ -7,13 +7,13 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PreguntaVoFTest {
+public class PreguntaVoFClasicaTest {
 
     @Test
     public void testPreguntaVSumaPuntoAJugador1YNoSumaAJugador2 () {
         Jugador jugador1 = new Jugador();
         Jugador jugador2 = new Jugador();
-        PreguntaVoF preguntaV = PreguntaVoF.crearPreguntaVerdadera();
+        PreguntaVoFClasica preguntaV = PreguntaVoFClasica.crearPreguntaVerdadera();
         ArrayList<RespuestasJugador> respuestasJugadores= new <RespuestasJugador>ArrayList();
 
         RespuestasJugador respuestasJugador1 = new RespuestasJugador(jugador1);
