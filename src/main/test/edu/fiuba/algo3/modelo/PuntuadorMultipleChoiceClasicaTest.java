@@ -13,7 +13,7 @@ public class PuntuadorMultipleChoiceClasicaTest {
         Respuesta respuesta2 = new Respuesta();
         RespuestasJugador respuestas = new RespuestasJugador(jugador1);
 
-        PuntuadorClasico puntuador = new PuntuadorClasico(1);
+        PuntuadorMCClasica puntuador = new PuntuadorMCClasica(1);
 
         respuesta1.establecerComoRespuestaAcertada();
         respuestas.agregarRespuesta(respuesta1);
@@ -29,7 +29,7 @@ public class PuntuadorMultipleChoiceClasicaTest {
         Respuesta respuesta2 = new Respuesta();
         RespuestasJugador respuestas = new RespuestasJugador(jugador1);
 
-        PuntuadorClasico puntuador = new PuntuadorClasico(1);
+        PuntuadorMCClasica puntuador = new PuntuadorMCClasica(1);
 
         respuesta1.establecerComoRespuestaAcertada();
         respuestas.agregarRespuesta(respuesta2);
@@ -47,7 +47,7 @@ public class PuntuadorMultipleChoiceClasicaTest {
         Respuesta respuesta4 = new Respuesta();
         RespuestasJugador respuestas = new RespuestasJugador(jugador1);
 
-        PuntuadorClasico puntuador = new PuntuadorClasico(3);
+        PuntuadorMCClasica puntuador = new PuntuadorMCClasica(3);
 
         respuesta1.establecerComoRespuestaAcertada();
         respuesta3.establecerComoRespuestaAcertada();
@@ -69,7 +69,7 @@ public class PuntuadorMultipleChoiceClasicaTest {
         Respuesta respuesta4 = new Respuesta();
         RespuestasJugador respuestas = new RespuestasJugador(jugador1);
 
-        PuntuadorClasico puntuador = new PuntuadorClasico(3);
+        PuntuadorMCClasica puntuador = new PuntuadorMCClasica(3);
 
         respuesta1.establecerComoRespuestaAcertada();
         respuesta3.establecerComoRespuestaAcertada();
@@ -91,7 +91,7 @@ public class PuntuadorMultipleChoiceClasicaTest {
         Respuesta respuesta4 = new Respuesta();
         RespuestasJugador respuestas = new RespuestasJugador(jugador1);
 
-        PuntuadorClasico puntuador = new PuntuadorClasico(3);
+        PuntuadorMCClasica puntuador = new PuntuadorMCClasica(3);
 
         respuesta1.establecerComoRespuestaAcertada();
         respuesta3.establecerComoRespuestaAcertada();

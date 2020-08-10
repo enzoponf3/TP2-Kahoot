@@ -10,7 +10,7 @@ public class PreguntaChoiceClasica extends PreguntaMC{
 
     public void evaluarRespuestas(ArrayList<RespuestasJugador> respuestasVariosJugadores) {
         for (RespuestasJugador iterador: respuestasVariosJugadores) {
-            iterador.evaluarRespuestasCon(new PuntuadorClasico(cantidadCorrectas));
+            iterador.evaluarRespuestasCon(new PuntuadorMCClasica(cantidadCorrectas));
         }
     }
 }

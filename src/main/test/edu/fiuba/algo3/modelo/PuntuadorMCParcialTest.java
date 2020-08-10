@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PuntuadorParcialTest {
+public class PuntuadorMCParcialTest {
     @Test
     public void TestJugadorEligeUnaRespuestaCorrectaYSumaUnPunto() {
         Jugador jugador = new Jugador();
@@ -13,7 +13,7 @@ public class PuntuadorParcialTest {
         Respuesta respuesta2 = new Respuesta();
         Respuesta respuesta3 = new Respuesta();
         Respuesta respuesta4 = new Respuesta();
-        Puntuador puntuadorParcial = new PuntuadorParcial();
+        Puntuador puntuadorParcial = new PuntuadorMCParcial();
 
         respuesta2.establecerComoRespuestaAcertada();
         respuesta3.establecerComoRespuestaAcertada();
@@ -31,7 +31,7 @@ public class PuntuadorParcialTest {
         Respuesta respuesta2 = new Respuesta();
         Respuesta respuesta3 = new Respuesta();
         Respuesta respuesta4 = new Respuesta();
-        Puntuador puntuadorParcial = new PuntuadorParcial();
+        Puntuador puntuadorParcial = new PuntuadorMCParcial();
 
         respuesta1.establecerComoRespuestaAcertada();
         respuesta3.establecerComoRespuestaAcertada();
@@ -50,7 +50,7 @@ public class PuntuadorParcialTest {
         Respuesta respuesta2 = new Respuesta();
         Respuesta respuesta3 = new Respuesta();
         Respuesta respuesta4 = new Respuesta();
-        Puntuador puntuadorParcial = new PuntuadorParcial();
+        Puntuador puntuadorParcial = new PuntuadorMCParcial();
 
         respuesta3.establecerComoRespuestaAcertada();
         respuesta4.establecerComoRespuestaAcertada();
@@ -70,7 +70,7 @@ public class PuntuadorParcialTest {
         Respuesta respuesta2 = new Respuesta();
         Respuesta respuesta3 = new Respuesta();
         Respuesta respuesta4 = new Respuesta();
-        Puntuador puntuadorParcial = new PuntuadorParcial();
+        Puntuador puntuadorParcial = new PuntuadorMCParcial();
 
         respuesta2.establecerComoRespuestaAcertada();
         respuesta4.establecerComoRespuestaAcertada();
@@ -88,7 +88,7 @@ public class PuntuadorParcialTest {
         Respuesta respuesta2 = new Respuesta();
         Respuesta respuesta3 = new Respuesta();
         Respuesta respuesta4 = new Respuesta();
-        Puntuador puntuadorParcial = new PuntuadorParcial();
+        Puntuador puntuadorParcial = new PuntuadorMCParcial();
 
         respuesta1.establecerComoRespuestaAcertada();
         respuesta3.establecerComoRespuestaAcertada();

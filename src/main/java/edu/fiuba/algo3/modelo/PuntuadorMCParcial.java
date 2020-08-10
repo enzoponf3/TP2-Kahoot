@@ -1,10 +1,10 @@
 package edu.fiuba.algo3.modelo;
 
-public class PuntuadorParcial implements Puntuador {
+public class PuntuadorMCParcial implements Puntuador {
 
         private Puntaje puntaje;
 
-        public PuntuadorParcial() {
+        public PuntuadorMCParcial() {
             this.puntaje = new Puntaje();
         }
 

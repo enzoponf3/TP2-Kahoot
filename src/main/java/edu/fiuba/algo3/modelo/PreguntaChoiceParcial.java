@@ -10,7 +10,7 @@ public class PreguntaChoiceParcial extends PreguntaMC{
 
     public void evaluarRespuestas(ArrayList<RespuestasJugador> respuestasVariosJugadores) {
         for (RespuestasJugador iterador: respuestasVariosJugadores) {
-            iterador.evaluarRespuestasCon(new PuntuadorParcial());
+            iterador.evaluarRespuestasCon(new PuntuadorMCParcial());
         }
     }
 }

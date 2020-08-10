@@ -1,11 +1,11 @@
 package edu.fiuba.algo3.modelo;
 
-public class PuntuadorClasico implements Puntuador {
+public class PuntuadorMCClasica implements Puntuador {
     private Puntaje puntaje;
     private int cantidadRespuestaAcertadas;
     private final int cantidadRespuestasCorrectas;
 
-    public PuntuadorClasico(int cantidadRespuestasCorrectas) {
+    public PuntuadorMCClasica(int cantidadRespuestasCorrectas) {
         this.puntaje = new Puntaje();
         this.cantidadRespuestaAcertadas = 0;
         this.cantidadRespuestasCorrectas = cantidadRespuestasCorrectas;
