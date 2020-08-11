@@ -17,11 +17,17 @@ public class RespuestasJugador {
     }
 
     public void evaluarRespuestasCon(Puntuador puntuador) {
-        for(Respuesta r: this.listaRespuestas) { r.evaluarCon(puntuador); }
+        for(Respuesta r: this.listaRespuestas) {
+            r.evaluarCon(puntuador);
+        }
         puntuador.puntuar(this.jugador);
     }
 
     public ArrayList<Respuesta> devolverRespuestas() {
         return this.listaRespuestas;
+    }
+
+    public Jugador devolverJugador() {
+        return this.jugador;
     }
 }

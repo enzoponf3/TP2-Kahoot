@@ -12,4 +12,8 @@ public class PuntuadorComun implements Puntuador {
     public void fallido() {}
 
     public void puntuar(Jugador jugador) { jugador.puntuar(this.puntaje); }
+
+    public Puntaje darPuntaje(){
+        return this.puntaje;
+    }
 }

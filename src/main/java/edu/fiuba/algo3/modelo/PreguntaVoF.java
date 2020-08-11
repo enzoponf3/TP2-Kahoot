@@ -27,4 +27,5 @@ public abstract class PreguntaVoF {
     public Respuesta ElegirRespuestaVerdadera() {
         return respuestaVerdadera;
     }
+
 }

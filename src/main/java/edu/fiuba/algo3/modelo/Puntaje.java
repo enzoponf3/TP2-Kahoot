@@ -29,4 +29,11 @@ public class Puntaje {
     public void triplicar(){
         this.valor = this.valor*3;
     }
+
+    public boolean esMenor(Puntaje unPuntaje){
+        if(this.darPuntos()<unPuntaje.darPuntos()) {
+            return true;
+        }
+        return false;
+    }
 }
