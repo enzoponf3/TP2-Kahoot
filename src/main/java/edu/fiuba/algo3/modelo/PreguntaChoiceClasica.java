@@ -9,8 +9,13 @@ public class PreguntaChoiceClasica extends PreguntaMC{
     }
 
     public void evaluarRespuestas(ArrayList<RespuestasJugador> respuestasVariosJugadores) {
+        ArrayList<Evaluador> evaluadores = new ArrayList<>();
         for (RespuestasJugador iterador: respuestasVariosJugadores) {
-            iterador.evaluarRespuestasCon(new PuntuadorMCClasica(cantidadCorrectas));
+            EvaluadorMCClasica evaluador= new EvaluadorMCClasica(cantidadCorrectas,iterador.devolverJugador());
+            iterador.evaluarRespuestasCon(evaluador);
+            evaluadores.add(evaluador);
         }
+        exclusividad.agregarEvaluador(evaluadores.get(0),evaluadores.get(1));
+        exclusividad.puntuarJugadores();
     }
 }

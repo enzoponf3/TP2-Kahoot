@@ -20,8 +20,7 @@ public class PreguntaMultipleChoiceClasicaTest {
         Jugador jugador1 = new Jugador();
         Jugador jugador2 = new Jugador();
 
-        PreguntaChoiceClasica preguntaMC = new PreguntaChoiceClasica(4,3);
-        preguntaMC.agregarRespuestasCorrectas();
+        PreguntaChoiceClasica preguntaMC = new PreguntaChoiceClasica(5,3);
 
         RespuestasJugador respuestasJugador1 = new RespuestasJugador(jugador1);
         respuestasJugador1.agregarRespuesta(preguntaMC.elegirRespuesta(0));

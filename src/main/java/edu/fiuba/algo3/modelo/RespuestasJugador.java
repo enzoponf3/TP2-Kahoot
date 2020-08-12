@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class RespuestasJugador {
     private ArrayList<Respuesta> listaRespuestas;
@@ -16,11 +15,11 @@ public class RespuestasJugador {
         this.listaRespuestas.add(unaRespuesta);
     }
 
-    public void evaluarRespuestasCon(Puntuador puntuador) {
+    public void evaluarRespuestasCon(Evaluador evaluador) {
         for(Respuesta r: this.listaRespuestas) {
-            r.evaluarCon(puntuador);
+            r.evaluarCon(evaluador);
         }
-        puntuador.puntuar(this.jugador);
+        evaluador.sumarPuntosParciales();
     }
 
     public ArrayList<Respuesta> devolverRespuestas() {

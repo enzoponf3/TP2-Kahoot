@@ -2,9 +2,7 @@ package edu.fiuba.algo3.modelo.NoUse;
 
 import edu.fiuba.algo3.modelo.Correcta;
 import edu.fiuba.algo3.modelo.Incorrecta;
-import edu.fiuba.algo3.modelo.NoUse.Evaluable;
-import edu.fiuba.algo3.modelo.NoUse.Identificador;
-import edu.fiuba.algo3.modelo.Puntuador;
+import edu.fiuba.algo3.modelo.Evaluador;
 import edu.fiuba.algo3.modelo.ValidezRespuesta;
 
 public class RespuestaGroup implements Evaluable {
@@ -18,8 +16,8 @@ public class RespuestaGroup implements Evaluable {
 
     public void identificarse() { this.identificador.identificarRespuesta(this); }
 
-    public void evaluarCon(Puntuador puntuador) {
-        this.validez.evaluarCon(puntuador);
+    public void evaluarCon(Evaluador evaluador) {
+        this.validez.evaluarCon(evaluador);
     }
 
     public void establecerComoRespuestaAcertada() { this.validez = new Correcta(); }

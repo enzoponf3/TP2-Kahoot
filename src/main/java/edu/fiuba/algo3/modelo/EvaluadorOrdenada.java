@@ -2,12 +2,12 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
 
-public class PuntuadorOrdenada implements Puntuador {
+public class EvaluadorOrdenada implements Evaluador {
     private RespuestasJugador respuestasJugador;
     private ArrayList<Respuesta> opcionesOrdenadas;
     private Puntaje puntaje ;
 
-    public PuntuadorOrdenada(ArrayList<Respuesta> opcionesOrdenadas, RespuestasJugador respuestasJugador){
+    public EvaluadorOrdenada(ArrayList<Respuesta> opcionesOrdenadas, RespuestasJugador respuestasJugador){
         puntaje = new Puntaje();
         this.opcionesOrdenadas = opcionesOrdenadas;
         this.respuestasJugador = respuestasJugador;
@@ -15,19 +15,26 @@ public class PuntuadorOrdenada implements Puntuador {
 
     @Override
     public void acierto() {
-
     }
 
     @Override
     public void fallido() {
-
     }
 
     @Override
-    public void puntuar(Jugador jugador) {
+    public void sumarPuntosParciales() {
         if(opcionesOrdenadas.equals(respuestasJugador.devolverRespuestas())){
             puntaje.sumarPunto();
         }
-        jugador.puntuar(puntaje);
+    }
+
+    @Override
+    public Puntaje puntaje() {
+        return this.puntaje;
+    }
+
+    @Override
+    public Jugador jugador() {
+        return this.respuestasJugador.devolverJugador();
     }
 }

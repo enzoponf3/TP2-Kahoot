@@ -11,7 +11,7 @@ public class Respuesta {
         this.validez = new Correcta();
     }
 
-    public void evaluarCon(Puntuador puntuador) {
-        this.validez.evaluarCon(puntuador);
+    public void evaluarCon(Evaluador evaluador) {
+        this.validez.evaluarCon(evaluador);
     }
 }

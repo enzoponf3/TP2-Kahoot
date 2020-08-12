@@ -18,8 +18,14 @@ public class PreguntaVoFPenal extends PreguntaVoF {
 
     public void evaluarRespuestas(ArrayList<RespuestasJugador> respuestasVariosJugadores) {
         for (RespuestasJugador iterador: respuestasVariosJugadores) {
-            iterador.evaluarRespuestasCon(new PuntuadorPenal());
+            EvaluadorPenal evaluador = new EvaluadorPenal();
+            iterador.evaluarRespuestasCon(evaluador);
+            this.asignarPuntosDeEvaluadorA(evaluador,iterador.devolverJugador());
         }
+    }
+
+    private void asignarPuntosDeEvaluadorA(EvaluadorPenal evaluador, Jugador unJugador) {
+        unJugador.puntuar(evaluador.puntaje());
     }
 }
 

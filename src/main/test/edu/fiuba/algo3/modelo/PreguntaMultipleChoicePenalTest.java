@@ -35,28 +35,4 @@ public class PreguntaMultipleChoicePenalTest {
         assertEquals(3, jugador1.puntos());
         assertEquals(1, jugador2.puntos());
     }
-
-    @Test
-    public void testPreguntaMCPenalConMulX3TriplicaAJugadorQueAcierta(){
-        ArrayList <RespuestasJugador> RespuestasJugadores= new <RespuestasJugador>ArrayList();
-        Jugador jugador1 = new Jugador();
-        MultiplicadorTriple mulX2 = new MultiplicadorTriple();
-
-        mulX2.activarMultiplicadorPara(jugador1); //Botón que indica multiplicador, sólo usable en penal.
-        PreguntaChoicePenal preguntaMCPenal = new PreguntaChoicePenal(4,3);
-        preguntaMCPenal.agregarRespuestasCorrectas();
-
-        RespuestasJugador respuestasJugador1 = new RespuestasJugador(jugador1);
-        respuestasJugador1.agregarRespuesta(preguntaMCPenal.elegirRespuesta(0));
-        respuestasJugador1.agregarRespuesta(preguntaMCPenal.elegirRespuesta(1));
-        respuestasJugador1.agregarRespuesta(preguntaMCPenal.elegirRespuesta(2));
-
-        RespuestasJugadores.add( respuestasJugador1);
-
-        preguntaMCPenal.evaluarRespuestas(RespuestasJugadores);
-
-        assertEquals(9, jugador1.puntos());
-    }
-
-
 }

@@ -13,10 +13,6 @@ public class RespuestasJugadorAgrupable {
         this.respuestasGrupoB = new ArrayList<Respuesta>();
     }
 
-    public void evaluarRespuestasCon(Puntuador puntuador) {
-        puntuador.puntuar(this.jugador);
-    }
-
     public ArrayList<Respuesta> devolverRespuestasGrupoA() {
         return this.respuestasGrupoA;
     }
@@ -30,5 +26,9 @@ public class RespuestasJugadorAgrupable {
 
     public void agregarRespuestaAContenedorB(Respuesta unaRespuesta) {
         respuestasGrupoB.add(unaRespuesta);
+    }
+
+    public Jugador devolverJugador() {
+        return this.jugador;
     }
 }

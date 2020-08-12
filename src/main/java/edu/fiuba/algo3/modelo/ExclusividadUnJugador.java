@@ -1,21 +1,28 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.ArrayList;
-
 public class ExclusividadUnJugador implements ExclusividadPuntaje {
-
-    public void puntuarJugadores(ArrayList<Jugador> jugadores, ArrayList<Puntaje> puntajesParciales) {
-        if (puntajesParciales.get(0).esMenor(puntajesParciales.get(1))){
-            puntajesParciales.get(1).duplicar();
-            jugadores.get(1).puntuar(puntajesParciales.get(1));
+    public Evaluador evaluadorJugador1;
+    public Evaluador evaluadorJugador2;
+    @Override
+    public void puntuarJugadores() {
+        if (this.evaluadorJugador1.puntaje().esMenor(this.evaluadorJugador2.puntaje())){
+            this.evaluadorJugador2.puntaje().duplicar();
+            this.evaluadorJugador2.jugador().puntuar(this.evaluadorJugador2.puntaje());
         }
-        else if (puntajesParciales.get(1).esMenor(puntajesParciales.get(0))) {
-            puntajesParciales.get(0).duplicar();
-            jugadores.get(0).puntuar(puntajesParciales.get(0));
+        else if (this.evaluadorJugador2.puntaje().esMenor(this.evaluadorJugador1.puntaje())){
+            this.evaluadorJugador1.puntaje().duplicar();
+            this.evaluadorJugador1.jugador().puntuar(this.evaluadorJugador1.puntaje());
         }
     }
 
     public ExclusividadPuntaje cambiarExclusividad(){
         return (new ExclusividadDosJugadores());
     }
+
+    @Override
+    public void agregarEvaluador(Evaluador unEvaluador, Evaluador otroEvaluador) {
+        this.evaluadorJugador1=unEvaluador;
+        this.evaluadorJugador2=otroEvaluador;
+    }
+
 }
