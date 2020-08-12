@@ -1,6 +1,10 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.modelo.Jugador;
+import edu.fiuba.algo3.modelo.PreguntaVoF;
+import edu.fiuba.algo3.modelo.PreguntaVoFClasica;
 import edu.fiuba.algo3.vista.PantallaInicio;
+import edu.fiuba.algo3.vista.PantallaPregunta;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -14,17 +18,23 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        var javaVersion = SystemInfo.javaVersion();
-        var javafxVersion = SystemInfo.javafxVersion();
+        Jugador jugador1 = this.crearJugador("Diego");
+        PreguntaVoF pregunta1 = this.crearPreguntaVoF("Este es tu enunciado, que cambiaste.");
 
-        var label = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
-        var scene = new Scene(new StackPane(label), 1300, 720);
-        var scene2=new Scene(new PantallaInicio(stage));
-        //scene2.getStylesheets().add(
-          //      getClass().getResource("styles.css").toString());
-        //scene2.getStylesheets().add("styles.css");
-        stage.setScene(scene2);
+        PantallaPregunta pantallaPreguntaVoF = new PantallaPregunta(stage, jugador1, pregunta1);
+        Scene escenaPreguntaVoF = new Scene(pantallaPreguntaVoF);
+
+        var scene=new Scene(new PantallaInicio(stage,escenaPreguntaVoF));
+        stage.setScene(scene);
         stage.show();
+    }
+
+    public Jugador crearJugador(String nombre){
+        return Jugador.jugadorConNombre(nombre);
+    }
+
+    public PreguntaVoFClasica crearPreguntaVoF(String enunciadoPregunta){
+        return PreguntaVoFClasica.crearPreguntaVerdadera(enunciadoPregunta);
     }
 
     public static void main(String[] args) {

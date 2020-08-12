@@ -1,19 +1,23 @@
 package edu.fiuba.algo3.modelo.NoUse;
 
+import edu.fiuba.algo3.modelo.Respuesta;
+
+import java.util.ArrayList;
+
 public class Casillero {
-    private final Identificador identificador;
+    private ArrayList<Respuesta> grupoRespuestas;
 
-    public Casillero() {
-        this.identificador = new Identificador();
+    public Casillero (){
+        grupoRespuestas = new ArrayList<>();
     }
 
-    public RespuestaGroup crearRespuesta() {
-        return new RespuestaGroup(this.identificador);
+    public void agregarRespuestaCorrecta(Respuesta unaRespuesta){
+        grupoRespuestas.add(unaRespuesta);
     }
 
-    public void introducirRespuesta(RespuestaGroup respuesta) {
-        this.identificador.activar();
-        respuesta.identificarse();
-        this.identificador.desactivar();
+    public void introducirRespuesta(Respuesta respuesta) {
+        if (grupoRespuestas.contains(respuesta)){
+            respuesta.establecerComoRespuestaAcertada();
+        }
     }
 }

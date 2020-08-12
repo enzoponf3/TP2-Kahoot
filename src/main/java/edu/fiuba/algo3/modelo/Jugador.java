@@ -3,10 +3,17 @@ package edu.fiuba.algo3.modelo;
 public class Jugador {
     private Puntaje puntaje;
     private Multiplicador multActual;
+    private String nombre;
 
     public Jugador() {
         this.puntaje = new Puntaje();
-        multActual = new MultiplicadorNormal();
+        this.multActual = new MultiplicadorNormal();
+    }
+
+    public static Jugador jugadorConNombre(String nombre) {
+        Jugador jugador = new Jugador();
+        jugador.nombre=nombre;
+        return jugador;
     }
 
     public int puntos() {

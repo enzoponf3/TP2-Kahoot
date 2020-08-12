@@ -13,11 +13,12 @@ public class PreguntaVoFClasicaTest {
     public void testPreguntaVSumaPuntoAJugador1YNoSumaAJugador2 () {
         Jugador jugador1 = new Jugador();
         Jugador jugador2 = new Jugador();
-        PreguntaVoFClasica preguntaV = PreguntaVoFClasica.crearPreguntaVerdadera();
+        PreguntaVoFClasica preguntaV = PreguntaVoFClasica.crearPreguntaVerdadera("pepegrillo");
         ArrayList<RespuestasJugador> respuestasJugadores= new <RespuestasJugador>ArrayList();
 
         RespuestasJugador respuestasJugador1 = new RespuestasJugador(jugador1);
         respuestasJugador1.agregarRespuesta(preguntaV.ElegirRespuestaVerdadera());
+
         RespuestasJugador respuestasJugador2 = new RespuestasJugador(jugador2);
         respuestasJugador2.agregarRespuesta(preguntaV.ElegirRespuestaFalsa());
 

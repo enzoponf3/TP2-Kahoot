@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
 
-public class RespuestasJugadorAgrupable {
+public class RespuestasJugadorAgrupable implements ContenedorRespuestas{
     private ArrayList<Respuesta> respuestasGrupoA;
     private ArrayList<Respuesta> respuestasGrupoB;
     private Jugador jugador;

@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo;
 import java.util.ArrayList;
 
 public abstract class PreguntaVoF {
+    protected String enunciadoPregunta;
     private Respuesta respuestaVerdadera;
     private Respuesta respuestaFalsa;
 
@@ -28,4 +29,7 @@ public abstract class PreguntaVoF {
         return respuestaVerdadera;
     }
 
+    public String getEnunciado() {
+        return this.enunciadoPregunta;
+    }
 }

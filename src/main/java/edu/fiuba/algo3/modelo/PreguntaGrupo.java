@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
 
-public class PreguntaGrupo {
+public class PreguntaGrupo implements Pregunta{
     private final ArrayList<Respuesta> respuestasGrupoA;
     private final ArrayList<Respuesta> respuestasGrupoB;
     private final ArrayList<Respuesta> respuestasElegibles;

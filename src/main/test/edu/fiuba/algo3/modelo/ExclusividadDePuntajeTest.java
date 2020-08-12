@@ -12,7 +12,7 @@ public class ExclusividadDePuntajeTest {
     public void testPreguntaVoFConExclusividadPuntua2ParaJugadorQueEligioYAcerto () {
         Jugador jugador1 = new Jugador();
         Jugador jugador2 = new Jugador();
-        PreguntaVoFClasica preguntaV = PreguntaVoFClasica.crearPreguntaVerdadera();
+        PreguntaVoFClasica preguntaV = PreguntaVoFClasica.crearPreguntaVerdadera("pepegrillo");
         ArrayList<RespuestasJugador> respuestasJugadores = new <RespuestasJugador>ArrayList();
 
         preguntaV.usarExclusividad();  //La usa el jugador1
@@ -36,7 +36,7 @@ public class ExclusividadDePuntajeTest {
     public void testPreguntaVoFConDobleExclusividadPuntua4ParaJugadorQueEligioYAcerto () {
         Jugador jugador1 = new Jugador();
         Jugador jugador2 = new Jugador();
-        PreguntaVoFClasica preguntaV = PreguntaVoFClasica.crearPreguntaVerdadera();
+        PreguntaVoFClasica preguntaV = PreguntaVoFClasica.crearPreguntaVerdadera("pepegrillo");
         ArrayList<RespuestasJugador> respuestasJugadores = new <RespuestasJugador>ArrayList();
 
         preguntaV.usarExclusividad();  //La usa el jugador1

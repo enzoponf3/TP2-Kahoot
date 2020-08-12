@@ -3,10 +3,11 @@ package edu.fiuba.algo3.modelo;
 import java.util.ArrayList;
 
 public class PreguntaVoFClasica extends PreguntaVoF {
-    ExclusividadPuntaje exclusividad;
+    private ExclusividadPuntaje exclusividad;
 
-    static public PreguntaVoFClasica crearPreguntaVerdadera() {
+    static public PreguntaVoFClasica crearPreguntaVerdadera(String nombre) {
         PreguntaVoFClasica pregunta = new PreguntaVoFClasica();
+        pregunta.enunciadoPregunta= nombre;
         pregunta.setRespuestaVerdadera();
         pregunta.exclusividad = new ExlusividadNula();
         return pregunta;

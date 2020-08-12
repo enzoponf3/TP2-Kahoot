@@ -8,12 +8,13 @@ import javafx.stage.Stage;
 
 public class botonComienzoHandler implements EventHandler<ActionEvent> {
     Stage stage;
-    public botonComienzoHandler(Stage stage) {
+    Scene proxEscena;
+    public botonComienzoHandler(Stage stage, Scene escenaPregunta) {
         this.stage = stage;
+        this.proxEscena=escenaPregunta;
     }
 
     public void handle(ActionEvent event){
-        Scene scene = new Scene(new PantallaPregunta(this.stage));
-        this.stage.setScene(scene);
+        this.stage.setScene(proxEscena);
     }
 }
