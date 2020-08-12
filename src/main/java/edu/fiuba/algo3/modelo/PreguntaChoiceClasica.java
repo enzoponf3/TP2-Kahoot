@@ -18,4 +18,5 @@ public class PreguntaChoiceClasica extends PreguntaMC{
         exclusividad.agregarEvaluador(evaluadores.get(0),evaluadores.get(1));
         exclusividad.puntuarJugadores();
     }
+
 }

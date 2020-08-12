@@ -4,7 +4,6 @@ public class EvaluadorPenal implements Evaluador {
     private Puntaje puntaje;
 
     public EvaluadorPenal() {
-
         this.puntaje = new Puntaje();
     }
 

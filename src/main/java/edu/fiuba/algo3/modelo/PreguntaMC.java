@@ -13,9 +13,6 @@ public abstract class PreguntaMC {
         this.cantidadOpciones = numeroDeOpciones;
         this.respuestaPosibles = new ArrayList<Respuesta>();
         this.exclusividad = new ExlusividadNula();
-        for (int i=0;i < this.cantidadOpciones; i++){
-            respuestaPosibles.add(new Respuesta());
-        }
         this.agregarRespuestasCorrectas();
     }
 
@@ -26,11 +23,10 @@ public abstract class PreguntaMC {
     }
 
     public void agregarRespuestasCorrectas() {
-        int i=0;
-        for (Respuesta r : this.respuestaPosibles) {
-            if (i < this.cantidadCorrectas) {
-                r.establecerComoRespuestaAcertada();
-                i++;
+        for (int i=0;i < this.cantidadOpciones; i++){
+            respuestaPosibles.add(new Respuesta());
+            if (i < cantidadCorrectas){
+                respuestaPosibles.get(i).establecerComoRespuestaAcertada();
             }
         }
     }

@@ -13,11 +13,13 @@ public class PreguntaGrupo {
         this.respuestasGrupoB = new ArrayList<Respuesta>();
         this.respuestasElegibles = new ArrayList<Respuesta>();
         this.exclusividad= new ExlusividadNula();
-        for (int i=0;i < cantidadGrupoA; i++){
-            respuestasGrupoA.add(new Respuesta());
-        }
-        for (int i=0;i < cantidadGrupoB; i++){
-            respuestasGrupoB.add(new Respuesta());
+        for (int i=0;i < cantidadGrupoA+cantidadGrupoB; i++){
+            if (i < cantidadGrupoA){
+                respuestasGrupoA.add(new Respuesta());
+            }
+            else {
+                respuestasGrupoB.add(new Respuesta());
+            }
         }
         respuestasElegibles.addAll(respuestasGrupoA);
         respuestasElegibles.addAll(respuestasGrupoB);
