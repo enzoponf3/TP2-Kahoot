@@ -38,4 +38,6 @@ public abstract class PreguntaMC {
     public void usarExclusividad() {
         this.exclusividad=this.exclusividad.cambiarExclusividad();
     }
+
+    public ArrayList<Respuesta> obtenerRespuestas() { return this.respuestaPosibles; }
 }
