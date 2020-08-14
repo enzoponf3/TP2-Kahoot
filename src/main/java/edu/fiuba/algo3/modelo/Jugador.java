@@ -26,6 +26,8 @@ public class Jugador {
         this.multActual = new MultiplicadorNormal();
     }
 
+    public String getNombre(){return this.nombre;}
+
     public void modificarMultiplicador(Multiplicador unMultiplicador) {
         this.multActual=unMultiplicador;
     }

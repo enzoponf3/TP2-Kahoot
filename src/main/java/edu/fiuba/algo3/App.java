@@ -45,11 +45,7 @@ public class App extends Application {
         ArrayList<PreguntaVoFClasica> preguntas= new ArrayList<>();
         preguntas.add(PreguntaVoFClasica.crearPreguntaVerdadera("Pregunta verdadera 1"));
         preguntas.add(PreguntaVoFClasica.crearPreguntaVerdadera("Pregunta verdadera 2"));
-        Jugador jugador1 = this.crearJugador("Diego");
-        Jugador jugador2 = this.crearJugador("Pepe");
         Partida laPartida = new Partida(preguntas);
-        laPartida.agregarJugador(jugador1);
-        laPartida.agregarJugador(jugador2);
         return laPartida;
     }
 

@@ -3,35 +3,60 @@ package edu.fiuba.algo3.vista.imagenes;
 import edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.Partida;
 import edu.fiuba.algo3.modelo.PreguntaVoFClasica;
+import edu.fiuba.algo3.modelo.RespuestasJugador;
+import edu.fiuba.algo3.vista.PantallaFinal;
 import edu.fiuba.algo3.vista.PantallaPregunta;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 public class VistaPartida {
 
     private final Partida partida;
     private final Stage stage;
-    private final Jugador primerJugador;
+    private Jugador primerJugador;
     private PreguntaVoFClasica pregunta;
+    private ArrayList<RespuestasJugador> respuestasJugadores;
 
 
     public VistaPartida(Stage stage, Partida partida) {
         this.partida = partida;
         this.stage=stage;
         this.pregunta=partida.preguntaActual();
-        this.primerJugador =partida.jugadorActual();
+        this.respuestasJugadores = new ArrayList<>();
+    }
+
+    public void inicio(String nombre1, String nombre2){
+        Jugador jugador1 = Jugador.jugadorConNombre(nombre1);
+        Jugador jugador2 = Jugador.jugadorConNombre(nombre2);
+        this.partida.agregarJugador(jugador1);
+        this.partida.agregarJugador(jugador2);
+        this.primerJugador = this.partida.jugadorActual();
         this.stage.setScene(new Scene(new PantallaPregunta(this.stage, this)));
     }
 
     public void update() {
         this.partida.cambiarJugador();
-        if (this.primerJugador == this.partida.jugadorActual() && this.partida.siguientePregunta()){
-            this.pregunta=this.partida.preguntaActual();
-            this.stage.setScene(new Scene(new PantallaPregunta(this.stage,this)));
-        }
-        else {
+        if(this.primerJugador != this.partida.jugadorActual()) {
             this.stage.setScene(new Scene(new PantallaPregunta(this.stage, this)));
+            return;
         }
+        this.partida.preguntaActual().evaluarRespuestas(respuestasJugadores);
+        this.respuestasJugadores = new ArrayList<>();
+        boolean hayPregunta = this.partida.siguientePregunta();
+        if(!hayPregunta){
+            this.stage.setScene(new Scene(new PantallaFinal(this.stage, this)));
+            return;
+        }else {
+            this.pregunta = this.partida.preguntaActual();
+            this.stage.setScene(new Scene(new PantallaPregunta(this.stage, this)));
+            return;
+        }
+    }
+
+    public void agregarRespuestaAJugadorActual(RespuestasJugador respuestas){
+        respuestasJugadores.add(respuestas);
     }
 
     public Partida partida() {

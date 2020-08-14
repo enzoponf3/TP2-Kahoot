@@ -25,9 +25,8 @@ public class PantallaInicio extends Pane {
         text2.setPromptText("Nombre jugador 2");
         text2.setPrefSize(200,40);
 
-
         Button btnInicio = new Button("Comenzar");
-        btnInicio.setOnAction(new botonComienzoHandler(stage,vistaPartida));
+        btnInicio.setOnAction(new botonComienzoHandler(stage,vistaPartida,text1, text2));
         
         nombre1.relocate(250, 350);
         text1.relocate(250,370);

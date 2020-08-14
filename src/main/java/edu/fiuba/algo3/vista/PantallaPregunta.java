@@ -30,9 +30,9 @@ public class PantallaPregunta extends Pane {
         botonTrue.setOnAction(botonResponderVerdaderoHandler);
 
         BotonResponderFalsoHandler botonResponderFalsoHandler = new BotonResponderFalsoHandler(respuestasJugador,vistaPartida);
-        botonTrue.setOnAction(botonResponderVerdaderoHandler);
+        botonFalse.setOnAction(botonResponderFalsoHandler);
 
-
+        Label nombreJugador = new Label(vistaPartida.partida().jugadorActual().getNombre()+": "+vistaPartida.partida().jugadorActual().puntos());
 
 
         nombre1.relocate(600, 100);
@@ -40,8 +40,9 @@ public class PantallaPregunta extends Pane {
         botonFalse.relocate(100,400);
         botonTrue.setPrefSize(500,100);
         botonTrue.relocate(700,400);
+        nombreJugador.relocate(650, 600);
 
-        this.getChildren().addAll(nombre1,botonFalse,botonTrue);
+        this.getChildren().addAll(nombre1,botonFalse,botonTrue,nombreJugador);
 
     }
 
