@@ -6,12 +6,12 @@ import java.util.LinkedList;
 
 public class Partida {
     private final LinkedList<Jugador> jugadores;
-    private final Stack<PreguntaMC> preguntas;
+    private final Stack<PreguntaVoFClasica> preguntas;
 
-    public Partida(ArrayList<PreguntaMC> preguntas) {
+    public Partida(ArrayList<PreguntaVoFClasica> preguntas) {
         this.jugadores = new LinkedList<Jugador>();
-        this.preguntas = new Stack<PreguntaMC>();
-        for (PreguntaMC p: preguntas) {
+        this.preguntas = new Stack<PreguntaVoFClasica>();
+        for (PreguntaVoFClasica p: preguntas) {
             this.preguntas.push(p);
         }
     }
@@ -22,19 +22,22 @@ public class Partida {
         return true;
     }
 
-    public PreguntaMC preguntaActual() {
-        return (PreguntaMC) this.preguntas.peek();
+    public PreguntaVoFClasica preguntaActual() {
+        return (PreguntaVoFClasica) this.preguntas.peek();
     }
 
-    public ArrayList<Respuesta> respuestasActuales() { return this.preguntas.peek().obtenerRespuestas(); }
+    //public ArrayList<Respuesta> respuestasActuales() { return this.preguntas.peek().obtenerRespuestas(); }
 
     public void agregarJugador(Jugador jugador) {
         this.jugadores.offer(jugador);
     }
 
     public Jugador jugadorActual() {
+        return this.jugadores.peekFirst();
+    }
+
+    public void cambiarJugador(){
         Jugador jugadorActual = this.jugadores.poll();
         this.jugadores.offer(jugadorActual);
-        return jugadorActual;
     }
 }

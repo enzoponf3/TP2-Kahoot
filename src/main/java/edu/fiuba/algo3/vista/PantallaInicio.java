@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.controlador.botonComienzoHandler;
+import edu.fiuba.algo3.eventos.botonComienzoHandler;
+import edu.fiuba.algo3.vista.imagenes.VistaPartida;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,7 +12,7 @@ import javafx.stage.Stage;
 public class PantallaInicio extends Pane {
     Stage stage;
 
-    public PantallaInicio(Stage stage, Scene pantallaPreguntaVoF){
+    public PantallaInicio(Stage stage, VistaPartida vistaPartida){
         this.stage = stage;
         this.setPrefSize(1300,720);
 
@@ -26,7 +27,7 @@ public class PantallaInicio extends Pane {
 
 
         Button btnInicio = new Button("Comenzar");
-        btnInicio.setOnAction(new botonComienzoHandler(stage,pantallaPreguntaVoF));
+        btnInicio.setOnAction(new botonComienzoHandler(stage,vistaPartida));
         
         nombre1.relocate(250, 350);
         text1.relocate(250,370);

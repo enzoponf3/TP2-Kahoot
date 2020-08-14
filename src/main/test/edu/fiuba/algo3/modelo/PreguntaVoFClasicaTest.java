@@ -27,7 +27,7 @@ public class PreguntaVoFClasicaTest {
         turnoActual=turnoActual.cambiarTurno();
 
         turnoActual.jugar2(preguntaV,respuestasJugador1,respuestasJugador2);
-        //turnoActual=turnoActual.cambiarTurno();
+        turnoActual=turnoActual.cambiarTurno();
 
         assertEquals(1, jugador1.puntos());
         assertEquals(0, jugador2.puntos());
