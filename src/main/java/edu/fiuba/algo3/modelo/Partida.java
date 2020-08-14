@@ -26,8 +26,6 @@ public class Partida {
         return (PreguntaVoFClasica) this.preguntas.peek();
     }
 
-    //public ArrayList<Respuesta> respuestasActuales() { return this.preguntas.peek().obtenerRespuestas(); }
-
     public void agregarJugador(Jugador jugador) {
         this.jugadores.offer(jugador);
     }

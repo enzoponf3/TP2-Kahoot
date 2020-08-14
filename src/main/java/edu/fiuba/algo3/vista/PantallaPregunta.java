@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.vista;
 
+import edu.fiuba.algo3.eventos.BotonResponderFalsoHandler;
+import edu.fiuba.algo3.eventos.BotonResponderVerdaderoHandler;
 import edu.fiuba.algo3.modelo.Partida;
 import edu.fiuba.algo3.modelo.RespuestasJugador;
 import edu.fiuba.algo3.vista.imagenes.VistaPartida;
@@ -17,17 +19,17 @@ public class PantallaPregunta extends Pane {
         this.setPrefSize(1300,720);
 
         ArrayList<RespuestasJugador> respuestasJugadores = new ArrayList<>();
-        RespuestasJugador respuestasJugador= new RespuestasJugador(partida.jugadorActual());
+        RespuestasJugador respuestasJugador= new RespuestasJugador(vistaPartida.partida().jugadorActual());
 
-        Label nombre1 = new Label(partida.preguntaActual().getEnunciado());
+        Label nombre1 = new Label(vistaPartida.partida().preguntaActual().getEnunciado());
 
         Button botonTrue = new Button("V");
         Button botonFalse = new Button("F");
 
-        BotonResponderVerdaderoHandler botonResponderVerdaderoHandler = new BotonResponderVerdaderoHandler(respuestasJugador,partida);
+        BotonResponderVerdaderoHandler botonResponderVerdaderoHandler = new BotonResponderVerdaderoHandler(respuestasJugador,vistaPartida);
         botonTrue.setOnAction(botonResponderVerdaderoHandler);
 
-        BotonResponderFalsoHandler botonResponderFalsoHandler = new BotonResponderFalsoHandler(respuestasJugador,partida);
+        BotonResponderFalsoHandler botonResponderFalsoHandler = new BotonResponderFalsoHandler(respuestasJugador,vistaPartida);
         botonTrue.setOnAction(botonResponderVerdaderoHandler);
 
 

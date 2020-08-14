@@ -33,4 +33,8 @@ public class VistaPartida {
             this.stage.setScene(new Scene(new PantallaPregunta(this.stage, this)));
         }
     }
+
+    public Partida partida() {
+        return this.partida;
+    }
 }
