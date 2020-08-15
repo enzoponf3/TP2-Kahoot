@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import com.google.gson.JsonObject;
+
 import java.util.ArrayList;
 
 public class PreguntaVoFClasica extends PreguntaVoF {
@@ -33,5 +35,19 @@ public class PreguntaVoFClasica extends PreguntaVoF {
 
     public void usarExclusividad() {
         this.exclusividad=this.exclusividad.cambiarExclusividad();
+    }
+
+    public JsonObject guardar() {
+        JsonObject jsonPregunta = new JsonObject();
+        jsonPregunta.addProperty("enunciado", this.enunciadoPregunta);
+        return jsonPregunta;
+    }
+
+    public static PreguntaVoFClasica recuperar(JsonObject jsonObjectPregunta) {
+        String enunciado = jsonObjectPregunta.get("enunciado").getAsString();
+
+        PreguntaVoFClasica pregunta = PreguntaVoFClasica.crearPreguntaVerdadera(enunciado);
+
+        return pregunta;
     }
 }

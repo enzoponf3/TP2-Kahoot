@@ -3,18 +3,21 @@ package edu.fiuba.algo3;
 import edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.Partida;
 import edu.fiuba.algo3.modelo.PreguntaVoFClasica;
+import edu.fiuba.algo3.modelo.PreguntasJuego;
 import edu.fiuba.algo3.vista.PantallaInicio;
 import edu.fiuba.algo3.vista.VistaPartida;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
  * JavaFX App
  */
 public class App extends Application {
+    static String FILENAME_RELATIVE_PATH = "preguntasFile.json";
 
     @Override
     public void start(Stage stage) {
@@ -38,11 +41,23 @@ public class App extends Application {
     }
 
     private Partida crearPartida() {
-        ArrayList<PreguntaVoFClasica> preguntas= new ArrayList<>();
+        PreguntasJuego preguntas = new PreguntasJuego();
+        //ArrayList<PreguntaVoFClasica> preguntas= new ArrayList<>();
         preguntas.add(PreguntaVoFClasica.crearPreguntaVerdadera("Pregunta verdadera 2"));
         preguntas.add(PreguntaVoFClasica.crearPreguntaVerdadera("Pregunta verdadera 1"));
-        Partida laPartida = new Partida(preguntas);
-        return laPartida;
+        try {
+            preguntas.guardar(FILENAME_RELATIVE_PATH);
+        } catch (IOException ex) {
+            System.out.println("Problemas" + ex);
+        }
+        PreguntasJuego preguntasLeidas = null;
+        try {
+            preguntasLeidas = PreguntasJuego.recuperar(FILENAME_RELATIVE_PATH);
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+
+        return new Partida(preguntasLeidas);
     }
 
 }

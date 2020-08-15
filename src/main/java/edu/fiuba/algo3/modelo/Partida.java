@@ -8,12 +8,9 @@ public class Partida {
     private final LinkedList<Jugador> jugadores;
     private final Stack<PreguntaVoFClasica> preguntas;
 
-    public Partida(ArrayList<PreguntaVoFClasica> preguntas) {
+    public Partida(PreguntasJuego preguntas) {
         this.jugadores = new LinkedList<Jugador>();
-        this.preguntas = new Stack<PreguntaVoFClasica>();
-        for (PreguntaVoFClasica p: preguntas) {
-            this.preguntas.push(p);
-        }
+        this.preguntas = preguntas.preguntasToStack();
     }
 
     public boolean hayPreguntas() { return !this.preguntas.empty(); }
