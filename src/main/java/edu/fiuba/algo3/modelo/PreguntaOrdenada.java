@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import com.google.gson.JsonObject;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.ListIterator;
@@ -27,6 +29,16 @@ public class PreguntaOrdenada implements Pregunta{
         }
         exclusividad.agregarEvaluador(evaluadores.get(0),evaluadores.get(1));
         exclusividad.puntuarJugadores();
+    }
+
+    @Override
+    public JsonObject guardar() {
+        return null;
+    }
+
+    @Override
+    public String devolverEnunciado() {
+        return null;
     }
 
     public Respuesta elegirRespuesta(int idx){

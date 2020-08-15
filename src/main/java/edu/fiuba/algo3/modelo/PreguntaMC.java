@@ -46,4 +46,8 @@ public abstract class PreguntaMC implements Pregunta {
     public Iterator<Respuesta> devolverRespuestasPosibles() {
         return this.respuestaPosibles.iterator();
     }
+
+    public String devolverEnunciado(){
+        return "algo";
+    }
 }

@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import com.google.gson.JsonObject;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -45,6 +47,16 @@ public class PreguntaGrupo implements Pregunta{
         }
         exclusividad.agregarEvaluador(evaluadores.get(0),evaluadores.get(1));
         exclusividad.puntuarJugadores();
+    }
+
+    @Override
+    public JsonObject guardar() {
+        return null;
+    }
+
+    @Override
+    public String devolverEnunciado() {
+        return null;
     }
 
     public void usarExclusividad() {

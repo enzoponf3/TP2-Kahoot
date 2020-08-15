@@ -1,8 +1,10 @@
 package edu.fiuba.algo3.modelo;
 
+import com.google.gson.JsonObject;
+
 import java.util.ArrayList;
 
-public class PreguntaVoFPenal extends PreguntaVoF {
+public class PreguntaVoFPenal extends PreguntaVoF{
 
     static public PreguntaVoFPenal crearPreguntaVerdadera() {
         PreguntaVoFPenal pregunta = new PreguntaVoFPenal();
@@ -22,6 +24,11 @@ public class PreguntaVoFPenal extends PreguntaVoF {
             iterador.evaluarRespuestasCon(evaluador);
             this.asignarPuntosDeEvaluadorA(evaluador,iterador.devolverJugador());
         }
+    }
+
+    @Override
+    public JsonObject guardar() {
+        return null;
     }
 
     private void asignarPuntosDeEvaluadorA(EvaluadorPenal evaluador, Jugador unJugador) {

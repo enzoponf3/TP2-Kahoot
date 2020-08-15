@@ -145,7 +145,7 @@ public class ExclusividadDePuntajeTest {
 
     @Test
     public void TestPreguntaGrupoConExclusividadPuntua2ParaJugadorQueEligioYAcerto() {
-        ArrayList<RespuestasJugador> respuestasJugadores= new <RespuestasJugadorAgrupable>ArrayList();
+        ArrayList<RespuestasJugador> respuestasJugadores= new <RespuestasJugador>ArrayList();
         Jugador jugador1 = new Jugador();
         Jugador jugador2 = new Jugador();
 

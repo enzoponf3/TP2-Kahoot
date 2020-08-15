@@ -6,7 +6,7 @@ import java.util.LinkedList;
 
 public class Partida {
     private final LinkedList<Jugador> jugadores;
-    private final Stack<PreguntaVoFClasica> preguntas;
+    private final Stack<Pregunta> preguntas;
 
     public Partida(PreguntasJuego preguntas) {
         this.jugadores = new LinkedList<Jugador>();
@@ -19,7 +19,7 @@ public class Partida {
         if (!this.preguntas.empty()) { this.preguntas.pop(); }
     }
 
-    public PreguntaVoFClasica preguntaActual() {
+    public Pregunta preguntaActual() {
         return this.preguntas.peek();
     }
 

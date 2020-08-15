@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public abstract class PreguntaVoF {
+public abstract class PreguntaVoF implements Pregunta{
     protected String enunciadoPregunta;
     private ArrayList<Respuesta> respuestas;
 
@@ -32,7 +32,7 @@ public abstract class PreguntaVoF {
         return respuestas.get(idx);
     }
 
-    public String getEnunciado() {
+    public String devolverEnunciado() {
         return this.enunciadoPregunta;
     }
 }

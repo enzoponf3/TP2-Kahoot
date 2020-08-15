@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import com.google.gson.JsonObject;
+
 import java.util.ArrayList;
 
 public class PreguntaChoiceClasica extends PreguntaMC{
@@ -19,4 +21,12 @@ public class PreguntaChoiceClasica extends PreguntaMC{
         exclusividad.puntuarJugadores();
     }
 
+    @Override
+    public JsonObject guardar() {
+        return null;
+    }
+
+    public ArrayList<Respuesta> devolverRespuestasPosibles2() {
+        return this.respuestaPosibles;
+    }
 }

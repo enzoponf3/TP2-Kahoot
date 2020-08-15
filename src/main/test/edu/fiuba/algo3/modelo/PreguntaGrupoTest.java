@@ -10,7 +10,7 @@ public class PreguntaGrupoTest {
 
     @Test
     public void TestJugadorIngresaUnaRespuestaIncorrectaEnCasillero2YCeroPuntos() {
-        ArrayList<RespuestasJugador> respuestasJugadores= new <RespuestasJugadorAgrupable>ArrayList();
+        ArrayList<RespuestasJugador> respuestasJugadores= new <RespuestasJugador>ArrayList();
         Jugador jugador1 = new Jugador();
         Jugador jugador2 = new Jugador();
 

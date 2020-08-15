@@ -2,6 +2,7 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.eventos.BotonResponderFalsoHandler;
 import edu.fiuba.algo3.eventos.BotonResponderVerdaderoHandler;
+import edu.fiuba.algo3.modelo.PreguntaVoFClasica;
 import edu.fiuba.algo3.modelo.RespuestasJugador;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -10,19 +11,24 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
-public class PantallaPregunta extends Pane {
+public class VistaPreguntaVoFClasica extends Pane {
     Stage stage;
-    public PantallaPregunta(Stage stage, VistaPartida vistaPartida){
+    PreguntaVoFClasica preguntaVoF;
+
+    public VistaPreguntaVoFClasica(Stage stage, VistaPartida vistaPartida){
         this.stage = stage;
         this.setPrefSize(1300,720);
+        this.preguntaVoF= (PreguntaVoFClasica) vistaPartida.partida().preguntaActual();
 
+        //preguntaVoF.usarExclusividad();;
         ArrayList<RespuestasJugador> respuestasJugadores = new ArrayList<>();
         RespuestasJugador respuestasJugador= new RespuestasJugador(vistaPartida.partida().jugadorActual());
 
-        Label nombre1 = new Label(vistaPartida.partida().preguntaActual().getEnunciado());
+        Label nombre1 = new Label(vistaPartida.partida().preguntaActual().devolverEnunciado());
 
         Button botonTrue = new Button("V");
         Button botonFalse = new Button("F");
+        Button Exclusividad = new Button("Exlusividad de puntaje");
 
         BotonResponderVerdaderoHandler botonResponderVerdaderoHandler = new BotonResponderVerdaderoHandler(respuestasJugador,vistaPartida);
         botonTrue.setOnAction(botonResponderVerdaderoHandler);

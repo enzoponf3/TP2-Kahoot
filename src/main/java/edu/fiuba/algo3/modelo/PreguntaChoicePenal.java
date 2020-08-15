@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import com.google.gson.JsonObject;
+
 import java.util.ArrayList;
 
 public class PreguntaChoicePenal extends PreguntaMC{
@@ -14,6 +16,11 @@ public class PreguntaChoicePenal extends PreguntaMC{
             iterador.evaluarRespuestasCon(evaluador);
             this.asignarPuntosDeEvaluadorA(evaluador,iterador.devolverJugador());
         }
+    }
+
+    @Override
+    public JsonObject guardar() {
+        return null;
     }
 
     private void asignarPuntosDeEvaluadorA(EvaluadorPenal evaluador, Jugador unJugador) {

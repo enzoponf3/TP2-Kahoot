@@ -45,19 +45,19 @@ public class App extends Application {
         //ArrayList<PreguntaVoFClasica> preguntas= new ArrayList<>();
         preguntas.add(PreguntaVoFClasica.crearPreguntaVerdadera("Pregunta verdadera 2"));
         preguntas.add(PreguntaVoFClasica.crearPreguntaVerdadera("Pregunta verdadera 1"));
-        try {
+       /* try {
             preguntas.guardar(FILENAME_RELATIVE_PATH);
         } catch (IOException ex) {
             System.out.println("Problemas" + ex);
         }
-        PreguntasJuego preguntasLeidas = null;
+        PreguntasJuego preguntasLeidas = new PreguntasJuego();
         try {
-            preguntasLeidas = PreguntasJuego.recuperar(FILENAME_RELATIVE_PATH);
+            preguntasLeidas.recuperar(FILENAME_RELATIVE_PATH);
         } catch (IOException ex) {
             System.out.println(ex);
-        }
+        }*/
 
-        return new Partida(preguntasLeidas);
+        return new Partida(preguntas);
     }
 
 }

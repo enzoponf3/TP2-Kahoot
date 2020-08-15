@@ -1,11 +1,6 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.modelo.Jugador;
-import edu.fiuba.algo3.modelo.Partida;
-import edu.fiuba.algo3.modelo.PreguntaVoFClasica;
-import edu.fiuba.algo3.modelo.RespuestasJugador;
-import edu.fiuba.algo3.vista.PantallaFinal;
-import edu.fiuba.algo3.vista.PantallaPregunta;
+import edu.fiuba.algo3.modelo.*;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -16,7 +11,7 @@ public class VistaPartida {
     private final Partida partida;
     private final Stage stage;
     private Jugador primerJugador;
-    private PreguntaVoFClasica pregunta;
+    private Pregunta pregunta;
     private ArrayList<RespuestasJugador> respuestasJugadores;
 
 
@@ -33,7 +28,7 @@ public class VistaPartida {
         this.partida.agregarJugador(jugador1);
         this.partida.agregarJugador(jugador2);
         this.primerJugador = this.partida.jugadorActual();
-        this.stage.setScene(new Scene(new PantallaPregunta(this.stage, this)));
+        this.stage.setScene(new Scene(new VistaPreguntaVoFClasica(this.stage, this)));
     }
 
     public void update() {
@@ -48,7 +43,7 @@ public class VistaPartida {
             }
         }
 
-        this.stage.setScene(new Scene(new PantallaPregunta(this.stage, this)));
+        this.stage.setScene(new Scene(new VistaPreguntaVoFClasica(this.stage, this)));
     }
 
     public void agregarRespuestaAJugadorActual(RespuestasJugador respuestas){
