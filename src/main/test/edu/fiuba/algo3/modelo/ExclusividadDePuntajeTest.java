@@ -18,9 +18,9 @@ public class ExclusividadDePuntajeTest {
         preguntaV.usarExclusividad();  //La usa el jugador1
 
         RespuestasJugador respuestasJugador1 = new RespuestasJugador(jugador1);
-        respuestasJugador1.agregarRespuesta(preguntaV.ElegirRespuestaVerdadera());
+        respuestasJugador1.agregarRespuesta(preguntaV.elegirRespuesta(0));
         RespuestasJugador respuestasJugador2 = new RespuestasJugador(jugador2);
-        respuestasJugador2.agregarRespuesta(preguntaV.ElegirRespuestaFalsa());
+        respuestasJugador2.agregarRespuesta(preguntaV.elegirRespuesta(1));
 
         respuestasJugadores.add( respuestasJugador1);
         respuestasJugadores.add( respuestasJugador2);
@@ -43,9 +43,9 @@ public class ExclusividadDePuntajeTest {
         preguntaV.usarExclusividad();  //La usa el jugador2
 
         RespuestasJugador respuestasJugador1 = new RespuestasJugador(jugador1);
-        respuestasJugador1.agregarRespuesta(preguntaV.ElegirRespuestaVerdadera());
+        respuestasJugador1.agregarRespuesta(preguntaV.elegirRespuesta(0));
         RespuestasJugador respuestasJugador2 = new RespuestasJugador(jugador2);
-        respuestasJugador2.agregarRespuesta(preguntaV.ElegirRespuestaFalsa());
+        respuestasJugador2.agregarRespuesta(preguntaV.elegirRespuesta(1));
 
         respuestasJugadores.add( respuestasJugador1);
         respuestasJugadores.add( respuestasJugador2);

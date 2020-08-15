@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class PreguntaChoiceParcial extends PreguntaMC{
 

@@ -17,7 +17,7 @@ public class MultiplicadorTest {
 
         mulX2.activarMultiplicadorPara(jugador1); //Botón que indica multiplicador, sólo usable en penal.
         RespuestasJugador respuestasJugador1 = new RespuestasJugador(jugador1);
-        respuestasJugador1.agregarRespuesta(preguntaVPenal.ElegirRespuestaVerdadera());
+        respuestasJugador1.agregarRespuesta(preguntaVPenal.elegirRespuesta(0));
         respuestasJugadores.add(respuestasJugador1);
 
         preguntaVPenal.evaluarRespuestas(respuestasJugadores);
@@ -35,7 +35,7 @@ public class MultiplicadorTest {
         mulX2.activarMultiplicadorPara(jugador1); //Botón que indica multiplicador, sólo usable en penal.
 
         RespuestasJugador respuestasJugador1 = new RespuestasJugador(jugador1);
-        respuestasJugador1.agregarRespuesta(preguntaVPenal.ElegirRespuestaFalsa());
+        respuestasJugador1.agregarRespuesta(preguntaVPenal.elegirRespuesta(1));
 
         respuestasJugadores.add(respuestasJugador1);
 

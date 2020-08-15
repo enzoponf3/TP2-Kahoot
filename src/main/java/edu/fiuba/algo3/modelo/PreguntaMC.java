@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public abstract class PreguntaMC implements Pregunta {
     protected ArrayList<Respuesta> respuestaPosibles;
@@ -40,4 +41,9 @@ public abstract class PreguntaMC implements Pregunta {
     }
 
     public ArrayList<Respuesta> obtenerRespuestas() { return this.respuestaPosibles; }
+
+    @Override
+    public Iterator<Respuesta> devolverRespuestasPosibles() {
+        return this.respuestaPosibles.iterator();
+    }
 }

@@ -30,6 +30,11 @@ public class PreguntaGrupo implements Pregunta{
         return respuestasElegibles.get(idx);
     }
 
+    @Override
+    public Iterator<Respuesta> devolverRespuestasPosibles() {
+        return this.respuestasElegibles.iterator();
+    }
+
     public void evaluarRespuestas(ArrayList<RespuestasJugador> respuestasVariosJugadores) {
         ArrayList<Evaluador> evaluadores = new ArrayList<>();
         Iterator<RespuestasJugador> iterator = respuestasVariosJugadores.iterator();

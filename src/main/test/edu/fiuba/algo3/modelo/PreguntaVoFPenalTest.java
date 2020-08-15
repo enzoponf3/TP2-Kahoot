@@ -18,9 +18,9 @@ public class PreguntaVoFPenalTest {
         ArrayList<RespuestasJugador> respuestasJugadores = new <RespuestasJugador>ArrayList();
 
         RespuestasJugador respuestasJugador1 = new RespuestasJugador(jugador1);
-        respuestasJugador1.agregarRespuesta(preguntaVPenal.ElegirRespuestaVerdadera());
+        respuestasJugador1.agregarRespuesta(preguntaVPenal.elegirRespuesta(0));
         RespuestasJugador respuestasJugador2 = new RespuestasJugador(jugador2);
-        respuestasJugador2.agregarRespuesta(preguntaVPenal.ElegirRespuestaFalsa());
+        respuestasJugador2.agregarRespuesta(preguntaVPenal.elegirRespuesta(1));
 
         respuestasJugadores.add(respuestasJugador1);
         respuestasJugadores.add(respuestasJugador2);
@@ -39,9 +39,9 @@ public class PreguntaVoFPenalTest {
         ArrayList<RespuestasJugador> respuestasJugadores = new <RespuestasJugador>ArrayList();
 
         RespuestasJugador respuestasJugador1 = new RespuestasJugador(jugador1);
-        respuestasJugador1.agregarRespuesta(preguntaVPenal.ElegirRespuestaVerdadera());
+        respuestasJugador1.agregarRespuesta(preguntaVPenal.elegirRespuesta(0));
         RespuestasJugador respuestasJugador2 = new RespuestasJugador(jugador2);
-        respuestasJugador2.agregarRespuesta(preguntaVPenal.ElegirRespuestaFalsa());
+        respuestasJugador2.agregarRespuesta(preguntaVPenal.elegirRespuesta(1));
 
         respuestasJugadores.add(respuestasJugador1);
         respuestasJugadores.add(respuestasJugador2);

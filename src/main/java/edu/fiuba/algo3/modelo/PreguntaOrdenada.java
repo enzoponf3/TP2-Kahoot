@@ -33,8 +33,9 @@ public class PreguntaOrdenada implements Pregunta{
         return opcionesOrdenadas.get(idx);
     }
 
-    public Iterator<Respuesta> posiblesRespuestas(){
-        return opcionesOrdenadas.iterator();
+    @Override
+    public Iterator<Respuesta> devolverRespuestasPosibles() {
+        return this.opcionesOrdenadas.iterator();
     }
 
     public void usarExclusividad() {

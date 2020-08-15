@@ -13,21 +13,20 @@ public class PreguntaVoFClasicaTest {
     public void testPreguntaVSumaPuntoAJugador1YNoSumaAJugador2 () {
         Jugador jugador1 = new Jugador();
         Jugador jugador2 = new Jugador();
-        Turno turnoActual = new TurnoPrimerJugador();
+        ArrayList<RespuestasJugador> respuestasJugadores = new ArrayList<>();
 
         PreguntaVoFClasica preguntaV = PreguntaVoFClasica.crearPreguntaVerdadera("pepegrillo");
 
         RespuestasJugador respuestasJugador1 = new RespuestasJugador(jugador1);
         RespuestasJugador respuestasJugador2 = new RespuestasJugador(jugador2);
 
-        turnoActual.jugar(preguntaV,respuestasJugador1);
-        turnoActual=turnoActual.cambiarTurno();
+        respuestasJugador1.agregarRespuesta(preguntaV.elegirRespuesta(0));
+        respuestasJugador2.agregarRespuesta(preguntaV.elegirRespuesta(1));
 
-        turnoActual.jugar(preguntaV,respuestasJugador2);
-        turnoActual=turnoActual.cambiarTurno();
+        respuestasJugadores.add(respuestasJugador1);
+        respuestasJugadores.add(respuestasJugador2);
 
-        turnoActual.jugar2(preguntaV,respuestasJugador1,respuestasJugador2);
-        turnoActual=turnoActual.cambiarTurno();
+        preguntaV.evaluarRespuestas(respuestasJugadores);
 
         assertEquals(1, jugador1.puntos());
         assertEquals(0, jugador2.puntos());

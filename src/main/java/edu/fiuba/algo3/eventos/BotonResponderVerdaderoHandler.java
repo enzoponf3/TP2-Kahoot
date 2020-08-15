@@ -15,7 +15,7 @@ public class BotonResponderVerdaderoHandler implements EventHandler<ActionEvent>
 
     @Override
     public void handle(ActionEvent event) {
-        respuestasJugador.agregarRespuesta(vistaPartida.partida().preguntaActual().ElegirRespuestaVerdadera());
+        respuestasJugador.agregarRespuesta(vistaPartida.partida().preguntaActual().elegirRespuesta(1));
         this.vistaPartida.agregarRespuestaAJugadorActual(this.respuestasJugador);
         this.vistaPartida.update();
     }
