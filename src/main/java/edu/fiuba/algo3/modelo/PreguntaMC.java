@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
 
-public abstract class PreguntaMC {
+public abstract class PreguntaMC implements Pregunta {
     protected ArrayList<Respuesta> respuestaPosibles;
     protected int cantidadCorrectas;
     protected int cantidadOpciones;

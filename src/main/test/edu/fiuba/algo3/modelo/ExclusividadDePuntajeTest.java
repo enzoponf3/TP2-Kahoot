@@ -145,29 +145,38 @@ public class ExclusividadDePuntajeTest {
 
     @Test
     public void TestPreguntaGrupoConExclusividadPuntua2ParaJugadorQueEligioYAcerto() {
-        ArrayList <RespuestasJugadorAgrupable> respuestasJugadores= new <RespuestasJugadorAgrupable>ArrayList();
+        ArrayList<RespuestasJugador> respuestasJugadores= new <RespuestasJugadorAgrupable>ArrayList();
         Jugador jugador1 = new Jugador();
         Jugador jugador2 = new Jugador();
-        PreguntaGrupo preguntaGroup = new PreguntaGrupo(3,2);
 
+        PreguntaGrupo preguntaGroup = new PreguntaGrupo(3,2);
         preguntaGroup.usarExclusividad();
 
-        RespuestasJugadorAgrupable respuestasJugador1 = new RespuestasJugadorAgrupable(jugador1);
-        respuestasJugador1.agregarRespuestaAContenedorA(preguntaGroup.elegirRespuesta(0));
-        respuestasJugador1.agregarRespuestaAContenedorA(preguntaGroup.elegirRespuesta(1));
-        respuestasJugador1.agregarRespuestaAContenedorA(preguntaGroup.elegirRespuesta(2));
-        respuestasJugador1.agregarRespuestaAContenedorB(preguntaGroup.elegirRespuesta(3));
-        respuestasJugador1.agregarRespuestaAContenedorB(preguntaGroup.elegirRespuesta(4));
+        RespuestasJugador respJugador1GrupoA = new RespuestasJugador(jugador1);
+        RespuestasJugador respJugador1GrupoB = new RespuestasJugador(jugador1);
 
-        RespuestasJugadorAgrupable respuestasJugador2 = new RespuestasJugadorAgrupable(jugador2);
-        respuestasJugador2.agregarRespuestaAContenedorA(preguntaGroup.elegirRespuesta(1));
-        respuestasJugador2.agregarRespuestaAContenedorA(preguntaGroup.elegirRespuesta(3));
-        respuestasJugador2.agregarRespuestaAContenedorA(preguntaGroup.elegirRespuesta(4));
-        respuestasJugador2.agregarRespuestaAContenedorB(preguntaGroup.elegirRespuesta(0));
-        respuestasJugador2.agregarRespuestaAContenedorB(preguntaGroup.elegirRespuesta(2));
+        respJugador1GrupoA.agregarRespuesta(preguntaGroup.elegirRespuesta(0));
+        respJugador1GrupoA.agregarRespuesta(preguntaGroup.elegirRespuesta(1));
+        respJugador1GrupoA.agregarRespuesta(preguntaGroup.elegirRespuesta(2));
 
-        respuestasJugadores.add(respuestasJugador1);
-        respuestasJugadores.add(respuestasJugador2);
+        respJugador1GrupoB.agregarRespuesta(preguntaGroup.elegirRespuesta(3));
+        respJugador1GrupoB.agregarRespuesta(preguntaGroup.elegirRespuesta(4));
+
+        RespuestasJugador respJugador2GrupoA = new RespuestasJugador(jugador2);
+        RespuestasJugador respJugador2GrupoB = new RespuestasJugador(jugador2);
+
+        respJugador2GrupoA.agregarRespuesta(preguntaGroup.elegirRespuesta(0));
+        respJugador2GrupoA.agregarRespuesta(preguntaGroup.elegirRespuesta(1));
+        respJugador2GrupoA.agregarRespuesta(preguntaGroup.elegirRespuesta(4));
+
+        respJugador2GrupoB.agregarRespuesta(preguntaGroup.elegirRespuesta(3));
+        respJugador2GrupoB.agregarRespuesta(preguntaGroup.elegirRespuesta(2));
+
+        respuestasJugadores.add(respJugador1GrupoA);
+        respuestasJugadores.add(respJugador1GrupoB);
+        respuestasJugadores.add(respJugador2GrupoA);
+        respuestasJugadores.add(respJugador2GrupoB);
+
         preguntaGroup.evaluarRespuestas(respuestasJugadores);
 
         assertEquals(2, jugador1.puntos());

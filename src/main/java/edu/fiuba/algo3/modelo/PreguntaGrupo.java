@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class PreguntaGrupo implements Pregunta{
     private final ArrayList<Respuesta> respuestasGrupoA;
@@ -29,10 +30,11 @@ public class PreguntaGrupo implements Pregunta{
         return respuestasElegibles.get(idx);
     }
 
-    public void evaluarRespuestas(ArrayList<RespuestasJugadorAgrupable> respuestasVariosJugadores) {
+    public void evaluarRespuestas(ArrayList<RespuestasJugador> respuestasVariosJugadores) {
         ArrayList<Evaluador> evaluadores = new ArrayList<>();
-        for (RespuestasJugadorAgrupable iterador: respuestasVariosJugadores) {
-            EvaluadorGrupo evaluador= new EvaluadorGrupo(respuestasGrupoA,respuestasGrupoB,iterador);
+        Iterator<RespuestasJugador> iterator = respuestasVariosJugadores.iterator();
+        while (iterator.hasNext()){
+            EvaluadorGrupo evaluador= new EvaluadorGrupo(respuestasGrupoA,respuestasGrupoB,iterator);
             evaluador.sumarPuntosParciales();
             evaluadores.add(evaluador);
         }

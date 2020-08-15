@@ -1,8 +1,10 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.ListIterator;
 
-public class PreguntaOrdenada {
+public class PreguntaOrdenada implements Pregunta{
     private ArrayList<Respuesta> opcionesOrdenadas;
     private int cantidadOpciones;
     private ExclusividadPuntaje exclusividad;
@@ -29,6 +31,10 @@ public class PreguntaOrdenada {
 
     public Respuesta elegirRespuesta(int idx){
         return opcionesOrdenadas.get(idx);
+    }
+
+    public Iterator<Respuesta> posiblesRespuestas(){
+        return opcionesOrdenadas.iterator();
     }
 
     public void usarExclusividad() {
