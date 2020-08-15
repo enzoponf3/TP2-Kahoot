@@ -38,21 +38,17 @@ public class VistaPartida {
 
     public void update() {
         this.partida.cambiarJugador();
-        if(this.primerJugador != this.partida.jugadorActual()) {
-            this.stage.setScene(new Scene(new PantallaPregunta(this.stage, this)));
-            return;
+        if(this.partida.jugadorActual() == this.primerJugador) {
+            this.partida.preguntaActual().evaluarRespuestas(this.respuestasJugadores);
+            this.respuestasJugadores = new ArrayList<RespuestasJugador>();
+            this.partida.siguientePregunta();
+            if (!this.partida.hayPreguntas()) {
+                this.stage.setScene(new Scene(new PantallaFinal(this.stage, this)));
+                return;
+            }
         }
-        this.partida.preguntaActual().evaluarRespuestas(respuestasJugadores);
-        this.respuestasJugadores = new ArrayList<>();
-        boolean hayPregunta = this.partida.siguientePregunta();
-        if(!hayPregunta){
-            this.stage.setScene(new Scene(new PantallaFinal(this.stage, this)));
-            return;
-        }else {
-            this.pregunta = this.partida.preguntaActual();
-            this.stage.setScene(new Scene(new PantallaPregunta(this.stage, this)));
-            return;
-        }
+
+        this.stage.setScene(new Scene(new PantallaPregunta(this.stage, this)));
     }
 
     public void agregarRespuestaAJugadorActual(RespuestasJugador respuestas){

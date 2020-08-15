@@ -16,14 +16,14 @@ public class Partida {
         }
     }
 
-    public boolean siguientePregunta() {
-        if (this.preguntas.empty()) { return false; }
-        this.preguntas.pop();
-        return true;
+    public boolean hayPreguntas() { return !this.preguntas.empty(); }
+
+    public void siguientePregunta() {
+        if (!this.preguntas.empty()) { this.preguntas.pop(); }
     }
 
     public PreguntaVoFClasica preguntaActual() {
-        return (PreguntaVoFClasica) this.preguntas.peek();
+        return this.preguntas.peek();
     }
 
     public void agregarJugador(Jugador jugador) {
