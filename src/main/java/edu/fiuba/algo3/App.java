@@ -2,15 +2,11 @@ package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.Partida;
-import edu.fiuba.algo3.modelo.PreguntaVoF;
 import edu.fiuba.algo3.modelo.PreguntaVoFClasica;
 import edu.fiuba.algo3.vista.PantallaInicio;
-import edu.fiuba.algo3.vista.PantallaPregunta;
-import edu.fiuba.algo3.vista.imagenes.VistaPartida;
+import edu.fiuba.algo3.vista.VistaPartida;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -43,8 +39,8 @@ public class App extends Application {
 
     private Partida crearPartida() {
         ArrayList<PreguntaVoFClasica> preguntas= new ArrayList<>();
-        preguntas.add(PreguntaVoFClasica.crearPreguntaVerdadera("Pregunta verdadera 1"));
         preguntas.add(PreguntaVoFClasica.crearPreguntaVerdadera("Pregunta verdadera 2"));
+        preguntas.add(PreguntaVoFClasica.crearPreguntaVerdadera("Pregunta verdadera 1"));
         Partida laPartida = new Partida(preguntas);
         return laPartida;
     }

@@ -1,9 +1,7 @@
 package edu.fiuba.algo3.eventos;
 
-import edu.fiuba.algo3.modelo.Partida;
-import edu.fiuba.algo3.modelo.PreguntaVoF;
 import edu.fiuba.algo3.modelo.RespuestasJugador;
-import edu.fiuba.algo3.vista.imagenes.VistaPartida;
+import edu.fiuba.algo3.vista.VistaPartida;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 

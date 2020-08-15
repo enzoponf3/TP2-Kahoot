@@ -2,9 +2,7 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.eventos.BotonResponderFalsoHandler;
 import edu.fiuba.algo3.eventos.BotonResponderVerdaderoHandler;
-import edu.fiuba.algo3.modelo.Partida;
 import edu.fiuba.algo3.modelo.RespuestasJugador;
-import edu.fiuba.algo3.vista.imagenes.VistaPartida;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;

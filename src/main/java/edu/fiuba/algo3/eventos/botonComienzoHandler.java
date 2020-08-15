@@ -1,12 +1,9 @@
 package edu.fiuba.algo3.eventos;
 
-import edu.fiuba.algo3.vista.PantallaPregunta;
-import edu.fiuba.algo3.vista.imagenes.VistaPartida;
+import edu.fiuba.algo3.vista.VistaPartida;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.Scene;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class botonComienzoHandler implements EventHandler<ActionEvent> {

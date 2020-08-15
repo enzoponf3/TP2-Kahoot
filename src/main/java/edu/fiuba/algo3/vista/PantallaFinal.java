@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.vista.imagenes.VistaPartida;
+import edu.fiuba.algo3.modelo.Jugador;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -14,14 +14,14 @@ public class PantallaFinal extends Pane {
 
         Text titulo = new Text("Resultado Final");
         Text resultado = new Text("El resultado es un empate!");
-        int j1 = vistaPartida.partida().jugadorActual().puntos();
+        Jugador j1 = vistaPartida.partida().jugadorActual();
         vistaPartida.partida().cambiarJugador();
-        int j2 = vistaPartida.partida().jugadorActual().puntos();
-        if(j1<j2){resultado.setText("Ganó {jugador2}");}
-        if(j2<j1){resultado.setText("Ganó {jugador1}");}
+        Jugador j2 = vistaPartida.partida().jugadorActual();
+        if(j1.puntos()<j2.puntos()){resultado.setText("Ganó "+j2.getNombre());}
+        if(j2.puntos()<j1.puntos()){resultado.setText("Ganó "+j1.getNombre());}
         Text detalleTitulo = new Text("Puntos");
-        Text j1Detalle = new Text("{Jugador1}: "+j1);
-        Text j2Detalle = new Text("{Jugador2}: "+j2);
+        Text j1Detalle = new Text(j1.getNombre()+": "+j1.puntos());
+        Text j2Detalle = new Text(j2.getNombre()+": "+j2.puntos());
 
         titulo.relocate(550,50);
         resultado.relocate(550,60);

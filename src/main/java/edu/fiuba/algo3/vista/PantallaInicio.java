@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.eventos.botonComienzoHandler;
-import edu.fiuba.algo3.vista.imagenes.VistaPartida;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
