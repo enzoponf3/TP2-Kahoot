@@ -17,8 +17,8 @@ public class PreguntaMultipleChoiceClasicaTest {
     @Test
     public void TestPreguntaMCClasicaJugador1PuntuaPorContestarTodoBienJugador2NoPuntuaPorContestarUnaMal(){
         ArrayList <RespuestasJugador> respuestasJugadores= new <RespuestasJugador>ArrayList();
-        Jugador jugador1 = new Jugador();
-        Jugador jugador2 = new Jugador();
+        Jugador jugador1 = new Jugador("");
+        Jugador jugador2 = new Jugador("");
 
         PreguntaChoiceClasica preguntaMC = new PreguntaChoiceClasica(5,3);
 

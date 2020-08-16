@@ -5,15 +5,10 @@ public class Jugador {
     private Multiplicador multActual;
     private String nombre;
 
-    public Jugador() {
+    public Jugador(String nombre) {
+        this.nombre = nombre;
         this.puntaje = new Puntaje();
         this.multActual = new MultiplicadorNormal();
-    }
-
-    public static Jugador jugadorConNombre(String nombre) {
-        Jugador jugador = new Jugador();
-        jugador.nombre=nombre;
-        return jugador;
     }
 
     public int puntos() {
@@ -26,7 +21,9 @@ public class Jugador {
         this.multActual = new MultiplicadorNormal();
     }
 
-    public String getNombre(){return this.nombre;}
+    public String getNombre(){
+        return this.nombre;
+    }
 
     public void modificarMultiplicador(Multiplicador unMultiplicador) {
         this.multActual=unMultiplicador;

@@ -23,8 +23,8 @@ public class VistaPartida {
     }
 
     public void inicio(String nombre1, String nombre2){
-        Jugador jugador1 = Jugador.jugadorConNombre(nombre1);
-        Jugador jugador2 = Jugador.jugadorConNombre(nombre2);
+        Jugador jugador1 = new Jugador(nombre1);
+        Jugador jugador2 = new Jugador(nombre2);
         this.partida.agregarJugador(jugador1);
         this.partida.agregarJugador(jugador2);
         this.primerJugador = this.partida.jugadorActual();

@@ -32,10 +32,6 @@ public class App extends Application {
         stage.show();
     }
 
-    public Jugador crearJugador(String nombre){
-        return Jugador.jugadorConNombre(nombre);
-    }
-
     public static void main(String[] args) {
         launch();
     }

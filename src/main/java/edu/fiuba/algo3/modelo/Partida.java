@@ -13,10 +13,14 @@ public class Partida {
         this.preguntas = preguntas.preguntasToStack();
     }
 
-    public boolean hayPreguntas() { return !this.preguntas.empty(); }
+    public boolean hayPreguntas() {
+        return !this.preguntas.empty();
+    }
 
     public void siguientePregunta() {
-        if (!this.preguntas.empty()) { this.preguntas.pop(); }
+        if (!this.preguntas.empty()) {
+            this.preguntas.pop();
+        }
     }
 
     public Pregunta preguntaActual() {

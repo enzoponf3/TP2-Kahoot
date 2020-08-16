@@ -18,8 +18,8 @@ public class PreguntaMultipleChoiceParcialTest {
             @Test
             public void TestPreguntaMCParcialClasicaJugador1Puntua3PorContestar3BienJugador2NoPuntuaPorContestarUnaMal(){
                 ArrayList <RespuestasJugador> RespuestasJugadores= new <RespuestasJugador>ArrayList();
-                Jugador jugador1 = new Jugador();
-                Jugador jugador2 = new Jugador();
+                Jugador jugador1 = new Jugador("");
+                Jugador jugador2 = new Jugador("");
 
                 PreguntaChoiceParcial preguntaMCParcial = new PreguntaChoiceParcial(4,3);
                 preguntaMCParcial.agregarRespuestasCorrectas();

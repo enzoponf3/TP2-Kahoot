@@ -10,8 +10,8 @@ public class ExclusividadDePuntajeTest {
 
     @Test
     public void testPreguntaVoFConExclusividadPuntua2ParaJugadorQueEligioYAcerto () {
-        Jugador jugador1 = new Jugador();
-        Jugador jugador2 = new Jugador();
+        Jugador jugador1 = new Jugador("");
+        Jugador jugador2 = new Jugador("");
         PreguntaVoFClasica preguntaV = PreguntaVoFClasica.crearPreguntaVerdadera("pepegrillo");
         ArrayList<RespuestasJugador> respuestasJugadores = new <RespuestasJugador>ArrayList();
 
@@ -34,8 +34,8 @@ public class ExclusividadDePuntajeTest {
 
     @Test
     public void testPreguntaVoFConDobleExclusividadPuntua4ParaJugadorQueEligioYAcerto () {
-        Jugador jugador1 = new Jugador();
-        Jugador jugador2 = new Jugador();
+        Jugador jugador1 = new Jugador("");
+        Jugador jugador2 = new Jugador("");
         PreguntaVoFClasica preguntaV = PreguntaVoFClasica.crearPreguntaVerdadera("pepegrillo");
         ArrayList<RespuestasJugador> respuestasJugadores = new <RespuestasJugador>ArrayList();
 
@@ -59,8 +59,8 @@ public class ExclusividadDePuntajeTest {
 
     @Test
     public void testPreguntaMCClasicaConExclusividadPuntua2ParaJugadorQueEligioYAcerto(){
-        Jugador jugador1 = new Jugador();
-        Jugador jugador2 = new Jugador();
+        Jugador jugador1 = new Jugador("");
+        Jugador jugador2 = new Jugador("");
         ArrayList<RespuestasJugador> respuestasJugadores = new <RespuestasJugador>ArrayList();
         PreguntaChoiceClasica preguntaMCClasica = new PreguntaChoiceClasica(5,3);
 
@@ -88,8 +88,8 @@ public class ExclusividadDePuntajeTest {
     @Test
     public void TestPreguntaMCParcialClasicaConExclusividadPuntua2ParaJugadorQueEligioYAcerto(){
         ArrayList <RespuestasJugador> RespuestasJugadores= new <RespuestasJugador>ArrayList();
-        Jugador jugador1 = new Jugador();
-        Jugador jugador2 = new Jugador();
+        Jugador jugador1 = new Jugador("");
+        Jugador jugador2 = new Jugador("");
         PreguntaChoiceParcial preguntaMCParcial = new PreguntaChoiceParcial(4,3);
 
         preguntaMCParcial.usarExclusividad();
@@ -118,8 +118,8 @@ public class ExclusividadDePuntajeTest {
     @Test
     public void TestPreguntaMCOrdererConExclusividadPuntua2ParaJugadorQueEligioYAcerto() {
         ArrayList<RespuestasJugador> respuestasJugadores = new ArrayList<>();
-        Jugador jugador1 = new Jugador();
-        Jugador jugador2 = new Jugador();
+        Jugador jugador1 = new Jugador("");
+        Jugador jugador2 = new Jugador("");
 
         PreguntaOrdenada preguntaOrdenada = new PreguntaOrdenada(4);
         preguntaOrdenada.usarExclusividad();
@@ -146,8 +146,8 @@ public class ExclusividadDePuntajeTest {
     @Test
     public void TestPreguntaGrupoConExclusividadPuntua2ParaJugadorQueEligioYAcerto() {
         ArrayList<RespuestasJugador> respuestasJugadores= new <RespuestasJugador>ArrayList();
-        Jugador jugador1 = new Jugador();
-        Jugador jugador2 = new Jugador();
+        Jugador jugador1 = new Jugador("");
+        Jugador jugador2 = new Jugador("");
 
         PreguntaGrupo preguntaGroup = new PreguntaGrupo(3,2);
         preguntaGroup.usarExclusividad();

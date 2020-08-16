@@ -12,8 +12,8 @@ public class PreguntaOrdenadaTest {
     @Test
     public void TestPreguntaMCOrdererJugador1Con4CorrectasSeLeAsigna1PuntoYJugador2Con0CorrectasSeLeAsigna0Puntos() {
         ArrayList<RespuestasJugador> respuestasJugadores = new ArrayList<>();
-        Jugador jugador1 = new Jugador();
-        Jugador jugador2 = new Jugador();
+        Jugador jugador1 = new Jugador("");
+        Jugador jugador2 = new Jugador("");
 
         PreguntaOrdenada preguntaMC = new PreguntaOrdenada(4);
 

@@ -10,7 +10,7 @@ public class MultiplicadorTest {
 
     @Test
     public void testPreguntaVPenalConMulX2Da2AJugadorQueAcierta() {
-        Jugador jugador1 = new Jugador();
+        Jugador jugador1 = new Jugador("");
         PreguntaVoFPenal preguntaVPenal = PreguntaVoFPenal.crearPreguntaVerdadera();
         ArrayList<RespuestasJugador> respuestasJugadores = new <RespuestasJugador>ArrayList();
         MultiplicadorDoble mulX2 = new MultiplicadorDoble();
@@ -27,7 +27,7 @@ public class MultiplicadorTest {
 
     @Test
     public void testPreguntaVPenalConMulX2DaMenos2AJugadorQueFalla() {
-        Jugador jugador1 = new Jugador();
+        Jugador jugador1 = new Jugador("");
         PreguntaVoFPenal preguntaVPenal = PreguntaVoFPenal.crearPreguntaVerdadera();
         ArrayList<RespuestasJugador> respuestasJugadores = new <RespuestasJugador>ArrayList();
         MultiplicadorDoble mulX2 = new MultiplicadorDoble();
@@ -47,7 +47,7 @@ public class MultiplicadorTest {
     @Test
     public void testPreguntaMCPenalConMulX3TriplicaAJugadorQueAcierta(){
         ArrayList <RespuestasJugador> RespuestasJugadores= new <RespuestasJugador>ArrayList();
-        Jugador jugador1 = new Jugador();
+        Jugador jugador1 = new Jugador("");
         MultiplicadorTriple mulX2 = new MultiplicadorTriple();
 
         mulX2.activarMultiplicadorPara(jugador1); //Botón que indica multiplicador, sólo usable en penal.

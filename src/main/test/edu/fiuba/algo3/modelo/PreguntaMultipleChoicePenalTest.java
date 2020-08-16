@@ -11,8 +11,8 @@ public class PreguntaMultipleChoicePenalTest {
     @Test
     public void TestPreguntaMCPenalSuma1ParaJugadorCon2CorrectasY1IncorrectasY3ParaJugadorCon3Correctas(){
         ArrayList <RespuestasJugador> RespuestasJugadores= new <RespuestasJugador>ArrayList();
-        Jugador jugador1 = new Jugador();
-        Jugador jugador2 = new Jugador();
+        Jugador jugador1 = new Jugador("");
+        Jugador jugador2 = new Jugador("");
 
         PreguntaChoicePenal preguntaMCPenal = new PreguntaChoicePenal(4,3);
         preguntaMCPenal.agregarRespuestasCorrectas();

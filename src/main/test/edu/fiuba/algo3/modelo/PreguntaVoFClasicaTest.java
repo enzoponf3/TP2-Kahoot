@@ -11,8 +11,8 @@ public class PreguntaVoFClasicaTest {
 
     @Test
     public void testPreguntaVSumaPuntoAJugador1YNoSumaAJugador2 () {
-        Jugador jugador1 = new Jugador();
-        Jugador jugador2 = new Jugador();
+        Jugador jugador1 = new Jugador("");
+        Jugador jugador2 = new Jugador("");
         ArrayList<RespuestasJugador> respuestasJugadores = new ArrayList<>();
 
         PreguntaVoFClasica preguntaV = PreguntaVoFClasica.crearPreguntaVerdadera("pepegrillo");
