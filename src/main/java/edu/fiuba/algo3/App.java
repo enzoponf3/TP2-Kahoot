@@ -1,9 +1,6 @@
 package edu.fiuba.algo3;
 
-import edu.fiuba.algo3.modelo.Jugador;
-import edu.fiuba.algo3.modelo.Partida;
-import edu.fiuba.algo3.modelo.PreguntaVoFClasica;
-import edu.fiuba.algo3.modelo.PreguntasJuego;
+import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.vista.PantallaInicio;
 import edu.fiuba.algo3.vista.VistaPartida;
 import javafx.application.Application;
@@ -25,7 +22,6 @@ public class App extends Application {
         Partida partida = this.crearPartida();
 
         VistaPartida vistaPartida = new VistaPartida(stage, partida);
-        //Scene escenaPartida = new Scene(vistaPartida);
 
         var scene=new Scene(new PantallaInicio(stage,vistaPartida));
         stage.setScene(scene);
@@ -37,14 +33,17 @@ public class App extends Application {
     }
 
     private Partida crearPartida() {
-        PreguntasJuego preguntasLeidas = null;
+        PreguntasJuego preguntasLeidas = new PreguntasJuego();
+        preguntasLeidas.add(new PreguntaOrdenada(5));
+        return new Partida(preguntasLeidas);
+        /*
         try {
             preguntasLeidas = PreguntasJuego.recuperar(FILENAME_RELATIVE_PATH);
         } catch (IOException ex) {
             System.out.println(ex);
         }
 
-        return new Partida(preguntasLeidas);
+        return new Partida(preguntasLeidas);*/
     }
 
 }

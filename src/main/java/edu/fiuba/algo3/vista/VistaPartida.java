@@ -28,7 +28,7 @@ public class VistaPartida {
         this.partida.agregarJugador(jugador1);
         this.partida.agregarJugador(jugador2);
         this.primerJugador = this.partida.jugadorActual();
-        this.stage.setScene(new Scene(new VistaPreguntaVoFClasica(this.stage, this)));
+        this.stage.setScene(new Scene(new VistaPreguntaOrdenada(this.stage, this)));
     }
 
     public void update() {
@@ -43,7 +43,7 @@ public class VistaPartida {
             }
         }
 
-        this.stage.setScene(new Scene(new VistaPreguntaVoFClasica(this.stage, this)));
+        this.stage.setScene(new Scene(new VistaPreguntaOrdenada(this.stage, this)));
     }
 
     public void agregarRespuestaAJugadorActual(RespuestasJugador respuestas){

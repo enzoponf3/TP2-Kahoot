@@ -18,7 +18,6 @@ public class VistaPreguntaMCClasica extends Pane {
         this.setPrefSize(1300,720);
         this.preguntaMCClasica= (PreguntaChoiceClasica) vistaPartida.partida().preguntaActual();
 
-        //preguntaVoF.usarExclusividad();;
         ArrayList<RespuestasJugador> respuestasJugadores = new ArrayList<>();
         RespuestasJugador respuestasJugador= new RespuestasJugador(vistaPartida.partida().jugadorActual());
 
