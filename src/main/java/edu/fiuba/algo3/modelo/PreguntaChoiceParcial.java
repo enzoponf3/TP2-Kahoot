@@ -26,4 +26,5 @@ public class PreguntaChoiceParcial extends PreguntaMC{
     public JsonObject guardar() {
         return null;
     }
+
 }

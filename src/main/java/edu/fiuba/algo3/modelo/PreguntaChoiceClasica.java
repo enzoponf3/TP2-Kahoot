@@ -29,4 +29,5 @@ public class PreguntaChoiceClasica extends PreguntaMC{
     public ArrayList<Respuesta> devolverRespuestasPosibles2() {
         return this.respuestaPosibles;
     }
+
 }

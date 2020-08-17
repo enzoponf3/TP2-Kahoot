@@ -1,0 +1,19 @@
+{"preguntas":[
+	{"nombreTipo" : "PreguntaVoFClasica",
+	 "enunciado" : "Pregunta verdadera 1",
+	 "verdad" : true
+	},
+	{"nombreTipo" : "PreguntaVoFClasica",
+	 "enunciado" : "Pregunta verdadera 2",
+	 "verdad" : true
+	},
+	{"nombreTipo" : "PreguntaVoFClasica",
+	 "enunciado" : "Pregunta Falsa 1",
+	 "verdad" : false
+	},
+	{"nombreTipo" : "PreguntaVoFClasica",
+	 "enunciado" : "Pregunta Falsa 2",
+	 "verdad" : false
+	}	
+]
+}

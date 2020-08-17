@@ -50,14 +50,55 @@ public class PreguntasJuego {
         writer.close();
     }
 
-    /*public PreguntasJuego recuperar(JsonObject jsonObjectPreguntasJuego) {
+    public static PreguntasJuego recuperar(JsonObject jsonObjectPreguntasJuego) throws IOException {
         PreguntasJuego preguntasJuego = new PreguntasJuego();
-        /*
+
         JsonArray listaPreguntas = jsonObjectPreguntasJuego.getAsJsonArray("preguntas");
         for (JsonElement jsonPregunta : listaPreguntas) {
-
-            Pregunta pregunta = Pregunta.recuperar(jsonPregunta.getAsJsonObject());
-            preguntasJuego.add(pregunta);
+            String nombreTipo = jsonPregunta.getAsJsonObject().get("nombreTipo").getAsString();
+            switch (nombreTipo) {
+                case ("PreguntaVoFClasica") :
+                    if (jsonPregunta.getAsJsonObject().get("verdad").getAsBoolean()){
+                        PreguntaVoFClasica pregunta = PreguntaVoFClasica.crearPreguntaVerdadera(
+                        jsonPregunta.getAsJsonObject().get("enunciado").getAsString());
+                        preguntasJuego.add(pregunta);
+                    }
+                    else{
+                        PreguntaVoFClasica pregunta = PreguntaVoFClasica.crearPreguntaFalsa();
+                        preguntasJuego.add(pregunta);
+                    }
+                    break;
+                case ("PreguntaVoFPenal") :
+                    if (jsonPregunta.getAsJsonObject().get("verdad").getAsBoolean()){
+                        PreguntaVoFPenal pregunta = PreguntaVoFPenal.crearPreguntaVerdadera();
+                        preguntasJuego.add(pregunta);
+                    }
+                    else{
+                        PreguntaVoFPenal pregunta = PreguntaVoFPenal.crearPreguntaFalsa();
+                        preguntasJuego.add(pregunta);
+                    }
+                    break;
+                case ("PreguntaChoiceClasica") :
+                    PreguntaChoiceClasica pregunta2 = new PreguntaChoiceClasica(3,2);
+                    preguntasJuego.add(pregunta2);
+                    break;
+                case ("PreguntaChoiceParcial") :
+                    PreguntaChoiceParcial pregunta3 = new PreguntaChoiceParcial(3,2);
+                    preguntasJuego.add(pregunta3);
+                    break;
+                case ("PreguntaChoicePenal") :
+                    PreguntaChoicePenal pregunta4 = new PreguntaChoicePenal(3,2);
+                    preguntasJuego.add(pregunta4);
+                    break;
+                case ("PreguntaGrupo") :
+                    PreguntaGrupo pregunta5 = new PreguntaGrupo(3,2);
+                    preguntasJuego.add(pregunta5);
+                    break;
+                case ("PreguntaOrdernada") :
+                    PreguntaOrdenada pregunta6 = new PreguntaOrdenada(5);
+                    preguntasJuego.add(pregunta6);
+                    break;
+            }
         }
         return preguntasJuego;
     }
@@ -68,5 +109,5 @@ public class PreguntasJuego {
         JsonObject jsonObject = JsonParser.parseString(texto).getAsJsonObject();
 
         return recuperar(jsonObject);
-    }*/
+    }
 }

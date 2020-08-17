@@ -43,11 +43,4 @@ public class PreguntaVoFClasica extends PreguntaVoF {
         return jsonPregunta;
     }
 
-    public static PreguntaVoFClasica recuperar(JsonObject jsonObjectPregunta) {
-        String enunciado = jsonObjectPregunta.get("enunciado").getAsString();
-
-        PreguntaVoFClasica pregunta = PreguntaVoFClasica.crearPreguntaVerdadera(enunciado);
-
-        return pregunta;
-    }
 }
