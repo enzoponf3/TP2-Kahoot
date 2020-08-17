@@ -46,8 +46,8 @@ public class PreguntaOrdenada implements Pregunta{
     }
 
     @Override
-    public Iterator<Respuesta> devolverRespuestasPosibles() {
-        return this.opcionesOrdenadas.iterator();
+    public ArrayList<Respuesta> devolverRespuestasPosibles() {
+        return this.opcionesOrdenadas;
     }
 
     public void usarExclusividad() {

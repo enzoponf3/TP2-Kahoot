@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.eventos.BotonResponderFalsoHandler;
-import edu.fiuba.algo3.eventos.BotonResponderVerdaderoHandler;
+import edu.fiuba.algo3.eventos.BotonResponderVoFHandler;
 import edu.fiuba.algo3.modelo.PreguntaVoFClasica;
+import edu.fiuba.algo3.modelo.Respuesta;
 import edu.fiuba.algo3.modelo.RespuestasJugador;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -24,29 +24,36 @@ public class VistaPreguntaVoFClasica extends Pane {
         ArrayList<RespuestasJugador> respuestasJugadores = new ArrayList<>();
         RespuestasJugador respuestasJugador= new RespuestasJugador(vistaPartida.partida().jugadorActual());
 
-        Label nombre1 = new Label(vistaPartida.partida().preguntaActual().devolverEnunciado());
+        Label enunciadoPregunta = new Label(vistaPartida.partida().preguntaActual().devolverEnunciado());
+        ArrayList<Respuesta> respuestasPregunta=preguntaVoF.devolverRespuestasPosibles();
 
         Button botonTrue = new Button("V");
+        BotonResponderVoFHandler botonVHandler = new BotonResponderVoFHandler(respuestasJugador,respuestasPregunta.get(0),vistaPartida);
+        botonTrue.setOnAction(botonVHandler);
+
         Button botonFalse = new Button("F");
+        BotonResponderVoFHandler botonFHandler = new BotonResponderVoFHandler(respuestasJugador,respuestasPregunta.get(1),vistaPartida);
+        botonFalse.setOnAction(botonFHandler);
+
         Button Exclusividad = new Button("Exlusividad de puntaje");
 
-        BotonResponderVerdaderoHandler botonResponderVerdaderoHandler = new BotonResponderVerdaderoHandler(respuestasJugador,vistaPartida);
+       /* BotonResponderVerdaderoHandler botonResponderVerdaderoHandler = new BotonResponderVerdaderoHandler(respuestasJugador,vistaPartida);
         botonTrue.setOnAction(botonResponderVerdaderoHandler);
 
         BotonResponderFalsoHandler botonResponderFalsoHandler = new BotonResponderFalsoHandler(respuestasJugador,vistaPartida);
-        botonFalse.setOnAction(botonResponderFalsoHandler);
+        botonFalse.setOnAction(botonResponderFalsoHandler);*/
 
         Label nombreJugador = new Label(vistaPartida.partida().jugadorActual().getNombre()+": "+vistaPartida.partida().jugadorActual().puntos());
 
 
-        nombre1.relocate(600, 100);
+        enunciadoPregunta.relocate(600, 100);
         botonFalse.setPrefSize(500,100);
         botonFalse.relocate(100,400);
         botonTrue.setPrefSize(500,100);
         botonTrue.relocate(700,400);
         nombreJugador.relocate(650, 600);
 
-        this.getChildren().addAll(nombre1,botonFalse,botonTrue,nombreJugador);
+        this.getChildren().addAll(enunciadoPregunta,botonFalse,botonTrue,nombreJugador);
 
     }
 

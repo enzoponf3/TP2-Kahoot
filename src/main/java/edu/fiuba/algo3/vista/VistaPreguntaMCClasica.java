@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.eventos.BotonResponderFalsoHandler;
-import edu.fiuba.algo3.eventos.BotonResponderVerdaderoHandler;
+import edu.fiuba.algo3.eventos.BotonFinalizarTurnoMCHandler;
+import edu.fiuba.algo3.eventos.BotonResponderMCHandler;
 import edu.fiuba.algo3.modelo.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -9,7 +9,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class VistaPreguntaMCClasica extends Pane {
     Stage stage;

@@ -6,14 +6,16 @@ import java.util.ArrayList;
 
 public class PreguntaVoFPenal extends PreguntaVoF{
 
-    static public PreguntaVoFPenal crearPreguntaVerdadera() {
+    static public PreguntaVoFPenal crearPreguntaVerdadera(String nombre) {
         PreguntaVoFPenal pregunta = new PreguntaVoFPenal();
+        pregunta.enunciadoPregunta = nombre;
         pregunta.setRespuestaVerdadera();
         return pregunta;
     }
 
-    static public PreguntaVoFPenal crearPreguntaFalsa() {
+    static public PreguntaVoFPenal crearPreguntaFalsa(String nombre) {
         PreguntaVoFPenal pregunta = new PreguntaVoFPenal();
+        pregunta.enunciadoPregunta = nombre;
         pregunta.setRespuestaFalsa();
         return pregunta;
     }

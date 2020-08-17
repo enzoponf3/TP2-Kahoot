@@ -43,8 +43,8 @@ public abstract class PreguntaMC implements Pregunta {
     public ArrayList<Respuesta> obtenerRespuestas() { return this.respuestaPosibles; }
 
     @Override
-    public Iterator<Respuesta> devolverRespuestasPosibles() {
-        return this.respuestaPosibles.iterator();
+    public ArrayList<Respuesta> devolverRespuestasPosibles() {
+        return this.respuestaPosibles;
     }
 
     public String devolverEnunciado(){

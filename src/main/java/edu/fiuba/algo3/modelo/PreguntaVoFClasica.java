@@ -15,8 +15,9 @@ public class PreguntaVoFClasica extends PreguntaVoF {
         return pregunta;
     }
 
-    static public PreguntaVoFClasica crearPreguntaFalsa() {
+    static public PreguntaVoFClasica crearPreguntaFalsa(String nombre) {
         PreguntaVoFClasica pregunta = new PreguntaVoFClasica();
+        pregunta.enunciadoPregunta= nombre;
         pregunta.setRespuestaFalsa();
         pregunta.exclusividad = new ExlusividadNula();
         return pregunta;

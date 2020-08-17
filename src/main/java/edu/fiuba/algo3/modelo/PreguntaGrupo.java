@@ -33,8 +33,8 @@ public class PreguntaGrupo implements Pregunta{
     }
 
     @Override
-    public Iterator<Respuesta> devolverRespuestasPosibles() {
-        return this.respuestasElegibles.iterator();
+    public ArrayList<Respuesta> devolverRespuestasPosibles() {
+        return this.respuestasElegibles;
     }
 
     public void evaluarRespuestas(ArrayList<RespuestasJugador> respuestasVariosJugadores) {

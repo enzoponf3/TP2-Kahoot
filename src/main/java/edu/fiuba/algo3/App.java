@@ -37,16 +37,6 @@ public class App extends Application {
     }
 
     private Partida crearPartida() {
-        PreguntasJuego preguntas = new PreguntasJuego();
-        //ArrayList<PreguntaVoFClasica> preguntas= new ArrayList<>();
-        preguntas.add(PreguntaVoFClasica.crearPreguntaVerdadera("Pregunta verdadera 2"));
-        preguntas.add(PreguntaVoFClasica.crearPreguntaVerdadera("Pregunta verdadera 1"));
-        /* try {
-            preguntas.guardar(FILENAME_RELATIVE_PATH);
-        } catch (IOException ex) {
-            System.out.println("Problemas" + ex);
-        }
-        */
         PreguntasJuego preguntasLeidas = null;
         try {
             preguntasLeidas = PreguntasJuego.recuperar(FILENAME_RELATIVE_PATH);

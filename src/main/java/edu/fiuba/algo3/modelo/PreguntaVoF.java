@@ -24,8 +24,9 @@ public abstract class PreguntaVoF implements Pregunta{
 
     public abstract void evaluarRespuestas(ArrayList<RespuestasJugador> respuestasVariosJugadores);
 
-    public Iterator<Respuesta> devolverRespuestasPosibles(){
-        return respuestas.iterator();
+    @Override
+    public ArrayList<Respuesta> devolverRespuestasPosibles() {
+        return this.respuestas;
     }
 
     public Respuesta elegirRespuesta(int idx){  // para TEST

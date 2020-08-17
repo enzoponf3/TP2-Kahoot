@@ -11,7 +11,7 @@ public class MultiplicadorTest {
     @Test
     public void testPreguntaVPenalConMulX2Da2AJugadorQueAcierta() {
         Jugador jugador1 = new Jugador("");
-        PreguntaVoFPenal preguntaVPenal = PreguntaVoFPenal.crearPreguntaVerdadera();
+        PreguntaVoFPenal preguntaVPenal = PreguntaVoFPenal.crearPreguntaVerdadera("");
         ArrayList<RespuestasJugador> respuestasJugadores = new <RespuestasJugador>ArrayList();
         MultiplicadorDoble mulX2 = new MultiplicadorDoble();
 
@@ -28,7 +28,7 @@ public class MultiplicadorTest {
     @Test
     public void testPreguntaVPenalConMulX2DaMenos2AJugadorQueFalla() {
         Jugador jugador1 = new Jugador("");
-        PreguntaVoFPenal preguntaVPenal = PreguntaVoFPenal.crearPreguntaVerdadera();
+        PreguntaVoFPenal preguntaVPenal = PreguntaVoFPenal.crearPreguntaVerdadera("");
         ArrayList<RespuestasJugador> respuestasJugadores = new <RespuestasJugador>ArrayList();
         MultiplicadorDoble mulX2 = new MultiplicadorDoble();
 

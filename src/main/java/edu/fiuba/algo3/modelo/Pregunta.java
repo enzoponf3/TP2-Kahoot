@@ -9,7 +9,7 @@ public interface Pregunta {
 
     //static Pregunta recuperar(JsonObject asJsonObject);
     Respuesta elegirRespuesta(int idx); // para TEST
-    Iterator<Respuesta> devolverRespuestasPosibles();
+    ArrayList<Respuesta> devolverRespuestasPosibles();
     void evaluarRespuestas(ArrayList<RespuestasJugador> respuestasVariosJugadores);
     public JsonObject guardar();
     String devolverEnunciado();

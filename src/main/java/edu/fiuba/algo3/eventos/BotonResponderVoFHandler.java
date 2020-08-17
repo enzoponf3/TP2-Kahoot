@@ -6,20 +6,18 @@ import edu.fiuba.algo3.vista.VistaPartida;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
-import java.util.Iterator;
-
-public class BotonResponderVerdaderoHandler implements EventHandler<ActionEvent> {
-    VistaPartida vistaPartida;
+public class BotonResponderVoFHandler implements EventHandler<ActionEvent> {
+    Respuesta respuestaBoton;
     RespuestasJugador respuestasJugador;
-    public BotonResponderVerdaderoHandler(RespuestasJugador respuestasJugador, VistaPartida vistaPartida) {
+    VistaPartida vistaPartida;
+    public BotonResponderVoFHandler(RespuestasJugador respuestasJugador, Respuesta unaRespuesta, VistaPartida vistaPartida) {
         this.respuestasJugador=respuestasJugador;
+        this.respuestaBoton=unaRespuesta;
         this.vistaPartida=vistaPartida;
     }
-
     @Override
     public void handle(ActionEvent event) {
-        Iterator<Respuesta> iterator = vistaPartida.partida().preguntaActual().devolverRespuestasPosibles();
-        respuestasJugador.agregarRespuesta(iterator.next());
+        respuestasJugador.agregarRespuesta(this.respuestaBoton);
         this.vistaPartida.agregarRespuestaAJugadorActual(this.respuestasJugador);
         this.vistaPartida.update();
     }

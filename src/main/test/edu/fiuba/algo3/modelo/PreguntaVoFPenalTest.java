@@ -14,7 +14,7 @@ public class PreguntaVoFPenalTest {
     public void testPreguntaVPenalSumaPuntoAJugador1YRestaAJugador2() {
         Jugador jugador1 = new Jugador("");
         Jugador jugador2 = new Jugador("");
-        PreguntaVoFPenal preguntaVPenal = PreguntaVoFPenal.crearPreguntaVerdadera();
+        PreguntaVoFPenal preguntaVPenal = PreguntaVoFPenal.crearPreguntaVerdadera("");
         ArrayList<RespuestasJugador> respuestasJugadores = new <RespuestasJugador>ArrayList();
 
         RespuestasJugador respuestasJugador1 = new RespuestasJugador(jugador1);
@@ -35,7 +35,7 @@ public class PreguntaVoFPenalTest {
     public void testPreguntaFPenalSumaPuntoAJugador1YRestaAJugador2() {
         Jugador jugador1 = new Jugador("");
         Jugador jugador2 = new Jugador("");
-        PreguntaVoFPenal preguntaVPenal = PreguntaVoFPenal.crearPreguntaFalsa();
+        PreguntaVoFPenal preguntaVPenal = PreguntaVoFPenal.crearPreguntaFalsa("");
         ArrayList<RespuestasJugador> respuestasJugadores = new <RespuestasJugador>ArrayList();
 
         RespuestasJugador respuestasJugador1 = new RespuestasJugador(jugador1);

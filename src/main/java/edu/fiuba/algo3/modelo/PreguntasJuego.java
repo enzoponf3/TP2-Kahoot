@@ -59,22 +59,21 @@ public class PreguntasJuego {
             switch (nombreTipo) {
                 case ("PreguntaVoFClasica") :
                     if (jsonPregunta.getAsJsonObject().get("verdad").getAsBoolean()){
-                        PreguntaVoFClasica pregunta = PreguntaVoFClasica.crearPreguntaVerdadera(
-                        jsonPregunta.getAsJsonObject().get("enunciado").getAsString());
+                        PreguntaVoFClasica pregunta = PreguntaVoFClasica.crearPreguntaVerdadera(jsonPregunta.getAsJsonObject().get("enunciado").getAsString());
                         preguntasJuego.add(pregunta);
                     }
                     else{
-                        PreguntaVoFClasica pregunta = PreguntaVoFClasica.crearPreguntaFalsa();
+                        PreguntaVoFClasica pregunta = PreguntaVoFClasica.crearPreguntaFalsa(jsonPregunta.getAsJsonObject().get("enunciado").getAsString());
                         preguntasJuego.add(pregunta);
                     }
                     break;
                 case ("PreguntaVoFPenal") :
                     if (jsonPregunta.getAsJsonObject().get("verdad").getAsBoolean()){
-                        PreguntaVoFPenal pregunta = PreguntaVoFPenal.crearPreguntaVerdadera();
+                        PreguntaVoFPenal pregunta = PreguntaVoFPenal.crearPreguntaVerdadera(jsonPregunta.getAsJsonObject().get("enunciado").getAsString());
                         preguntasJuego.add(pregunta);
                     }
                     else{
-                        PreguntaVoFPenal pregunta = PreguntaVoFPenal.crearPreguntaFalsa();
+                        PreguntaVoFPenal pregunta = PreguntaVoFPenal.crearPreguntaFalsa(jsonPregunta.getAsJsonObject().get("enunciado").getAsString());
                         preguntasJuego.add(pregunta);
                     }
                     break;
