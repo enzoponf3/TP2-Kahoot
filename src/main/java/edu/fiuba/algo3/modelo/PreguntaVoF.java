@@ -1,17 +1,15 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public abstract class PreguntaVoF implements Pregunta{
     protected String enunciadoPregunta;
-    private ArrayList<Respuesta> respuestas;
+    private final ArrayList<Respuesta> respuestas;
 
     public PreguntaVoF() {
-        this.respuestas = new ArrayList<Respuesta>();
-        for (int i = 0; i < 2; i++) {
-            this.respuestas.add(new Respuesta());
-        }
+        this.respuestas = new ArrayList<>();
+        this.respuestas.add(new Respuesta("V"));
+        this.respuestas.add(new Respuesta("F"));
     }
 
     public void setRespuestaVerdadera() {

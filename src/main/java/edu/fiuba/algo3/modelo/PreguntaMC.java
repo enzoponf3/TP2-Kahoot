@@ -1,53 +1,46 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public abstract class PreguntaMC implements Pregunta {
-    protected ArrayList<Respuesta> respuestaPosibles;
+    protected ArrayList<Respuesta> respuestasPosibles;
     protected int cantidadCorrectas;
     protected int cantidadOpciones;
+    private final String enunciado;
     ExclusividadPuntaje exclusividad;
 
-    public PreguntaMC(int numeroDeOpciones,int cantidadCorrectasDeseadas){
-        this.cantidadCorrectas= cantidadCorrectasDeseadas;
-        this.cantidadOpciones = numeroDeOpciones;
-        this.respuestaPosibles = new ArrayList<Respuesta>();
+    public PreguntaMC(String enunciado){
+        this.enunciado = enunciado;
+        this.cantidadCorrectas= 0;
+        this.cantidadOpciones = 0;
+        this.respuestasPosibles = new ArrayList<>();
         this.exclusividad = new ExlusividadNula();
-        this.agregarRespuestasCorrectas();
     }
 
     public abstract void evaluarRespuestas(ArrayList<RespuestasJugador> respuestasVariosJugadores);
 
-    protected int cantidadRespuestasCorrectas() {
-        return this.cantidadCorrectas;
+    public void agregarRespuestaCorrecta(Respuesta respuesta) {
+        respuesta.establecerComoRespuestaAcertada();
+        this.respuestasPosibles.add(respuesta);
+        this.cantidadCorrectas++;
+        this.cantidadOpciones++;
     }
 
-    public void agregarRespuestasCorrectas() {
-        for (int i=0;i < this.cantidadOpciones; i++){
-            respuestaPosibles.add(new Respuesta());
-            if (i < cantidadCorrectas){
-                respuestaPosibles.get(i).establecerComoRespuestaAcertada();
-            }
-        }
-    }
-
-    public Respuesta elegirRespuesta(int idx){
-        return respuestaPosibles.get(idx);
+    public void agregarRespuesta(Respuesta respuesta) {
+        this.respuestasPosibles.add(respuesta);
+        this.cantidadOpciones++;
     }
 
     public void usarExclusividad() {
         this.exclusividad=this.exclusividad.cambiarExclusividad();
     }
 
-    public ArrayList<Respuesta> obtenerRespuestas() { return this.respuestaPosibles; }
-
     @Override
     public ArrayList<Respuesta> devolverRespuestasPosibles() {
-        return this.respuestaPosibles;
+        return this.respuestasPosibles;
     }
 
     public String devolverEnunciado(){
-        return "algo";
+        return this.enunciado;
     }
 }

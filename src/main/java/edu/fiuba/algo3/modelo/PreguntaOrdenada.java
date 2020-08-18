@@ -3,20 +3,16 @@ package edu.fiuba.algo3.modelo;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.ListIterator;
 
 public class PreguntaOrdenada implements Pregunta{
-    private ArrayList<Respuesta> opcionesOrdenadas;
-    private int cantidadOpciones;
+    private final ArrayList<Respuesta> opcionesOrdenadas;
     private ExclusividadPuntaje exclusividad;
 
     public PreguntaOrdenada(int cantidadOpciones){
-        this.cantidadOpciones = cantidadOpciones;
         this.opcionesOrdenadas = new ArrayList<>();
         this.exclusividad = new ExlusividadNula();
-        for (int i=0;i < this.cantidadOpciones; i++){
-            opcionesOrdenadas.add(new Respuesta());
+        for (int i = 0; i < cantidadOpciones; i++){
+            opcionesOrdenadas.add(new Respuesta("Algo"));
         }
     }
 

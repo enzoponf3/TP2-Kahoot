@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public class PreguntaChoiceClasica extends PreguntaMC{
 
-    public PreguntaChoiceClasica(int numeroDeOpciones,int cantidadCorrectasDeseadas){
-        super(numeroDeOpciones,cantidadCorrectasDeseadas);
+    public PreguntaChoiceClasica(String enunciado){
+        super(enunciado);
     }
 
     public void evaluarRespuestas(ArrayList<RespuestasJugador> respuestasVariosJugadores) {
@@ -27,7 +27,7 @@ public class PreguntaChoiceClasica extends PreguntaMC{
     }
 
     public ArrayList<Respuesta> devolverRespuestasPosibles2() {
-        return this.respuestaPosibles;
+        return this.respuestasPosibles;
     }
 
 }

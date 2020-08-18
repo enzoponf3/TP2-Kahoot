@@ -12,16 +12,16 @@ public class PreguntaGrupo implements Pregunta{
     private ExclusividadPuntaje exclusividad;
 
     public PreguntaGrupo(int cantidadGrupoA, int cantidadGrupoB){
-        this.respuestasGrupoA = new ArrayList<Respuesta>();
-        this.respuestasGrupoB = new ArrayList<Respuesta>();
-        this.respuestasElegibles = new ArrayList<Respuesta>();
+        this.respuestasGrupoA = new ArrayList<>();
+        this.respuestasGrupoB = new ArrayList<>();
+        this.respuestasElegibles = new ArrayList<>();
         this.exclusividad= new ExlusividadNula();
         for (int i=0;i < cantidadGrupoA+cantidadGrupoB; i++){
             if (i < cantidadGrupoA){
-                respuestasGrupoA.add(new Respuesta());
+                respuestasGrupoA.add(new Respuesta("Algo"));
             }
             else {
-                respuestasGrupoB.add(new Respuesta());
+                respuestasGrupoB.add(new Respuesta("Algo"));
             }
         }
         respuestasElegibles.addAll(respuestasGrupoA);

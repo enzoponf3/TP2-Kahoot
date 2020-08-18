@@ -13,7 +13,7 @@ public class ExclusividadDePuntajeTest {
         Jugador jugador1 = new Jugador("");
         Jugador jugador2 = new Jugador("");
         PreguntaVoFClasica preguntaV = PreguntaVoFClasica.crearPreguntaVerdadera("pepegrillo");
-        ArrayList<RespuestasJugador> respuestasJugadores = new <RespuestasJugador>ArrayList();
+        ArrayList<RespuestasJugador> respuestasJugadores = new ArrayList<>();
 
         preguntaV.usarExclusividad();  //La usa el jugador1
 
@@ -37,7 +37,7 @@ public class ExclusividadDePuntajeTest {
         Jugador jugador1 = new Jugador("");
         Jugador jugador2 = new Jugador("");
         PreguntaVoFClasica preguntaV = PreguntaVoFClasica.crearPreguntaVerdadera("pepegrillo");
-        ArrayList<RespuestasJugador> respuestasJugadores = new <RespuestasJugador>ArrayList();
+        ArrayList<RespuestasJugador> respuestasJugadores = new ArrayList<>();
 
         preguntaV.usarExclusividad();  //La usa el jugador1
         preguntaV.usarExclusividad();  //La usa el jugador2
@@ -61,19 +61,29 @@ public class ExclusividadDePuntajeTest {
     public void testPreguntaMCClasicaConExclusividadPuntua2ParaJugadorQueEligioYAcerto(){
         Jugador jugador1 = new Jugador("");
         Jugador jugador2 = new Jugador("");
-        ArrayList<RespuestasJugador> respuestasJugadores = new <RespuestasJugador>ArrayList();
-        PreguntaChoiceClasica preguntaMCClasica = new PreguntaChoiceClasica(5,3);
+        ArrayList<RespuestasJugador> respuestasJugadores = new ArrayList<>();
+
+        Respuesta respuesta1 = new Respuesta("Algo");
+        Respuesta respuesta2 = new Respuesta("Algo");
+        Respuesta respuesta3 = new Respuesta("Algo");
+        Respuesta respuesta4 = new Respuesta("Algo");
+
+        PreguntaChoiceClasica preguntaMCClasica = new PreguntaChoiceClasica("Pregunta");
+        preguntaMCClasica.agregarRespuestaCorrecta(respuesta1);
+        preguntaMCClasica.agregarRespuestaCorrecta(respuesta2);
+        preguntaMCClasica.agregarRespuestaCorrecta(respuesta3);
+        preguntaMCClasica.agregarRespuesta(respuesta4);
 
         preguntaMCClasica.usarExclusividad();  //La usa el jugador1
 
         RespuestasJugador respuestasJugador1 = new RespuestasJugador(jugador1);
-        respuestasJugador1.agregarRespuesta(preguntaMCClasica.elegirRespuesta(0));
-        respuestasJugador1.agregarRespuesta(preguntaMCClasica.elegirRespuesta(1));
-        respuestasJugador1.agregarRespuesta(preguntaMCClasica.elegirRespuesta(2));
+        respuestasJugador1.agregarRespuesta(respuesta1);
+        respuestasJugador1.agregarRespuesta(respuesta2);
+        respuestasJugador1.agregarRespuesta(respuesta3);
 
         RespuestasJugador respuestasJugador2 = new RespuestasJugador(jugador2);
-        respuestasJugador2.agregarRespuesta(preguntaMCClasica.elegirRespuesta(1));
-        respuestasJugador2.agregarRespuesta(preguntaMCClasica.elegirRespuesta(3));
+        respuestasJugador2.agregarRespuesta(respuesta2);
+        respuestasJugador2.agregarRespuesta(respuesta4);
 
         respuestasJugadores.add(respuestasJugador1);
         respuestasJugadores.add(respuestasJugador2);
@@ -87,23 +97,33 @@ public class ExclusividadDePuntajeTest {
 
     @Test
     public void TestPreguntaMCParcialClasicaConExclusividadPuntua2ParaJugadorQueEligioYAcerto(){
-        ArrayList <RespuestasJugador> RespuestasJugadores= new <RespuestasJugador>ArrayList();
+        ArrayList <RespuestasJugador> RespuestasJugadores= new ArrayList<>();
         Jugador jugador1 = new Jugador("");
         Jugador jugador2 = new Jugador("");
-        PreguntaChoiceParcial preguntaMCParcial = new PreguntaChoiceParcial(4,3);
+
+        Respuesta respuesta1 = new Respuesta("Algo");
+        Respuesta respuesta2 = new Respuesta("Algo");
+        Respuesta respuesta3 = new Respuesta("Algo");
+        Respuesta respuesta4 = new Respuesta("Algo");
+
+        PreguntaChoiceParcial preguntaMCParcial = new PreguntaChoiceParcial("Pregunta");
+        preguntaMCParcial.agregarRespuestaCorrecta(respuesta1);
+        preguntaMCParcial.agregarRespuestaCorrecta(respuesta2);
+        preguntaMCParcial.agregarRespuestaCorrecta(respuesta3);
+        preguntaMCParcial.agregarRespuesta(respuesta4);
 
         preguntaMCParcial.usarExclusividad();
 
         RespuestasJugador respuestasJugador1 = new RespuestasJugador(jugador1);
-        respuestasJugador1.agregarRespuesta(preguntaMCParcial.elegirRespuesta(0));
-        respuestasJugador1.agregarRespuesta(preguntaMCParcial.elegirRespuesta(1));
-        respuestasJugador1.agregarRespuesta(preguntaMCParcial.elegirRespuesta(2));
+        respuestasJugador1.agregarRespuesta(respuesta1);
+        respuestasJugador1.agregarRespuesta(respuesta2);
+        respuestasJugador1.agregarRespuesta(respuesta3);
 
 
         RespuestasJugador respuestasJugador2 = new RespuestasJugador(jugador2);
-        respuestasJugador2.agregarRespuesta(preguntaMCParcial.elegirRespuesta(1));
-        respuestasJugador2.agregarRespuesta(preguntaMCParcial.elegirRespuesta(3));
-        respuestasJugador2.agregarRespuesta(preguntaMCParcial.elegirRespuesta(2));
+        respuestasJugador2.agregarRespuesta(respuesta2);
+        respuestasJugador2.agregarRespuesta(respuesta4);
+        respuestasJugador2.agregarRespuesta(respuesta3);
 
         RespuestasJugadores.add( respuestasJugador1);
         RespuestasJugadores.add( respuestasJugador2);
@@ -145,7 +165,7 @@ public class ExclusividadDePuntajeTest {
 
     @Test
     public void TestPreguntaGrupoConExclusividadPuntua2ParaJugadorQueEligioYAcerto() {
-        ArrayList<RespuestasJugador> respuestasJugadores= new <RespuestasJugador>ArrayList();
+        ArrayList<RespuestasJugador> respuestasJugadores= new ArrayList<>();
         Jugador jugador1 = new Jugador("");
         Jugador jugador2 = new Jugador("");
 

@@ -12,7 +12,7 @@ public class MultiplicadorTest {
     public void testPreguntaVPenalConMulX2Da2AJugadorQueAcierta() {
         Jugador jugador1 = new Jugador("");
         PreguntaVoFPenal preguntaVPenal = PreguntaVoFPenal.crearPreguntaVerdadera("");
-        ArrayList<RespuestasJugador> respuestasJugadores = new <RespuestasJugador>ArrayList();
+        ArrayList<RespuestasJugador> respuestasJugadores = new ArrayList<>();
         MultiplicadorDoble mulX2 = new MultiplicadorDoble();
 
         mulX2.activarMultiplicadorPara(jugador1); //Botón que indica multiplicador, sólo usable en penal.
@@ -29,7 +29,7 @@ public class MultiplicadorTest {
     public void testPreguntaVPenalConMulX2DaMenos2AJugadorQueFalla() {
         Jugador jugador1 = new Jugador("");
         PreguntaVoFPenal preguntaVPenal = PreguntaVoFPenal.crearPreguntaVerdadera("");
-        ArrayList<RespuestasJugador> respuestasJugadores = new <RespuestasJugador>ArrayList();
+        ArrayList<RespuestasJugador> respuestasJugadores = new ArrayList<>();
         MultiplicadorDoble mulX2 = new MultiplicadorDoble();
 
         mulX2.activarMultiplicadorPara(jugador1); //Botón que indica multiplicador, sólo usable en penal.
@@ -46,18 +46,24 @@ public class MultiplicadorTest {
 
     @Test
     public void testPreguntaMCPenalConMulX3TriplicaAJugadorQueAcierta(){
-        ArrayList <RespuestasJugador> RespuestasJugadores= new <RespuestasJugador>ArrayList();
+        ArrayList <RespuestasJugador> RespuestasJugadores= new ArrayList<>();
         Jugador jugador1 = new Jugador("");
         MultiplicadorTriple mulX2 = new MultiplicadorTriple();
 
+        Respuesta respuesta1 = new Respuesta("Algo");
+        Respuesta respuesta2 = new Respuesta("Algo");
+        Respuesta respuesta3 = new Respuesta("Algo");
+
         mulX2.activarMultiplicadorPara(jugador1); //Botón que indica multiplicador, sólo usable en penal.
-        PreguntaChoicePenal preguntaMCPenal = new PreguntaChoicePenal(4,3);
-        preguntaMCPenal.agregarRespuestasCorrectas();
+        PreguntaChoicePenal preguntaMCPenal = new PreguntaChoicePenal("Pregunta");
+        preguntaMCPenal.agregarRespuestaCorrecta(respuesta1);
+        preguntaMCPenal.agregarRespuestaCorrecta(respuesta2);
+        preguntaMCPenal.agregarRespuestaCorrecta(respuesta3);
 
         RespuestasJugador respuestasJugador1 = new RespuestasJugador(jugador1);
-        respuestasJugador1.agregarRespuesta(preguntaMCPenal.elegirRespuesta(0));
-        respuestasJugador1.agregarRespuesta(preguntaMCPenal.elegirRespuesta(1));
-        respuestasJugador1.agregarRespuesta(preguntaMCPenal.elegirRespuesta(2));
+        respuestasJugador1.agregarRespuesta(respuesta1);
+        respuestasJugador1.agregarRespuesta(respuesta2);
+        respuestasJugador1.agregarRespuesta(respuesta3);
 
         RespuestasJugadores.add( respuestasJugador1);
 

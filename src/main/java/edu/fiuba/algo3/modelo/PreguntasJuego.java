@@ -78,15 +78,15 @@ public class PreguntasJuego {
                     }
                     break;
                 case ("PreguntaChoiceClasica") :
-                    PreguntaChoiceClasica pregunta2 = new PreguntaChoiceClasica(3,2);
+                    PreguntaChoiceClasica pregunta2 = new PreguntaChoiceClasica("Pregunta");
                     preguntasJuego.add(pregunta2);
                     break;
                 case ("PreguntaChoiceParcial") :
-                    PreguntaChoiceParcial pregunta3 = new PreguntaChoiceParcial(3,2);
+                    PreguntaChoiceParcial pregunta3 = new PreguntaChoiceParcial("Pregunta");
                     preguntasJuego.add(pregunta3);
                     break;
                 case ("PreguntaChoicePenal") :
-                    PreguntaChoicePenal pregunta4 = new PreguntaChoicePenal(3,2);
+                    PreguntaChoicePenal pregunta4 = new PreguntaChoicePenal("Pregunta");
                     preguntasJuego.add(pregunta4);
                     break;
                 case ("PreguntaGrupo") :

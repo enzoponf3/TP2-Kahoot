@@ -4,10 +4,11 @@ import java.io.Serializable;
 
 public class Respuesta implements Serializable {
     private ValidezRespuesta validez;
-    private String enunciado = "algo";
+    private final String enunciado;
 
-    public Respuesta() {
+    public Respuesta(String enunciado) {
         this.validez = new Incorrecta();
+        this.enunciado = enunciado;
     }
 
     public void establecerComoRespuestaAcertada() {

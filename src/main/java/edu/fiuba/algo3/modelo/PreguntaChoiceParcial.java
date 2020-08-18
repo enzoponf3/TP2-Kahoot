@@ -3,12 +3,11 @@ package edu.fiuba.algo3.modelo;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class PreguntaChoiceParcial extends PreguntaMC{
 
-    public PreguntaChoiceParcial(int numeroDeOpciones,int cantidadCorrectasDeseadas){
-        super(numeroDeOpciones,cantidadCorrectasDeseadas);
+    public PreguntaChoiceParcial(String enunciado){
+        super(enunciado);
     }
 
     public void evaluarRespuestas(ArrayList<RespuestasJugador> respuestasVariosJugadores) {

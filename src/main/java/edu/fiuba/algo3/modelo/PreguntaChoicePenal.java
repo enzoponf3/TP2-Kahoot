@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public class PreguntaChoicePenal extends PreguntaMC{
 
-    public PreguntaChoicePenal(int numeroDeOpciones,int cantidadCorrectasDeseadas){
-        super(numeroDeOpciones,cantidadCorrectasDeseadas);
+    public PreguntaChoicePenal(String enunciado){
+        super(enunciado);
     }
 
     public void evaluarRespuestas(ArrayList<RespuestasJugador> respuestasVariosJugadores) {

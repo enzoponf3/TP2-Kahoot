@@ -7,29 +7,32 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PreguntaMultipleChoiceClasicaTest {
-    @Test
-    public void TestCreacionPreguntaMCClasicaConDosRespuestasCorrectas(){
-        PreguntaChoiceClasica pregunta1 = new PreguntaChoiceClasica(4,2);
-
-        assertEquals(2, pregunta1.cantidadRespuestasCorrectas());
-    }
 
     @Test
     public void TestPreguntaMCClasicaJugador1PuntuaPorContestarTodoBienJugador2NoPuntuaPorContestarUnaMal(){
-        ArrayList <RespuestasJugador> respuestasJugadores= new <RespuestasJugador>ArrayList();
+        ArrayList <RespuestasJugador> respuestasJugadores= new ArrayList<>();
         Jugador jugador1 = new Jugador("");
         Jugador jugador2 = new Jugador("");
 
-        PreguntaChoiceClasica preguntaMC = new PreguntaChoiceClasica(5,3);
+        Respuesta respuesta1 = new Respuesta("Algo");
+        Respuesta respuesta2 = new Respuesta("Algo");
+        Respuesta respuesta3 = new Respuesta("Algo");
+        Respuesta respuesta4 = new Respuesta("Algo");
+
+        PreguntaChoiceClasica preguntaMC = new PreguntaChoiceClasica("Pregunta");
+        preguntaMC.agregarRespuestaCorrecta(respuesta1);
+        preguntaMC.agregarRespuestaCorrecta(respuesta2);
+        preguntaMC.agregarRespuestaCorrecta(respuesta3);
+        preguntaMC.agregarRespuesta(respuesta4);
 
         RespuestasJugador respuestasJugador1 = new RespuestasJugador(jugador1);
-        respuestasJugador1.agregarRespuesta(preguntaMC.elegirRespuesta(0));
-        respuestasJugador1.agregarRespuesta(preguntaMC.elegirRespuesta(1));
-        respuestasJugador1.agregarRespuesta(preguntaMC.elegirRespuesta(2));
+        respuestasJugador1.agregarRespuesta(respuesta1);
+        respuestasJugador1.agregarRespuesta(respuesta2);
+        respuestasJugador1.agregarRespuesta(respuesta3);
 
         RespuestasJugador respuestasJugador2 = new RespuestasJugador(jugador2);
-        respuestasJugador2.agregarRespuesta(preguntaMC.elegirRespuesta(1));
-        respuestasJugador2.agregarRespuesta(preguntaMC.elegirRespuesta(3));
+        respuestasJugador2.agregarRespuesta(respuesta2);
+        respuestasJugador2.agregarRespuesta(respuesta4);
 
         respuestasJugadores.add( respuestasJugador1);
         respuestasJugadores.add( respuestasJugador2);
