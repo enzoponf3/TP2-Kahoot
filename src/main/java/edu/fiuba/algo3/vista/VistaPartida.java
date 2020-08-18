@@ -2,6 +2,7 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.*;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -11,14 +12,12 @@ public class VistaPartida {
     private final Partida partida;
     private final Stage stage;
     private Jugador primerJugador;
-    private Pregunta pregunta;
     private ArrayList<RespuestasJugador> respuestasJugadores;
 
 
     public VistaPartida(Stage stage, Partida partida) {
         this.partida = partida;
         this.stage=stage;
-        this.pregunta=partida.preguntaActual();
         this.respuestasJugadores = new ArrayList<>();
     }
 
@@ -43,11 +42,21 @@ public class VistaPartida {
             }
         }
 
-        this.stage.setScene(new Scene(new VistaPreguntaOrdenada(this.stage, this)));
+        this.stage.setScene(new Scene(vistaPreguntaActual(this.partida.preguntaActual())));
     }
 
     public void agregarRespuestaAJugadorActual(RespuestasJugador respuestas){
         respuestasJugadores.add(respuestas);
+    }
+
+    private Pane vistaPreguntaActual(Pregunta pregunta) {
+        if(pregunta.getClass() == PreguntaChoiceParcial.class) { return new VistaPreguntaChoiceParcial(this.stage, this); }
+        else if(pregunta.getClass() == PreguntaVoFClasica.class) { return new VistaPreguntaVoFClasica(this.stage, this); }
+        else if(pregunta.getClass() == PreguntaChoiceClasica.class) { return new VistaPreguntaMCClasica(this.stage, this); }
+        else if(pregunta.getClass() == PreguntaChoicePenal.class) { return new VistaPreguntaChoicePenal(this.stage, this); }
+        else if(pregunta.getClass() == PreguntaVoFPenal.class) { return new VistaPreguntaVoFPenal(this.stage, this); }
+        else if(pregunta.getClass() == PreguntaGrupo.class) { return new VistaPreguntaGrupo(this.stage, this); }
+        return new VistaPreguntaOrdenada(this.stage, this);
     }
 
     public Partida partida() {
