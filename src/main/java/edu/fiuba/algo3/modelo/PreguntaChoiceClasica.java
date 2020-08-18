@@ -25,9 +25,4 @@ public class PreguntaChoiceClasica extends PreguntaMC{
     public JsonObject guardar() {
         return null;
     }
-
-    public ArrayList<Respuesta> devolverRespuestasPosibles2() {
-        return this.respuestasPosibles;
-    }
-
 }

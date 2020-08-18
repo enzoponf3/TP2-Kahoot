@@ -20,8 +20,6 @@ public class VistaPreguntaVoFClasica extends Pane {
         this.setPrefSize(1300,720);
         this.preguntaVoF= (PreguntaVoFClasica) vistaPartida.partida().preguntaActual();
 
-        //preguntaVoF.usarExclusividad();;
-        ArrayList<RespuestasJugador> respuestasJugadores = new ArrayList<>();
         RespuestasJugador respuestasJugador= new RespuestasJugador(vistaPartida.partida().jugadorActual());
 
         Label enunciadoPregunta = new Label(vistaPartida.partida().preguntaActual().devolverEnunciado());
@@ -35,17 +33,14 @@ public class VistaPreguntaVoFClasica extends Pane {
         BotonResponderVoFHandler botonFHandler = new BotonResponderVoFHandler(respuestasJugador,respuestasPregunta.get(1),vistaPartida);
         botonFalse.setOnAction(botonFHandler);
 
-        Button Exclusividad = new Button("Exlusividad de puntaje");
-
-       /* BotonResponderVerdaderoHandler botonResponderVerdaderoHandler = new BotonResponderVerdaderoHandler(respuestasJugador,vistaPartida);
-        botonTrue.setOnAction(botonResponderVerdaderoHandler);
-
-        BotonResponderFalsoHandler botonResponderFalsoHandler = new BotonResponderFalsoHandler(respuestasJugador,vistaPartida);
-        botonFalse.setOnAction(botonResponderFalsoHandler);*/
+        Button botonExclusividad = new Button("Exlusividad de puntaje");
+        botonExclusividad.setOnAction(actionEvent -> {this.preguntaVoF.usarExclusividad(); botonExclusividad.setDisable(true);});
 
         Label nombreJugador = new Label(vistaPartida.partida().jugadorActual().getNombre()+": "+vistaPartida.partida().jugadorActual().puntos());
 
 
+        botonExclusividad.setPrefSize(150,100);
+        botonExclusividad.relocate(200,100);
         enunciadoPregunta.relocate(600, 100);
         botonFalse.setPrefSize(500,100);
         botonFalse.relocate(100,400);
@@ -53,7 +48,7 @@ public class VistaPreguntaVoFClasica extends Pane {
         botonTrue.relocate(700,400);
         nombreJugador.relocate(650, 600);
 
-        this.getChildren().addAll(enunciadoPregunta,botonFalse,botonTrue,nombreJugador);
+        this.getChildren().addAll(enunciadoPregunta,botonFalse,botonTrue,nombreJugador,botonExclusividad);
 
     }
 
