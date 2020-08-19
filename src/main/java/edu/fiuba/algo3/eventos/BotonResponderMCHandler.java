@@ -15,5 +15,6 @@ public class BotonResponderMCHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
         respuestasJugador.agregarRespuesta(this.respuestaBoton);
+
     }
 }

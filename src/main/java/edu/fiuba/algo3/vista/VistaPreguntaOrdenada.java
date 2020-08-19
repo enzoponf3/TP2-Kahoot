@@ -1,147 +1,85 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.modelo.PreguntaChoiceClasica;
-import edu.fiuba.algo3.modelo.PreguntaOrdenada;
-import edu.fiuba.algo3.modelo.RespuestasJugador;
-import javafx.event.EventHandler;
+import edu.fiuba.algo3.eventos.BotonFinalizarTurnoMCHandler;
+import edu.fiuba.algo3.eventos.BotonResponderMCHandler;
+import edu.fiuba.algo3.modelo.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.input.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class VistaPreguntaOrdenada extends Pane {
     Stage stage;
     PreguntaOrdenada preguntaOrdenada;
-    TextField sourceFld1;
-    TextField sourceFld2;
-    TextField targetFld;
-
-    public VistaPreguntaOrdenada(Stage stage, VistaPartida vistaPartida){
+    public VistaPreguntaOrdenada(Stage stage, VistaPartida vistaPartida) {
         this.stage = stage;
         this.setPrefSize(1300,720);
         this.preguntaOrdenada= (PreguntaOrdenada) vistaPartida.partida().preguntaActual();
 
-        ArrayList<RespuestasJugador> respuestasJugadores = new ArrayList<>();
+        Stack<Button> botonesDeshabilitados = new Stack();
+
         RespuestasJugador respuestasJugador= new RespuestasJugador(vistaPartida.partida().jugadorActual());
 
         Label enunciadoPregunta = new Label(vistaPartida.partida().preguntaActual().devolverEnunciado());
 
         ArrayList<Button> botonesDisponibles= new ArrayList<>();
 
-        this.sourceFld1 = new TextField("This is the Source Text");
-        this.sourceFld2 = new TextField("This is the Source Text 2");
-        this.targetFld = new TextField("Drag and drop the source text here");
+        for (Respuesta iteradorRespuesta: preguntaOrdenada.devolverRespuestasPosibles()){
+            Button botonNuevo = new Button(iteradorRespuesta.devolverEnunciado());
+            botonesDisponibles.add(botonNuevo);
+            botonNuevo.setOnAction(actionEvent -> {
+                        respuestasJugador.agregarRespuesta(iteradorRespuesta);
+                        botonNuevo.setDisable(true);
+                        botonesDeshabilitados.push(botonNuevo);
+                    }
+            );
+            //BotonResponderMCHandler botonMCHandler = new BotonResponderMCHandler(respuestasJugador,iteradorRespuesta);
+            //botonNuevo.setOnAction(botonMCHandler);
+        }
 
-        this.sourceFld1.setPrefSize(200, 20);
-        this.sourceFld2.setPrefSize(200, 20);
-        this.targetFld.setPrefSize(200, 20);
-        this.sourceFld1.relocate(100,400);
-        this.sourceFld2.relocate(100,100);
-        this.targetFld.relocate(700,400);
+        Button botonFinalizarTurno = new Button("Finalizar turno");
+        BotonFinalizarTurnoMCHandler botonFinalizarTurnoMCHandler = new BotonFinalizarTurnoMCHandler(respuestasJugador,vistaPartida);
+        botonFinalizarTurno.setOnAction(botonFinalizarTurnoMCHandler);
+
+        Button botonDeshacer = new Button ("Deshacer");
+        botonDeshacer.setOnAction(actionEvent -> {
+                    respuestasJugador.sacarUltimaRespuesta();
+                    var boton=botonesDeshabilitados.pop();
+                    boton.setDisable(false);
+                }
+        );
+
+        Button botonExclusividad = new Button("Exlusividad de puntaje");
+        botonExclusividad.setOnAction(actionEvent -> {
+            this.preguntaOrdenada.usarExclusividad();
+            botonExclusividad.setDisable(true);
+            }
+        );
+
+        Label nombreJugador = new Label(vistaPartida.partida().jugadorActual().getNombre()+": "+vistaPartida.partida().jugadorActual().puntos());
+
+        enunciadoPregunta.relocate(600, 100);
+        nombreJugador.relocate(650, 600);
+        botonExclusividad.setPrefSize(150,100);
+        botonExclusividad.relocate(200,100);
+
+        botonFinalizarTurno.setPrefSize(150,100);
+        botonFinalizarTurno.relocate(100,600);
+
+        /*botonFalse.setPrefSize(500,100);
+        botonFalse.relocate(100,400);
+        botonTrue.setPrefSize(500,100);
+        botonTrue.relocate(700,400);*/
 
 
-        sourceFld1.setOnMousePressed(event -> {
-            sourceFld1.setMouseTransparent(true);
-            event.setDragDetect(true);
-        });
-
-        sourceFld2.setOnMousePressed(event -> {
-            sourceFld2.setMouseTransparent(true);
-            event.setDragDetect(true);
-        });
-
-        sourceFld1.setOnMouseReleased(event -> sourceFld1.setMouseTransparent(false));
-
-        sourceFld1.setOnMouseDragged(event -> event.setDragDetect(false));
-        sourceFld2.setOnMouseDragged(event -> event.setDragDetect(false));
-
-        sourceFld1.setOnDragDetected(this::dragDetected);
-        sourceFld2.setOnDragDetected(this::dragDetected);
-
-        targetFld.setOnDragOver(this::dragOver);
-
-        targetFld.setOnDragDropped(this::dragDropped);
-
-        sourceFld1.setOnDragDone(this::dragDone);
-
-        this.getChildren().addAll(enunciadoPregunta,sourceFld1,targetFld,sourceFld2);
-
+        for (Button botones : botonesDisponibles){
+            this.getChildren().add(botones);
+        }
+        this.getChildren().addAll(enunciadoPregunta,nombreJugador,botonExclusividad,botonFinalizarTurno,botonDeshacer);
 
     }
 
-    private void dragDone(DragEvent event)
-    {
-        // Check how data was transfered to the target. If it was moved, clear the text in the source.
-        TransferMode modeUsed = event.getTransferMode();
-
-        if (modeUsed == TransferMode.MOVE)
-        {
-            sourceFld1.setText("");
-        }
-
-        event.consume();
-    }
-
-    private void dragDropped(DragEvent event)
-    {
-        // Transfer the data to the target
-        Dragboard dragboard = event.getDragboard();
-
-        if (dragboard.hasString())
-        {
-            targetFld.setText(dragboard.getString());
-
-            // Data transfer is successful
-            event.setDropCompleted(true);
-        }
-        else
-        {
-            // Data transfer is not successful
-            event.setDropCompleted(false);
-        }
-
-        event.consume();
-    }
-
-
-
-    private void dragOver(DragEvent event)
-    {
-        // If drag board has a string, let the event know that
-        // the target accepts copy and move transfer modes
-        Dragboard dragboard = event.getDragboard();
-
-        if (dragboard.hasString())
-        {
-            event.acceptTransferModes(TransferMode.COPY_OR_MOVE);
-        }
-
-        event.consume();
-    }
-
-    private void dragDetected(MouseEvent event)
-    {
-        // User can drag only when there is text in the source field
-        String sourceText = this.sourceFld1.getText();
-
-        if (sourceText == null || sourceText.trim().equals(""))
-        {
-            event.consume();
-            return;
-        }
-
-        // Initiate a drag-and-drop gesture
-        Dragboard dragboard = this.sourceFld1.startDragAndDrop(TransferMode.COPY_OR_MOVE);
-
-        // Add the source text to the Dragboard
-        ClipboardContent content = new ClipboardContent();
-        content.putString(sourceText);
-        dragboard.setContent(content);
-        event.consume();
-    }
 }

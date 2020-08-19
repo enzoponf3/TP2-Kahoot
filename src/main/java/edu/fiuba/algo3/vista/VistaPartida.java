@@ -56,7 +56,8 @@ public class VistaPartida {
         else if(pregunta.getClass() == PreguntaChoicePenal.class) { return new VistaPreguntaChoicePenal(this.stage, this); }
         else if(pregunta.getClass() == PreguntaVoFPenal.class) { return new VistaPreguntaVoFPenal(this.stage, this); }
         else if(pregunta.getClass() == PreguntaGrupo.class) { return new VistaPreguntaGrupo(this.stage, this); }
-        return new VistaPreguntaOrdenada(this.stage, this);
+        else if(pregunta.getClass() == PreguntaOrdenada.class) { return new VistaPreguntaOrdenada(this.stage, this); }
+        return new VistaPreguntaOrdenadaDradNDrop(this.stage, this);
     }
 
     public Partida partida() {

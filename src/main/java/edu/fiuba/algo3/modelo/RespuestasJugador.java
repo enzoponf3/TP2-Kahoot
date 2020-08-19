@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+
 import java.util.ArrayList;
 
 public class RespuestasJugador {
@@ -28,5 +31,13 @@ public class RespuestasJugador {
 
     public Jugador devolverJugador() {
         return this.jugador;
+    }
+
+    public void sacarUltimaRespuesta() {
+        this.listaRespuestas.remove(this.listaRespuestas.size()-1);
+    }
+
+    public void limpiar() {
+        this.listaRespuestas.clear();
     }
 }
