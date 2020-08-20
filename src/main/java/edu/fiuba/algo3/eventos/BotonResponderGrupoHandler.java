@@ -2,33 +2,26 @@ package edu.fiuba.algo3.eventos;
 
 import edu.fiuba.algo3.modelo.Respuesta;
 import edu.fiuba.algo3.modelo.RespuestasJugador;
-import edu.fiuba.algo3.vista.VistaPartida;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 
 public class BotonResponderGrupoHandler implements EventHandler<ActionEvent> {
-    RespuestasJugador respuestasJugadorGrupoA;
-    RespuestasJugador respuestasJugadorGrupoB;
     Respuesta respuestaBoton;
-    Boolean grupoAElegido;
-    public BotonResponderGrupoHandler(RespuestasJugador grupoA, RespuestasJugador grupoB, Respuesta respuesta) {
-        this.respuestasJugadorGrupoA=grupoA;
-        this.respuestasJugadorGrupoB=grupoB;
-        this.respuestaBoton=respuesta;
-        this.grupoAElegido=true;
-
+    RespuestasJugador respuestasJugador;
+    Button miBoton;
+    public BotonResponderGrupoHandler(RespuestasJugador respuestasJugador, Respuesta unaRespuesta, Button unBoton) {
+        this.respuestasJugador=respuestasJugador;
+        this.respuestaBoton=unaRespuesta;
+        this.miBoton=unBoton;
     }
     @Override
     public void handle(ActionEvent event) {
-        if(grupoAElegido){
-            respuestasJugadorGrupoA.agregarRespuesta(respuestaBoton);
-        }
-        else {
-            respuestasJugadorGrupoB.agregarRespuesta(respuestaBoton);
-        }
+        this.respuestasJugador.agregarRespuesta(this.respuestaBoton);
+        this.miBoton.setDisable(true);
     }
 
-    public void cambiarGrupos(){
-
+    public void modificarGrupo(RespuestasJugador respuestasDeUnGrupo) {
+        this.respuestasJugador=respuestasDeUnGrupo;
     }
 }

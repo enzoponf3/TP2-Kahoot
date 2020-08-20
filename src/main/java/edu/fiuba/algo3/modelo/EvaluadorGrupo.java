@@ -31,7 +31,7 @@ public class EvaluadorGrupo implements Evaluador {
         RespuestasJugador respJugador=this.iteradorRespuestasJugador.next();
         this.jugador=respJugador.devolverJugador();
         if (respuestasGrupoA.containsAll(respJugador.devolverRespuestas())){
-            if (respuestasGrupoB.equals(iteradorRespuestasJugador.next().devolverRespuestas())){
+            if (respuestasGrupoB.containsAll(iteradorRespuestasJugador.next().devolverRespuestas())){
                 this.puntaje.sumarPunto();
             }
         }

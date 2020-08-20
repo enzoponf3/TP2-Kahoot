@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.eventos.BotonFinalizarTurnoMCHandler;
-import edu.fiuba.algo3.eventos.BotonResponderMCHandler;
-import edu.fiuba.algo3.modelo.PreguntaChoiceClasica;
 import edu.fiuba.algo3.modelo.PreguntaChoiceParcial;
 import edu.fiuba.algo3.modelo.Respuesta;
 import edu.fiuba.algo3.modelo.RespuestasJugador;

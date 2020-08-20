@@ -40,12 +40,15 @@ public class VistaPreguntaVoFClasica extends Pane {
 
 
         botonExclusividad.setPrefSize(150,100);
-        botonExclusividad.relocate(200,100);
+        botonExclusividad.relocate(1000,50);
+
         enunciadoPregunta.relocate(600, 100);
+
         botonFalse.setPrefSize(500,100);
         botonFalse.relocate(100,400);
         botonTrue.setPrefSize(500,100);
         botonTrue.relocate(700,400);
+
         nombreJugador.relocate(650, 600);
 
         this.getChildren().addAll(enunciadoPregunta,botonFalse,botonTrue,nombreJugador,botonExclusividad);

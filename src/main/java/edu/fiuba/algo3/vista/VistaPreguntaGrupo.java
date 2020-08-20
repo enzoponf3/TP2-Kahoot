@@ -1,9 +1,8 @@
 package edu.fiuba.algo3.vista;
 
 
-import edu.fiuba.algo3.eventos.BotonResponderMCHandler;
+import edu.fiuba.algo3.eventos.BotonResponderGrupoHandler;
 import edu.fiuba.algo3.modelo.*;
-import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
@@ -12,7 +11,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class VistaPreguntaGrupo extends Pane {
@@ -25,7 +23,7 @@ public class VistaPreguntaGrupo extends Pane {
 
         ArrayList<Button> botonesDisponibles= new ArrayList<>();
 
-        ArrayList<BotonResponderMCHandler> handlersDisponibles = new ArrayList<>();
+        ArrayList<BotonResponderGrupoHandler> handlersDisponibles = new ArrayList<>();
 
         RespuestasJugador respuestasJugadorGrupoA= new RespuestasJugador(vistaPartida.partida().jugadorActual());
         RespuestasJugador respuestasJugadorGrupoB= new RespuestasJugador(vistaPartida.partida().jugadorActual());
@@ -34,8 +32,8 @@ public class VistaPreguntaGrupo extends Pane {
 
         ToggleGroup botonesGrupo = new ToggleGroup();
 
-        ToggleButton botonElegirGrupoA = new ToggleButton("Grupo A");
-        ToggleButton botonElegirGrupoB = new ToggleButton("Grupo B");
+        ToggleButton botonElegirGrupoA = new ToggleButton(((PreguntaGrupo) vistaPartida.partida().preguntaActual()).devolverEnunciadoGrupoA());
+        ToggleButton botonElegirGrupoB = new ToggleButton(((PreguntaGrupo) vistaPartida.partida().preguntaActual()).devolverEnunciadoGrupoB());
 
         botonElegirGrupoA.setToggleGroup(botonesGrupo);
         botonElegirGrupoB.setToggleGroup(botonesGrupo);
@@ -45,20 +43,20 @@ public class VistaPreguntaGrupo extends Pane {
 
         for (Respuesta iteradorRespuesta: preguntaGrupo.devolverRespuestasPosibles()){
             Button botonNuevo = new Button(iteradorRespuesta.devolverEnunciado());
-            BotonResponderMCHandler botonResponderMCHandler = new BotonResponderMCHandler(respuestasJugadorGrupoA,iteradorRespuesta,botonNuevo);
-            handlersDisponibles.add(botonResponderMCHandler);
-            botonNuevo.setOnAction(botonResponderMCHandler);
+            BotonResponderGrupoHandler botonResponderGrupoHandler = new BotonResponderGrupoHandler(respuestasJugadorGrupoA,iteradorRespuesta,botonNuevo);
+            handlersDisponibles.add(botonResponderGrupoHandler);
+            botonNuevo.setOnAction(botonResponderGrupoHandler);
             botonesDisponibles.add(botonNuevo);
         }
 
         botonElegirGrupoB.setOnAction(ActionEvent->{
-            for (BotonResponderMCHandler handlers: handlersDisponibles){
+            for (BotonResponderGrupoHandler handlers: handlersDisponibles){
                 handlers.modificarGrupo(respuestasJugadorGrupoB);
             }
         });
 
         botonElegirGrupoA.setOnAction(ActionEvent->{
-            for (BotonResponderMCHandler handlers: handlersDisponibles){
+            for (BotonResponderGrupoHandler handlers: handlersDisponibles){
                 handlers.modificarGrupo(respuestasJugadorGrupoA);
             }
         });
@@ -81,7 +79,7 @@ public class VistaPreguntaGrupo extends Pane {
                 }
         );
 
-        Button botonExclusividad = new Button("Exlusividad de puntaje VISTA2");
+        Button botonExclusividad = new Button("Exlusividad de puntaje");
         botonExclusividad.setOnAction(actionEvent -> {this.preguntaGrupo.usarExclusividad(); botonExclusividad.setDisable(true);});
 
         Label nombreJugador = new Label(vistaPartida.partida().jugadorActual().getNombre()+": "+vistaPartida.partida().jugadorActual().puntos());

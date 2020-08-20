@@ -24,6 +24,5 @@ public class botonComienzoHandler implements EventHandler<ActionEvent> {
         if((!jugador1.getText().isBlank())  && (!jugador2.getText().isBlank())){
             this.vistaPartida.inicio(this.jugador1.getText(), this.jugador2.getText());
         }
-
     }
 }

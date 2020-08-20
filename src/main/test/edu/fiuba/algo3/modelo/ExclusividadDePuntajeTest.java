@@ -178,8 +178,20 @@ public class ExclusividadDePuntajeTest {
         Jugador jugador1 = new Jugador("");
         Jugador jugador2 = new Jugador("");
 
-        PreguntaGrupo preguntaGroup = new PreguntaGrupo(3,2, "Enunciado pregunta grupo");
+        PreguntaGrupo preguntaGroup = new PreguntaGrupo( "Enunciado pregunta grupo", "en grupo A", "en grupo B");
         preguntaGroup.usarExclusividad();
+
+        Respuesta respuesta1 = new Respuesta("Algo");
+        Respuesta respuesta2 = new Respuesta("Algo");
+        Respuesta respuesta3 = new Respuesta("Algo");
+        Respuesta respuesta4 = new Respuesta("Algo");
+        Respuesta respuesta5 = new Respuesta("Algo");
+
+        preguntaGroup.agregarRespuestaGrupoA(respuesta1);
+        preguntaGroup.agregarRespuestaGrupoA(respuesta2);
+        preguntaGroup.agregarRespuestaGrupoA(respuesta3);
+        preguntaGroup.agregarRespuestaGrupoB(respuesta4);
+        preguntaGroup.agregarRespuestaGrupoB(respuesta5);
 
         RespuestasJugador respJugador1GrupoA = new RespuestasJugador(jugador1);
         RespuestasJugador respJugador1GrupoB = new RespuestasJugador(jugador1);

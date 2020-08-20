@@ -90,7 +90,7 @@ public class PreguntasJuego {
                     preguntasJuego.add(pregunta4);
                     break;
                 case ("PreguntaGrupo") :
-                    PreguntaGrupo pregunta5 = new PreguntaGrupo(3,2,"Enunciado pregunta grupo");
+                    PreguntaGrupo pregunta5 =  PreguntaGrupo.recuperar(jsonPregunta.getAsJsonObject());
                     preguntasJuego.add(pregunta5);
                     break;
                 case ("PreguntaOrdenada") :

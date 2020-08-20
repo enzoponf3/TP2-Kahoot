@@ -54,16 +54,17 @@ public class VistaPreguntaVoFPenal extends Pane {
 
 
         botonMulX2.setPrefSize(150, 100);
-        botonMulX2.relocate(200, 100);
+        botonMulX2.relocate(1000, 50);
         botonMulX3.setPrefSize(150, 100);
-        botonMulX3.relocate(150, 200);
+        botonMulX3.relocate(1000, 175);
 
         enunciadoPregunta.relocate(600, 100);
+        nombreJugador.relocate(650, 600);
+
         botonFalse.setPrefSize(500, 100);
         botonFalse.relocate(100, 400);
         botonTrue.setPrefSize(500, 100);
         botonTrue.relocate(700, 400);
-        nombreJugador.relocate(650, 600);
 
         this.getChildren().addAll(enunciadoPregunta, botonFalse, botonTrue, nombreJugador, botonMulX2, botonMulX3);
 

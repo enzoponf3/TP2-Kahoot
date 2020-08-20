@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.eventos.BotonFinalizarTurnoMCHandler;
-import edu.fiuba.algo3.eventos.BotonResponderMCHandler;
 import edu.fiuba.algo3.modelo.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -76,18 +75,23 @@ public class VistaPreguntaChoicePenal extends Pane {
         nombreJugador.relocate(650, 600);
 
         botonMulX2.setPrefSize(150, 100);
-        botonMulX2.relocate(200, 100);
+        botonMulX2.relocate(1000, 50);
         botonMulX3.setPrefSize(150, 100);
-        botonMulX3.relocate(150, 200);
+        botonMulX3.relocate(1000, 175);
+
+        enunciadoPregunta.relocate(600, 100);
+        nombreJugador.relocate(650, 600);
+
+        botonDeshacer.setPrefSize(150,50);
 
         botonFinalizarTurno.setPrefSize(150,100);
-        botonFinalizarTurno.relocate(100,600);
+        botonFinalizarTurno.relocate(825,50);
 
-        AtomicInteger posicionX= new AtomicInteger(100);
-        AtomicInteger posicionY=new AtomicInteger(100);
+        AtomicInteger posicionX= new AtomicInteger(-225);
+        AtomicInteger posicionY=new AtomicInteger(400);
         for (Button botones : botonesDisponibles){
-            botones.setPrefSize(500,100);
-            botones.relocate(posicionX.addAndGet(100),posicionY.addAndGet(100));
+            botones.setPrefSize(200,100);
+            botones.relocate(posicionX.addAndGet(250),posicionY.get());
             this.getChildren().add(botones);
         }
 
