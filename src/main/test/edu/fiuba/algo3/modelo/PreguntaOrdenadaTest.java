@@ -15,22 +15,31 @@ public class PreguntaOrdenadaTest {
         Jugador jugador1 = new Jugador("");
         Jugador jugador2 = new Jugador("");
 
-        PreguntaOrdenada preguntaMC = new PreguntaOrdenada(4,"");
+        Respuesta respuesta1 = new Respuesta("Algo");
+        Respuesta respuesta2 = new Respuesta("Algo");
+        Respuesta respuesta3 = new Respuesta("Algo");
+        Respuesta respuesta4 = new Respuesta("Algo");
+
+        PreguntaOrdenada preguntaOrdenada = new PreguntaOrdenada("¿?");
+        preguntaOrdenada.agregarRespuesta(respuesta1);
+        preguntaOrdenada.agregarRespuesta(respuesta2);
+        preguntaOrdenada.agregarRespuesta(respuesta3);
+        preguntaOrdenada.agregarRespuesta(respuesta4);
 
         RespuestasJugador respuestasJugador1 = new RespuestasJugador(jugador1);
-        respuestasJugador1.agregarRespuesta(preguntaMC.elegirRespuesta(0));
-        respuestasJugador1.agregarRespuesta(preguntaMC.elegirRespuesta(1));
-        respuestasJugador1.agregarRespuesta(preguntaMC.elegirRespuesta(2));
-        respuestasJugador1.agregarRespuesta(preguntaMC.elegirRespuesta(3));
+        respuestasJugador1.agregarRespuesta(respuesta1);
+        respuestasJugador1.agregarRespuesta(respuesta2);
+        respuestasJugador1.agregarRespuesta(respuesta3);
+        respuestasJugador1.agregarRespuesta(respuesta4);
 
         RespuestasJugador respuestasJugador2 = new RespuestasJugador(jugador2);
-        respuestasJugador2.agregarRespuesta(preguntaMC.elegirRespuesta(1));
-        respuestasJugador2.agregarRespuesta(preguntaMC.elegirRespuesta(3));
+        respuestasJugador2.agregarRespuesta(respuesta2);
+        respuestasJugador2.agregarRespuesta(respuesta4);
 
         respuestasJugadores.add(respuestasJugador1);
         respuestasJugadores.add(respuestasJugador2);
 
-        preguntaMC.evaluarRespuestas(respuestasJugadores);
+        preguntaOrdenada.evaluarRespuestas(respuestasJugadores);
 
         assertEquals(1, jugador1.puntos());
         assertEquals(0, jugador2.puntos());

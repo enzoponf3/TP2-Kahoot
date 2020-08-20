@@ -1,27 +1,29 @@
 package edu.fiuba.algo3.modelo;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class PreguntaOrdenada implements Pregunta{
     private final ArrayList<Respuesta> opcionesOrdenadas;
     private ExclusividadPuntaje exclusividad;
-    private String enunciado;
+    private final String enunciado;
 
-    public PreguntaOrdenada(int cantidadOpciones, String enunciado){
+    public PreguntaOrdenada(String enunciado){
         this.opcionesOrdenadas = new ArrayList<>();
-        this.enunciado=enunciado;
+        this.enunciado = enunciado;
         this.exclusividad = new ExlusividadNula();
-        for (int i = 0; i < cantidadOpciones; i++){
-            opcionesOrdenadas.add(new Respuesta("Algo"));
-        }
     }
+
+    public void agregarRespuesta(Respuesta respuesta) { opcionesOrdenadas.add(respuesta); }
 
     public void evaluarRespuestas(ArrayList<RespuestasJugador> respuestasVariosJugadores) {
         ArrayList<Evaluador> evaluadores = new ArrayList<>();
         for (RespuestasJugador iterador: respuestasVariosJugadores) {
-            EvaluadorOrdenada evaluador= new EvaluadorOrdenada(opcionesOrdenadas,iterador);
+            EvaluadorOrdenada evaluador= new EvaluadorOrdenada(this.opcionesOrdenadas,iterador);
             evaluador.sumarPuntosParciales();
             evaluadores.add(evaluador);
         }
@@ -30,25 +32,40 @@ public class PreguntaOrdenada implements Pregunta{
     }
 
     @Override
-    public JsonObject guardar() {
-        return null;
-    }
-
-    @Override
     public String devolverEnunciado() {
-        return enunciado;
-    }
-
-    public Respuesta elegirRespuesta(int idx){
-        return opcionesOrdenadas.get(idx);
+        return this.enunciado;
     }
 
     @Override
     public ArrayList<Respuesta> devolverRespuestasPosibles() {
-        return this.opcionesOrdenadas;
+        ArrayList<Respuesta> respuestasADevolver = new ArrayList<>(this.opcionesOrdenadas);
+        Collections.shuffle(respuestasADevolver);
+        return respuestasADevolver;
     }
 
     public void usarExclusividad() {
-        this.exclusividad=this.exclusividad.cambiarExclusividad();
+        this.exclusividad = this.exclusividad.cambiarExclusividad();
+    }
+
+    @Override
+    public JsonObject guardar() {
+        JsonObject jsonPreguntaOrdenada = new JsonObject();
+        jsonPreguntaOrdenada.addProperty("Tipo", "PreguntaOrdenada");
+        jsonPreguntaOrdenada.addProperty("Pregunta", this.enunciado);
+        JsonArray jsonRespuestas = new JsonArray();
+        for(Respuesta r: this.opcionesOrdenadas) { jsonRespuestas.add(r.guardar()); }
+        jsonPreguntaOrdenada.add("Respuestas Ordenadas", jsonRespuestas);
+        return jsonPreguntaOrdenada;
+    }
+
+    public static PreguntaOrdenada recuperar(JsonObject jsonPreguntaOrdenada) {
+        String enunciado = jsonPreguntaOrdenada.get("Pregunta").getAsString();
+        PreguntaOrdenada pregunta = new PreguntaOrdenada(enunciado);
+        JsonArray jsonRespuestas = jsonPreguntaOrdenada.getAsJsonArray("Respuestas Ordenadas");
+        for(JsonElement jsonRespuesta: jsonRespuestas) {
+            Respuesta respuesta = Respuesta.recuperar(jsonRespuesta.getAsJsonObject());
+            pregunta.agregarRespuesta(respuesta);
+        }
+        return pregunta;
     }
 }

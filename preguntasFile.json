@@ -66,6 +66,28 @@
           "Validez": "Incorrecta"
         }
       ]
+    },
+    {
+      "Tipo": "PreguntaOrdenada",
+      "Pregunta": "Seleccionar de Mayor a Menor",
+      "Respuestas Ordenadas": [
+        {
+          "Respuesta": "4",
+          "Validez": "Correcta"
+        },
+        {
+          "Respuesta": "3",
+          "Validez": "Correcta"
+        },
+        {
+          "Respuesta": "2",
+          "Validez": "Correcta"
+        },
+        {
+          "Respuesta": "1",
+          "Validez": "Correcta"
+        }
+      ]
     }
   ]
 }
