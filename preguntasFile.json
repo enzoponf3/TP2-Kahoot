@@ -1,19 +1,71 @@
-{"Preguntas":[
-	{"Tipo" : "PreguntaVoFClasica",
-	 "enunciado" : "Pregunta verdadera 1",
-	 "verdad" : true
-	},
-	{"Tipo" : "PreguntaVoFClasica",
-	 "enunciado" : "Pregunta verdadera 2",
-	 "verdad" : true
-	},
-	{"Tipo" : "PreguntaVoFClasica",
-	 "enunciado" : "Pregunta Falsa 1",
-	 "verdad" : false
-	},
-	{"Tipo" : "PreguntaVoFClasica",
-	 "enunciado" : "Pregunta Falsa 2",
-	 "verdad" : false
-	}	
-]
+{
+  "Preguntas": [
+    {
+      "Tipo": "PreguntaChoiceClasica",
+      "Pregunta": "¿?clasica",
+      "Correctas": 3,
+      "Respuestas": [
+        {
+          "Respuesta": "Algo1",
+          "Validez": "Correcta"
+        },
+        {
+          "Respuesta": "Algo2",
+          "Validez": "Correcta"
+        },
+        {
+          "Respuesta": "Algo3",
+          "Validez": "Correcta"
+        },
+        {
+          "Respuesta": "Algo4",
+          "Validez": "Incorrecta"
+        }
+      ]
+    },
+    {
+      "Tipo": "PreguntaChoiceParcial",
+      "Pregunta": "¿?parcial",
+      "Respuestas": [
+        {
+          "Respuesta": "Algo5",
+          "Validez": "Correcta"
+        },
+        {
+          "Respuesta": "Algo6",
+          "Validez": "Incorrecta"
+        },
+        {
+          "Respuesta": "Algo7",
+          "Validez": "Correcta"
+        },
+        {
+          "Respuesta": "Algo8",
+          "Validez": "Correcta"
+        }
+      ]
+    },
+    {
+      "Tipo": "PreguntaChoicePenal",
+      "Pregunta": "¿?penal",
+      "Respuestas": [
+        {
+          "Respuesta": "Algo",
+          "Validez": "Correcta"
+        },
+        {
+          "Respuesta": "Algo",
+          "Validez": "Correcta"
+        },
+        {
+          "Respuesta": "Algo",
+          "Validez": "Correcta"
+        },
+        {
+          "Respuesta": "Algo",
+          "Validez": "Incorrecta"
+        }
+      ]
+    }
+  ]
 }

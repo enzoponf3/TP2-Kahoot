@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 public class PreguntasJuego {
-    private ArrayList<Pregunta> listaPreguntas;
+    private final ArrayList<Pregunta> listaPreguntas;
 
     public PreguntasJuego(){
-        this.listaPreguntas = new ArrayList<Pregunta>();
+        this.listaPreguntas = new ArrayList<>();
     }
 
     public void add(Pregunta pregunta) {
@@ -20,7 +20,7 @@ public class PreguntasJuego {
     }
 
     public Stack<Pregunta> preguntasToStack(){
-        Stack<Pregunta> preguntasStack = new Stack<Pregunta>();
+        Stack<Pregunta> preguntasStack = new Stack<>();
         for (Pregunta p: listaPreguntas) {
             preguntasStack.push(p);
         }
