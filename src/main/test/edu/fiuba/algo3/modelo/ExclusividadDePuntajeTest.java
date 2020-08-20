@@ -141,7 +141,7 @@ public class ExclusividadDePuntajeTest {
         Jugador jugador1 = new Jugador("");
         Jugador jugador2 = new Jugador("");
 
-        PreguntaOrdenada preguntaOrdenada = new PreguntaOrdenada(4);
+        PreguntaOrdenada preguntaOrdenada = new PreguntaOrdenada(4,"");
         preguntaOrdenada.usarExclusividad();
 
         RespuestasJugador respuestasJugador1 = new RespuestasJugador(jugador1);
@@ -169,7 +169,7 @@ public class ExclusividadDePuntajeTest {
         Jugador jugador1 = new Jugador("");
         Jugador jugador2 = new Jugador("");
 
-        PreguntaGrupo preguntaGroup = new PreguntaGrupo(3,2);
+        PreguntaGrupo preguntaGroup = new PreguntaGrupo(3,2, "Enunciado pregunta grupo");
         preguntaGroup.usarExclusividad();
 
         RespuestasJugador respJugador1GrupoA = new RespuestasJugador(jugador1);

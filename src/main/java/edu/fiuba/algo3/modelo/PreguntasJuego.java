@@ -90,11 +90,11 @@ public class PreguntasJuego {
                     preguntasJuego.add(pregunta4);
                     break;
                 case ("PreguntaGrupo") :
-                    PreguntaGrupo pregunta5 = new PreguntaGrupo(3,2);
+                    PreguntaGrupo pregunta5 = new PreguntaGrupo(3,2,"Enunciado pregunta grupo");
                     preguntasJuego.add(pregunta5);
                     break;
                 case ("PreguntaOrdernada") :
-                    PreguntaOrdenada pregunta6 = new PreguntaOrdenada(5);
+                    PreguntaOrdenada pregunta6 = new PreguntaOrdenada(5,"Enunciado preg ordenada");
                     preguntasJuego.add(pregunta6);
                     break;
             }

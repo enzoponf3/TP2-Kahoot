@@ -11,7 +11,7 @@ public class PreguntaGrupo implements Pregunta{
     private final ArrayList<Respuesta> respuestasElegibles;
     private ExclusividadPuntaje exclusividad;
 
-    public PreguntaGrupo(int cantidadGrupoA, int cantidadGrupoB){
+    public PreguntaGrupo(int cantidadGrupoA, int cantidadGrupoB, String enunciado_pregunta_grupo){
         this.respuestasGrupoA = new ArrayList<>();
         this.respuestasGrupoB = new ArrayList<>();
         this.respuestasElegibles = new ArrayList<>();

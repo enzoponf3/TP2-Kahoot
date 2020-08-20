@@ -7,9 +7,11 @@ import java.util.ArrayList;
 public class PreguntaOrdenada implements Pregunta{
     private final ArrayList<Respuesta> opcionesOrdenadas;
     private ExclusividadPuntaje exclusividad;
+    private String enunciado;
 
-    public PreguntaOrdenada(int cantidadOpciones){
+    public PreguntaOrdenada(int cantidadOpciones, String enunciado){
         this.opcionesOrdenadas = new ArrayList<>();
+        this.enunciado=enunciado;
         this.exclusividad = new ExlusividadNula();
         for (int i = 0; i < cantidadOpciones; i++){
             opcionesOrdenadas.add(new Respuesta("Algo"));
@@ -34,7 +36,7 @@ public class PreguntaOrdenada implements Pregunta{
 
     @Override
     public String devolverEnunciado() {
-        return null;
+        return enunciado;
     }
 
     public Respuesta elegirRespuesta(int idx){

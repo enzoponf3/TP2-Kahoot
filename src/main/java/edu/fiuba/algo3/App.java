@@ -34,8 +34,8 @@ public class App extends Application {
 
     private Partida crearPartida() {
         PreguntasJuego preguntasLeidas = new PreguntasJuego();
-        //preguntasLeidas.add(new PreguntaOrdenada(5));
-        //return new Partida(preguntasLeidas);
+        /*preguntasLeidas.add(new PreguntaGrupo(3,2,"Enunciado de preg ordenada"));
+        return new Partida(preguntasLeidas);*/
 
         try {
             preguntasLeidas = PreguntasJuego.recuperar(FILENAME_RELATIVE_PATH);

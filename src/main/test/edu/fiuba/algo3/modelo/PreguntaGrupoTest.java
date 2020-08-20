@@ -14,7 +14,7 @@ public class PreguntaGrupoTest {
         Jugador jugador1 = new Jugador("");
         Jugador jugador2 = new Jugador("");
 
-        PreguntaGrupo preguntaGroup = new PreguntaGrupo(3,2);
+        PreguntaGrupo preguntaGroup = new PreguntaGrupo(3,2, "Enunciado pregunta grupo");
 
         RespuestasJugador respJugador1GrupoA = new RespuestasJugador(jugador1);
         RespuestasJugador respJugador1GrupoB = new RespuestasJugador(jugador1);

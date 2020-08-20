@@ -12,6 +12,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class VistaPreguntaChoiceParcial extends Pane {
     Stage stage;
@@ -51,15 +52,14 @@ public class VistaPreguntaChoiceParcial extends Pane {
         botonFinalizarTurno.setPrefSize(150,100);
         botonFinalizarTurno.relocate(100,600);
 
-        /*botonFalse.setPrefSize(500,100);
-        botonFalse.relocate(100,400);
-        botonTrue.setPrefSize(500,100);
-        botonTrue.relocate(700,400);*/
-
-
+        AtomicInteger posicionX= new AtomicInteger(100);
+        AtomicInteger posicionY=new AtomicInteger(100);
         for (Button botones : botonesDisponibles){
+            botones.setPrefSize(500,100);
+            botones.relocate(posicionX.addAndGet(100),posicionY.addAndGet(100));
             this.getChildren().add(botones);
         }
+
         this.getChildren().addAll(enunciadoPregunta,nombreJugador,botonExclusividad,botonFinalizarTurno);
 
     }

@@ -15,7 +15,7 @@ public class PreguntaOrdenadaTest {
         Jugador jugador1 = new Jugador("");
         Jugador jugador2 = new Jugador("");
 
-        PreguntaOrdenada preguntaMC = new PreguntaOrdenada(4);
+        PreguntaOrdenada preguntaMC = new PreguntaOrdenada(4,"");
 
         RespuestasJugador respuestasJugador1 = new RespuestasJugador(jugador1);
         respuestasJugador1.agregarRespuesta(preguntaMC.elegirRespuesta(0));
