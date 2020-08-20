@@ -3,9 +3,9 @@ package edu.fiuba.algo3.modelo;
 import java.util.ArrayList;
 
 public class EvaluadorOrdenada implements Evaluador {
-    private RespuestasJugador respuestasJugador;
-    private ArrayList<Respuesta> opcionesOrdenadas;
-    private Puntaje puntaje ;
+    private final RespuestasJugador respuestasJugador;
+    private final ArrayList<Respuesta> opcionesOrdenadas;
+    private final Puntaje puntaje ;
 
     public EvaluadorOrdenada(ArrayList<Respuesta> opcionesOrdenadas, RespuestasJugador respuestasJugador){
         puntaje = new Puntaje();
