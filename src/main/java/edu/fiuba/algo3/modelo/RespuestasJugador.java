@@ -1,17 +1,14 @@
 package edu.fiuba.algo3.modelo;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-
 import java.util.ArrayList;
 
 public class RespuestasJugador {
-    private ArrayList<Respuesta> listaRespuestas;
-    private Jugador jugador;
+    private final ArrayList<Respuesta> listaRespuestas;
+    private final Jugador jugador;
 
     public RespuestasJugador(Jugador unJugador) {
         this.jugador = unJugador;
-        this.listaRespuestas = new ArrayList<Respuesta>();
+        this.listaRespuestas = new ArrayList<>();
     }
 
     public void agregarRespuesta(Respuesta unaRespuesta) {

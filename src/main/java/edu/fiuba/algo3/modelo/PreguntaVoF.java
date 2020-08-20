@@ -27,9 +27,7 @@ public abstract class PreguntaVoF implements Pregunta{
         return this.respuestas;
     }
 
-    public Respuesta elegirRespuesta(int idx){  // para TEST
-        return respuestas.get(idx);
-    }
+    public Respuesta elegirRespuesta(int idx){ return respuestas.get(idx); } // para TEST
 
     public String devolverEnunciado() {
         return this.enunciadoPregunta;

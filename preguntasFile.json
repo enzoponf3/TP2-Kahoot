@@ -1,17 +1,17 @@
-{"preguntas":[
-	{"nombreTipo" : "PreguntaVoFClasica",
+{"Preguntas":[
+	{"Tipo" : "PreguntaVoFClasica",
 	 "enunciado" : "Pregunta verdadera 1",
 	 "verdad" : true
 	},
-	{"nombreTipo" : "PreguntaVoFClasica",
+	{"Tipo" : "PreguntaVoFClasica",
 	 "enunciado" : "Pregunta verdadera 2",
 	 "verdad" : true
 	},
-	{"nombreTipo" : "PreguntaVoFClasica",
+	{"Tipo" : "PreguntaVoFClasica",
 	 "enunciado" : "Pregunta Falsa 1",
 	 "verdad" : false
 	},
-	{"nombreTipo" : "PreguntaVoFClasica",
+	{"Tipo" : "PreguntaVoFClasica",
 	 "enunciado" : "Pregunta Falsa 2",
 	 "verdad" : false
 	}	

@@ -34,7 +34,7 @@ public class PreguntasJuego {
         for (Pregunta pregunta : this.listaPreguntas) {
             jsonArrayPreguntas.add(pregunta.guardar());
         }
-        jsonObjectPreguntasJuego.add("preguntas", jsonArrayPreguntas);
+        jsonObjectPreguntasJuego.add("Preguntas", jsonArrayPreguntas);
         //jsonObjectPreguntasJuego.addProperty();
 
         return jsonObjectPreguntasJuego;
@@ -53,9 +53,9 @@ public class PreguntasJuego {
     public static PreguntasJuego recuperar(JsonObject jsonObjectPreguntasJuego) throws IOException {
         PreguntasJuego preguntasJuego = new PreguntasJuego();
 
-        JsonArray listaPreguntas = jsonObjectPreguntasJuego.getAsJsonArray("preguntas");
+        JsonArray listaPreguntas = jsonObjectPreguntasJuego.getAsJsonArray("Preguntas");
         for (JsonElement jsonPregunta : listaPreguntas) {
-            String nombreTipo = jsonPregunta.getAsJsonObject().get("nombreTipo").getAsString();
+            String nombreTipo = jsonPregunta.getAsJsonObject().get("Tipo").getAsString();
             switch (nombreTipo) {
                 case ("PreguntaVoFClasica") :
                     if (jsonPregunta.getAsJsonObject().get("verdad").getAsBoolean()){
@@ -78,15 +78,15 @@ public class PreguntasJuego {
                     }
                     break;
                 case ("PreguntaChoiceClasica") :
-                    PreguntaChoiceClasica pregunta2 = new PreguntaChoiceClasica("Pregunta");
+                    PreguntaChoiceClasica pregunta2 = PreguntaChoiceClasica.recuperar(jsonPregunta.getAsJsonObject());
                     preguntasJuego.add(pregunta2);
                     break;
                 case ("PreguntaChoiceParcial") :
-                    PreguntaChoiceParcial pregunta3 = new PreguntaChoiceParcial("Pregunta");
+                    PreguntaChoiceParcial pregunta3 = PreguntaChoiceParcial.recuperar(jsonPregunta.getAsJsonObject());
                     preguntasJuego.add(pregunta3);
                     break;
                 case ("PreguntaChoicePenal") :
-                    PreguntaChoicePenal pregunta4 = new PreguntaChoicePenal("Pregunta");
+                    PreguntaChoicePenal pregunta4 = PreguntaChoicePenal.recuperar(jsonPregunta.getAsJsonObject());
                     preguntasJuego.add(pregunta4);
                     break;
                 case ("PreguntaGrupo") :

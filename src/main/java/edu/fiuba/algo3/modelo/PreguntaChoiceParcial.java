@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
@@ -21,9 +23,24 @@ public class PreguntaChoiceParcial extends PreguntaMC{
         exclusividad.puntuarJugadores();
     }
 
-    @Override
     public JsonObject guardar() {
-        return null;
+        JsonObject jsonPreguntaChoiceParcial = new JsonObject();
+        jsonPreguntaChoiceParcial.addProperty("Tipo", "PreguntaChoiceParcial");
+        jsonPreguntaChoiceParcial.addProperty("Pregunta", this.devolverEnunciado());
+        JsonArray jsonRespuestas = new JsonArray();
+        for(Respuesta r: this.respuestasPosibles) { jsonRespuestas.add(r.guardar()); }
+        jsonPreguntaChoiceParcial.add("Respuestas", jsonRespuestas);
+        return jsonPreguntaChoiceParcial;
     }
 
+    public static PreguntaChoiceParcial recuperar(JsonObject jsonPreguntaChoiceParcial) {
+        String enunciado = jsonPreguntaChoiceParcial.get("Pregunta").getAsString();
+        PreguntaChoiceParcial pregunta = new PreguntaChoiceParcial(enunciado);
+        JsonArray jsonRespuestas = jsonPreguntaChoiceParcial.getAsJsonArray("Respuestas");
+        for(JsonElement jsonRespuesta: jsonRespuestas) {
+            Respuesta respuesta = Respuesta.recuperar(jsonRespuesta.getAsJsonObject());
+            pregunta.agregarRespuesta(respuesta);
+        }
+        return pregunta;
+    }
 }
