@@ -10,18 +10,20 @@ public class PreguntaGrupo implements Pregunta{
     private final ArrayList<Respuesta> respuestasGrupoB;
     private final ArrayList<Respuesta> respuestasElegibles;
     private ExclusividadPuntaje exclusividad;
+    private String enunciado;
 
     public PreguntaGrupo(int cantidadGrupoA, int cantidadGrupoB, String enunciado_pregunta_grupo){
         this.respuestasGrupoA = new ArrayList<>();
         this.respuestasGrupoB = new ArrayList<>();
         this.respuestasElegibles = new ArrayList<>();
         this.exclusividad= new ExlusividadNula();
+        this.enunciado=enunciado_pregunta_grupo;
         for (int i=0;i < cantidadGrupoA+cantidadGrupoB; i++){
             if (i < cantidadGrupoA){
-                respuestasGrupoA.add(new Respuesta("Algo"));
+                respuestasGrupoA.add(new Respuesta("Resp grupo A"));
             }
             else {
-                respuestasGrupoB.add(new Respuesta("Algo"));
+                respuestasGrupoB.add(new Respuesta("Resp grupo B"));
             }
         }
         respuestasElegibles.addAll(respuestasGrupoA);
@@ -56,7 +58,7 @@ public class PreguntaGrupo implements Pregunta{
 
     @Override
     public String devolverEnunciado() {
-        return null;
+        return this.enunciado;
     }
 
     public void usarExclusividad() {

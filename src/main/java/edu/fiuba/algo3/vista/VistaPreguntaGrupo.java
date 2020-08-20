@@ -4,6 +4,8 @@ package edu.fiuba.algo3.vista;
 import edu.fiuba.algo3.modelo.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -22,8 +24,6 @@ public class VistaPreguntaGrupo extends Pane {
         ArrayList<Button> botonesDeshabilitados = new ArrayList<>();
 
         AtomicBoolean grupoAElegido = new AtomicBoolean(true);
-        AtomicInteger posicionX= new AtomicInteger(100);
-        AtomicInteger posicionY=new AtomicInteger(100);
 
         RespuestasJugador respuestasJugadorGrupoA= new RespuestasJugador(vistaPartida.partida().jugadorActual());
         RespuestasJugador respuestasJugadorGrupoB= new RespuestasJugador(vistaPartida.partida().jugadorActual());
@@ -32,14 +32,25 @@ public class VistaPreguntaGrupo extends Pane {
 
         ArrayList<Button> botonesDisponibles= new ArrayList<>();
 
+        ToggleGroup botonesGrupo = new ToggleGroup();
+
+        ToggleButton botonElegirGrupoA = new ToggleButton("Grupo A");
+        ToggleButton botonElegirGrupoB = new ToggleButton("Grupo B");
+
+        botonElegirGrupoA.setToggleGroup(botonesGrupo);
+        botonElegirGrupoB.setToggleGroup(botonesGrupo);
+
+        // Grupo A por defecto.
+        botonElegirGrupoA.setSelected(true);
+
         for (Respuesta iteradorRespuesta: preguntaGrupo.devolverRespuestasPosibles()){
             Button botonNuevo = new Button(iteradorRespuesta.devolverEnunciado());
             botonesDisponibles.add(botonNuevo);
             botonNuevo.setOnAction(actionEvent -> {
-                        if(grupoAElegido.get()){
+                        if(botonElegirGrupoA.isSelected()){
                             respuestasJugadorGrupoA.agregarRespuesta(iteradorRespuesta);
                         }
-                        else{
+                        else if(botonElegirGrupoB.isSelected()){
                             respuestasJugadorGrupoB.agregarRespuesta(iteradorRespuesta);
                         }
                         botonNuevo.setDisable(true);
@@ -48,11 +59,11 @@ public class VistaPreguntaGrupo extends Pane {
             );
         }
 
-        Button botonElegirGrupoA = new Button("Elegir grupo A");
-        botonElegirGrupoA.setOnAction(actionEvent -> grupoAElegido.set(true));
+        //Button botonElegirGrupoA = new Button("Elegir grupo A");
+        //botonElegirGrupoA.setOnAction(actionEvent -> grupoAElegido.set(true));
 
-        Button botonElegirGrupoB = new Button("Elegir grupo B");
-        botonElegirGrupoB.setOnAction(actionEvent -> grupoAElegido.set(false));
+        //Button botonElegirGrupoB = new Button("Elegir grupo B");
+        //botonElegirGrupoB.setOnAction(actionEvent -> grupoAElegido.set(false));
 
         Button botonFinalizarTurno = new Button("Finalizar turno");
         botonFinalizarTurno.setOnAction(actionEvent -> {
@@ -77,25 +88,30 @@ public class VistaPreguntaGrupo extends Pane {
 
         Label nombreJugador = new Label(vistaPartida.partida().jugadorActual().getNombre()+": "+vistaPartida.partida().jugadorActual().puntos());
 
+        botonElegirGrupoA.setPrefSize(200,100);
+        botonElegirGrupoB.setPrefSize(200,100);
+        botonElegirGrupoA.relocate(300,100);
+        botonElegirGrupoB.relocate(300,250);
+
         enunciadoPregunta.relocate(600, 100);
         nombreJugador.relocate(650, 600);
+
+        botonDeshacer.setPrefSize(150,50);
+
         botonExclusividad.setPrefSize(150,100);
-        botonExclusividad.relocate(200,100);
+        botonExclusividad.relocate(1000,50);
 
         botonFinalizarTurno.setPrefSize(150,100);
-        botonFinalizarTurno.relocate(100,600);
+        botonFinalizarTurno.relocate(825,50);
 
-        botonElegirGrupoA.setPrefSize(500,100);
-        botonElegirGrupoB.setPrefSize(500,100);
-        botonElegirGrupoA.relocate(700,100);
-        botonElegirGrupoB.relocate(700,200);
-
-
+        AtomicInteger posicionX= new AtomicInteger(-225);
+        AtomicInteger posicionY=new AtomicInteger(400);
         for (Button botones : botonesDisponibles){
-            botones.setPrefSize(250,100);
-            botones.relocate(posicionX.addAndGet(100),posicionY.addAndGet(100));
+            botones.setPrefSize(200,100);
+            botones.relocate(posicionX.addAndGet(250),posicionY.get());
             this.getChildren().add(botones);
         }
+
         this.getChildren().addAll(enunciadoPregunta,nombreJugador,botonExclusividad,botonFinalizarTurno,botonDeshacer,botonElegirGrupoA,botonElegirGrupoB);
 
     }

@@ -31,9 +31,9 @@ public class PreguntaGrupoTest {
 
         respJugador2GrupoA.agregarRespuesta(preguntaGroup.elegirRespuesta(0));
         respJugador2GrupoA.agregarRespuesta(preguntaGroup.elegirRespuesta(1));
-        respJugador2GrupoA.agregarRespuesta(preguntaGroup.elegirRespuesta(3));
+        //respJugador2GrupoA.agregarRespuesta(preguntaGroup.elegirRespuesta(2));
 
-        respJugador2GrupoB.agregarRespuesta(preguntaGroup.elegirRespuesta(2));
+        respJugador2GrupoB.agregarRespuesta(preguntaGroup.elegirRespuesta(3));
         respJugador2GrupoB.agregarRespuesta(preguntaGroup.elegirRespuesta(4));
 
         respuestasJugadores.add(respJugador1GrupoA);
@@ -47,3 +47,4 @@ public class PreguntaGrupoTest {
         assertEquals(0, jugador2.puntos());
     }
 }
+

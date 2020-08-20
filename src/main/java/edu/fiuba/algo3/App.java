@@ -34,16 +34,16 @@ public class App extends Application {
 
     private Partida crearPartida() {
         PreguntasJuego preguntasLeidas = new PreguntasJuego();
-        /*preguntasLeidas.add(new PreguntaGrupo(3,2,"Enunciado de preg ordenada"));
-        return new Partida(preguntasLeidas);*/
-
+        preguntasLeidas.add(new PreguntaGrupo(3,2,"Enunciado de preg ordenada"));
+        return new Partida(preguntasLeidas);
+/*
         try {
             preguntasLeidas = PreguntasJuego.recuperar(FILENAME_RELATIVE_PATH);
         } catch (IOException ex) {
             System.out.println(ex);
         }
 
-        return new Partida(preguntasLeidas);
+        return new Partida(preguntasLeidas);*/
     }
 
 }
