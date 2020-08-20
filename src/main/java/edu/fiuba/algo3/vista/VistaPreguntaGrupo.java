@@ -1,7 +1,9 @@
 package edu.fiuba.algo3.vista;
 
 
+import edu.fiuba.algo3.eventos.BotonResponderMCHandler;
 import edu.fiuba.algo3.modelo.*;
+import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
@@ -21,16 +23,14 @@ public class VistaPreguntaGrupo extends Pane {
         this.setPrefSize(1300,720);
         this.preguntaGrupo= (PreguntaGrupo) vistaPartida.partida().preguntaActual();
 
-        ArrayList<Button> botonesDeshabilitados = new ArrayList<>();
+        ArrayList<Button> botonesDisponibles= new ArrayList<>();
 
-        AtomicBoolean grupoAElegido = new AtomicBoolean(true);
+        ArrayList<BotonResponderMCHandler> handlersDisponibles = new ArrayList<>();
 
         RespuestasJugador respuestasJugadorGrupoA= new RespuestasJugador(vistaPartida.partida().jugadorActual());
         RespuestasJugador respuestasJugadorGrupoB= new RespuestasJugador(vistaPartida.partida().jugadorActual());
 
         Label enunciadoPregunta = new Label(vistaPartida.partida().preguntaActual().devolverEnunciado());
-
-        ArrayList<Button> botonesDisponibles= new ArrayList<>();
 
         ToggleGroup botonesGrupo = new ToggleGroup();
 
@@ -45,45 +45,43 @@ public class VistaPreguntaGrupo extends Pane {
 
         for (Respuesta iteradorRespuesta: preguntaGrupo.devolverRespuestasPosibles()){
             Button botonNuevo = new Button(iteradorRespuesta.devolverEnunciado());
+            BotonResponderMCHandler botonResponderMCHandler = new BotonResponderMCHandler(respuestasJugadorGrupoA,iteradorRespuesta,botonNuevo);
+            handlersDisponibles.add(botonResponderMCHandler);
+            botonNuevo.setOnAction(botonResponderMCHandler);
             botonesDisponibles.add(botonNuevo);
-            botonNuevo.setOnAction(actionEvent -> {
-                        if(botonElegirGrupoA.isSelected()){
-                            respuestasJugadorGrupoA.agregarRespuesta(iteradorRespuesta);
-                        }
-                        else if(botonElegirGrupoB.isSelected()){
-                            respuestasJugadorGrupoB.agregarRespuesta(iteradorRespuesta);
-                        }
-                        botonNuevo.setDisable(true);
-                        botonesDeshabilitados.add(botonNuevo);
-                    }
-            );
         }
 
-        //Button botonElegirGrupoA = new Button("Elegir grupo A");
-        //botonElegirGrupoA.setOnAction(actionEvent -> grupoAElegido.set(true));
+        botonElegirGrupoB.setOnAction(ActionEvent->{
+            for (BotonResponderMCHandler handlers: handlersDisponibles){
+                handlers.modificarGrupo(respuestasJugadorGrupoB);
+            }
+        });
 
-        //Button botonElegirGrupoB = new Button("Elegir grupo B");
-        //botonElegirGrupoB.setOnAction(actionEvent -> grupoAElegido.set(false));
+        botonElegirGrupoA.setOnAction(ActionEvent->{
+            for (BotonResponderMCHandler handlers: handlersDisponibles){
+                handlers.modificarGrupo(respuestasJugadorGrupoA);
+            }
+        });
 
         Button botonFinalizarTurno = new Button("Finalizar turno");
         botonFinalizarTurno.setOnAction(actionEvent -> {
-            vistaPartida.agregarRespuestaAJugadorActual(respuestasJugadorGrupoA);
-            vistaPartida.agregarRespuestaAJugadorActual(respuestasJugadorGrupoB);
-            vistaPartida.update();
-            }
-            );
+                    vistaPartida.agregarRespuestaAJugadorActual(respuestasJugadorGrupoA);
+                    vistaPartida.agregarRespuestaAJugadorActual(respuestasJugadorGrupoB);
+                    vistaPartida.update();
+                }
+        );
 
         Button botonDeshacer = new Button ("Limpiar grupos");
         botonDeshacer.setOnAction(actionEvent -> {
                     respuestasJugadorGrupoA.limpiar();
                     respuestasJugadorGrupoB.limpiar();
-                    for(Button iteradorBoton : botonesDeshabilitados){
+                    for(Button iteradorBoton : botonesDisponibles){
                         iteradorBoton.setDisable(false);
                     }
                 }
         );
 
-        Button botonExclusividad = new Button("Exlusividad de puntaje");
+        Button botonExclusividad = new Button("Exlusividad de puntaje VISTA2");
         botonExclusividad.setOnAction(actionEvent -> {this.preguntaGrupo.usarExclusividad(); botonExclusividad.setDisable(true);});
 
         Label nombreJugador = new Label(vistaPartida.partida().jugadorActual().getNombre()+": "+vistaPartida.partida().jugadorActual().puntos());

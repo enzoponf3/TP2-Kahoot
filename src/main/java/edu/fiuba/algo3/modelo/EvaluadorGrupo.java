@@ -30,7 +30,7 @@ public class EvaluadorGrupo implements Evaluador {
     public void sumarPuntosParciales() {
         RespuestasJugador respJugador=this.iteradorRespuestasJugador.next();
         this.jugador=respJugador.devolverJugador();
-        if (respuestasGrupoA.equals(respJugador.devolverRespuestas())){
+        if (respuestasGrupoA.containsAll(respJugador.devolverRespuestas())){
             if (respuestasGrupoB.equals(iteradorRespuestasJugador.next().devolverRespuestas())){
                 this.puntaje.sumarPunto();
             }
