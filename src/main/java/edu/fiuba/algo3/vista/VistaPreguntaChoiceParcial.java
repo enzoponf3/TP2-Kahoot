@@ -12,6 +12,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.Stack;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class VistaPreguntaChoiceParcial extends Pane {
@@ -22,6 +23,8 @@ public class VistaPreguntaChoiceParcial extends Pane {
         this.setPrefSize(1300,720);
         this.preguntaMCParcial= (PreguntaChoiceParcial) vistaPartida.partida().preguntaActual();
 
+        Stack<Button> botonesDeshabilitados = new Stack();
+
         RespuestasJugador respuestasJugador= new RespuestasJugador(vistaPartida.partida().jugadorActual());
 
         Label enunciadoPregunta = new Label(vistaPartida.partida().preguntaActual().devolverEnunciado());
@@ -31,13 +34,25 @@ public class VistaPreguntaChoiceParcial extends Pane {
         for (Respuesta iteradorRespuesta: preguntaMCParcial.devolverRespuestasPosibles()){
             Button botonNuevo = new Button(iteradorRespuesta.devolverEnunciado());
             botonesDisponibles.add(botonNuevo);
-            BotonResponderMCHandler botonMCHandler = new BotonResponderMCHandler(respuestasJugador,iteradorRespuesta);
-            botonNuevo.setOnAction(botonMCHandler);
+            botonNuevo.setOnAction(actionEvent -> {
+                        respuestasJugador.agregarRespuesta(iteradorRespuesta);
+                        botonNuevo.setDisable(true);
+                        botonesDeshabilitados.push(botonNuevo);
+                    }
+            );
         }
 
         Button botonFinalizarTurno = new Button("Finalizar turno");
         BotonFinalizarTurnoMCHandler botonFinalizarTurnoMCHandler = new BotonFinalizarTurnoMCHandler(respuestasJugador,vistaPartida);
         botonFinalizarTurno.setOnAction(botonFinalizarTurnoMCHandler);
+
+        Button botonDeshacer = new Button ("Deshacer");
+        botonDeshacer.setOnAction(actionEvent -> {
+                    respuestasJugador.sacarUltimaRespuesta();
+                    var boton=botonesDeshabilitados.pop();
+                    boton.setDisable(false);
+                }
+        );
 
         Button botonExclusividad = new Button("Exlusividad de puntaje");
         botonExclusividad.setOnAction(actionEvent -> {this.preguntaMCParcial.usarExclusividad(); botonExclusividad.setDisable(true);});
@@ -60,7 +75,7 @@ public class VistaPreguntaChoiceParcial extends Pane {
             this.getChildren().add(botones);
         }
 
-        this.getChildren().addAll(enunciadoPregunta,nombreJugador,botonExclusividad,botonFinalizarTurno);
+        this.getChildren().addAll(enunciadoPregunta,nombreJugador,botonExclusividad,botonFinalizarTurno,botonDeshacer);
 
     }
 

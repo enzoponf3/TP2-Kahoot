@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.NoUse.VistaPreguntaOrdenadaDradNDrop;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;

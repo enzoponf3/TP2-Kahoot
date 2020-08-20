@@ -37,8 +37,6 @@ public class VistaPreguntaMCClasica extends Pane {
                 botonesDeshabilitados.push(botonNuevo);
                 }
             );
-            //BotonResponderMCHandler botonMCHandler = new BotonResponderMCHandler(respuestasJugador,iteradorRespuesta);
-            //botonNuevo.setOnAction(botonMCHandler);
         }
 
         Button botonFinalizarTurno = new Button("Finalizar turno");

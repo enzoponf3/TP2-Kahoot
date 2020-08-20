@@ -9,6 +9,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.Stack;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class VistaPreguntaChoicePenal extends Pane {
@@ -19,7 +20,10 @@ public class VistaPreguntaChoicePenal extends Pane {
         this.setPrefSize(1300,720);
         this.preguntaMCPenal= (PreguntaChoicePenal) vistaPartida.partida().preguntaActual();
 
+        Stack<Button> botonesDeshabilitados = new Stack();
+
         RespuestasJugador respuestasJugador= new RespuestasJugador(vistaPartida.partida().jugadorActual());
+
         MultiplicadorDoble mulX2 = new MultiplicadorDoble();
         MultiplicadorTriple mulX3 = new MultiplicadorTriple();
 
@@ -30,13 +34,25 @@ public class VistaPreguntaChoicePenal extends Pane {
         for (Respuesta iteradorRespuesta: preguntaMCPenal.devolverRespuestasPosibles()){
             Button botonNuevo = new Button(iteradorRespuesta.devolverEnunciado());
             botonesDisponibles.add(botonNuevo);
-            BotonResponderMCHandler botonMCHandler = new BotonResponderMCHandler(respuestasJugador,iteradorRespuesta);
-            botonNuevo.setOnAction(botonMCHandler);
+            botonNuevo.setOnAction(actionEvent -> {
+                        respuestasJugador.agregarRespuesta(iteradorRespuesta);
+                        botonNuevo.setDisable(true);
+                        botonesDeshabilitados.push(botonNuevo);
+                    }
+            );
         }
 
         Button botonFinalizarTurno = new Button("Finalizar turno");
         BotonFinalizarTurnoMCHandler botonFinalizarTurnoMCHandler = new BotonFinalizarTurnoMCHandler(respuestasJugador,vistaPartida);
         botonFinalizarTurno.setOnAction(botonFinalizarTurnoMCHandler);
+
+        Button botonDeshacer = new Button ("Deshacer");
+        botonDeshacer.setOnAction(actionEvent -> {
+                    respuestasJugador.sacarUltimaRespuesta();
+                    var boton=botonesDeshabilitados.pop();
+                    boton.setDisable(false);
+                }
+        );
 
         Button botonMulX2 = new Button("Mutiplicador X2");
         Button botonMulX3 = new Button("Mutiplicador X3");
@@ -67,7 +83,6 @@ public class VistaPreguntaChoicePenal extends Pane {
         botonFinalizarTurno.setPrefSize(150,100);
         botonFinalizarTurno.relocate(100,600);
 
-
         AtomicInteger posicionX= new AtomicInteger(100);
         AtomicInteger posicionY=new AtomicInteger(100);
         for (Button botones : botonesDisponibles){
@@ -76,7 +91,7 @@ public class VistaPreguntaChoicePenal extends Pane {
             this.getChildren().add(botones);
         }
 
-        this.getChildren().addAll(enunciadoPregunta,nombreJugador,botonFinalizarTurno,botonMulX2,botonMulX3);
+        this.getChildren().addAll(enunciadoPregunta,nombreJugador,botonFinalizarTurno,botonMulX2,botonMulX3,botonDeshacer);
 
     }
 

@@ -1,8 +1,9 @@
-package edu.fiuba.algo3.vista;
+package edu.fiuba.algo3.modelo.NoUse;
 
 import edu.fiuba.algo3.modelo.PreguntaChoiceClasica;
 import edu.fiuba.algo3.modelo.PreguntaOrdenada;
 import edu.fiuba.algo3.modelo.RespuestasJugador;
+import edu.fiuba.algo3.vista.VistaPartida;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
